@@ -1,0 +1,150 @@
+-- LocalScript داخل StarterGui
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local TweenService = game:GetService("TweenService")
+local player = Players.LocalPlayer
+
+-- إنشاء GUI
+local gui = Instance.new("ScreenGui")
+gui.Name = "RIP_Interface"
+gui.ResetOnSpawn = false
+gui.Parent = player:WaitForChild("PlayerGui")
+
+-- كلمة RIP بالأعلى
+local ripLabel = Instance.new("TextLabel")
+ripLabel.Size = UDim2.new(0, 200, 0, 50)
+ripLabel.Position = UDim2.new(0.5, -100, 0.02, 0)
+ripLabel.BackgroundTransparency = 1
+ripLabel.Text = "RIP"
+ripLabel.Font = Enum.Font.GothamBlack
+ripLabel.TextScaled = true
+ripLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+ripLabel.Parent = gui
+
+-- تدرج اللون لكلمة RIP
+task.spawn(function()
+	while true do
+		local toBlack = TweenService:Create(ripLabel, TweenInfo.new(1.5), {TextColor3 = Color3.fromRGB(0, 0, 0)})
+		toBlack:Play(); toBlack.Completed:Wait()
+		local toWhite = TweenService:Create(ripLabel, TweenInfo.new(1.5), {TextColor3 = Color3.fromRGB(255, 255, 255)})
+		toWhite:Play(); toWhite.Completed:Wait()
+	end
+end)
+
+-- الإطار الرئيسي
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 240, 0, 120)
+frame.Position = UDim2.new(0.02, 0, 0.78, 0)
+frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+frame.BackgroundTransparency = 0.25
+frame.Active = true
+frame.Draggable = true
+frame.Parent = gui
+frame.ClipsDescendants = true
+Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 12)
+
+-- العنوان الرئيسي (Anti AFK)
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, 0, 0.2, 0)
+title.Position = UDim2.new(0, 0, 0.02, 0)
+title.BackgroundTransparency = 1
+title.Text = "Anti AFK"
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.Font = Enum.Font.GothamBold
+title.TextScaled = false
+title.TextSize = 20
+title.Parent = frame
+
+-- خط فاصل
+local line = Instance.new("Frame")
+line.Size = UDim2.new(0.9, 0, 0, 1)
+line.Position = UDim2.new(0.05, 0, 0.22, 0)
+line.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+line.BorderSizePixel = 0
+line.Parent = frame
+
+-- Container للمقاييس (Ping و FPS جنب بعض)
+local statsFrame = Instance.new("Frame")
+statsFrame.Size = UDim2.new(1, 0, 0.25, 0)
+statsFrame.Position = UDim2.new(0, 0, 0.25, 0)
+statsFrame.BackgroundTransparency = 1
+statsFrame.Parent = frame
+
+-- Ping وهمي
+local pingLabel = Instance.new("TextLabel")
+pingLabel.Size = UDim2.new(0.5, -5, 1, 0)
+pingLabel.Position = UDim2.new(0, 0, 0, 0)
+pingLabel.BackgroundTransparency = 1
+pingLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+pingLabel.Font = Enum.Font.Gotham
+pingLabel.TextScaled = false
+pingLabel.TextSize = 16
+pingLabel.Text = "Ping: 0"
+pingLabel.Parent = statsFrame
+
+-- FPS وهمي
+local fpsLabel = Instance.new("TextLabel")
+fpsLabel.Size = UDim2.new(0.5, -5, 1, 0)
+fpsLabel.Position = UDim2.new(0.5, 5, 0, 0)
+fpsLabel.BackgroundTransparency = 1
+fpsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+fpsLabel.Font = Enum.Font.Gotham
+fpsLabel.TextScaled = false
+fpsLabel.TextSize = 16
+fpsLabel.Text = "FPS: 0"
+fpsLabel.Parent = statsFrame
+
+-- عداد الوقت أسفل المقاييس مع الساعات
+local timerLabel = Instance.new("TextLabel")
+timerLabel.Size = UDim2.new(1, 0, 0.2, 0)
+timerLabel.Position = UDim2.new(0, 0, 0.55, 0)
+timerLabel.BackgroundTransparency = 1
+timerLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+timerLabel.Font = Enum.Font.Gotham
+timerLabel.TextScaled = false
+timerLabel.TextSize = 16
+timerLabel.Text = "الوقت: 00:00:00"
+timerLabel.Parent = frame
+
+-- Footer
+local footer = Instance.new("TextLabel")
+footer.Size = UDim2.new(1, 0, 0.15, 0)
+footer.Position = UDim2.new(0, 0, 0.82, 0)
+footer.BackgroundTransparency = 1
+footer.TextColor3 = Color3.fromRGB(255, 255, 255)
+footer.Font = Enum.Font.GothamSemibold
+footer.TextScaled = false
+footer.TextSize = 10
+footer.Text = "Anti-AFK by RIP"
+footer.Parent = frame
+
+-- Anti AFK
+player.Idled:Connect(function()
+	game:GetService("VirtualUser"):Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+	task.wait(1)
+	game:GetService("VirtualUser"):Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+
+-- Ping وهمي + FPS وهمي + Timer HH:MM:SS
+local fakePing = 70
+local fakeFPS = 60
+local totalTime = 0
+
+RunService.RenderStepped:Connect(function(delta)
+	totalTime += delta
+
+	fakePing = 50 + math.random(0, 100) * math.sin(tick()*0.2)
+	fakeFPS = 50 + math.random(0, 80) * math.cos(tick()*0.2)
+
+	if fakePing < 30 then fakePing = 30 elseif fakePing > 160 then fakePing = 160 end
+	if fakeFPS < 30 then fakeFPS = 30 elseif fakeFPS > 240 then fakeFPS = 240 end
+
+	pingLabel.Text = string.format("Ping: %d", math.floor(fakePing))
+	fpsLabel.Text = string.format("FPS: %d", math.floor(fakeFPS))
+
+	local hours = math.floor(totalTime/3600)
+	local minutes = math.floor((totalTime%3600)/60)
+	local seconds = math.floor(totalTime%60)
+	timerLabel.Text = string.format("الوقت: %02d:%02d:%02d", hours, minutes, seconds)
+end)
