@@ -1,0 +1,70 @@
+-- KIRA ⚡ | تقليل الجودة + تحسين الأداء + تبريد الهاتف + شريط علوي
+
+local p=game:GetService("Players").LocalPlayer
+local r=game:GetService("RunService")
+local l=game:GetService("Lighting")
+
+local g=Instance.new("ScreenGui",p:WaitForChild("PlayerGui"))
+g.Name="KIRA_GUI";g.ResetOnSpawn=false
+
+local top=Instance.new("Frame",g)
+top.Size=UDim2.new(1,0,0,35)
+top.BackgroundColor3=Color3.fromRGB(100,0,180)
+local t=Instance.new("TextLabel",top)
+t.Size=UDim2.new(1,0,1,0)
+t.BackgroundTransparency=1
+t.Text="🟣 تم تقليل الدقة (مهند يخضع للكل)"
+t.Font=Enum.Font.SourceSansBold
+t.TextSize=22
+t.TextColor3=Color3.new(1,1,1)
+
+local f=Instance.new("Frame",g)
+f.Size=UDim2.new(0,260,0,220)
+f.Position=UDim2.new(0.5,-130,0.5,-110)
+f.BackgroundColor3=Color3.fromRGB(30,30,30)
+f.Active=true;f.Draggable=true
+
+local title=Instance.new("TextLabel",f)
+title.Size=UDim2.new(1,0,0,40)
+title.BackgroundColor3=Color3.fromRGB(90,0,180)
+title.Text="KIRA"
+title.Font=Enum.Font.SourceSansBold
+title.TextSize=24
+title.TextColor3=Color3.new(1,1,1)
+
+local function btn(txt,y,fn)
+	local b=Instance.new("TextButton",f)
+	b.Size=UDim2.new(0,230,0,45)
+	b.Position=UDim2.new(0,15,0,y)
+	b.BackgroundColor3=Color3.fromRGB(60,60,60)
+	b.TextColor3=Color3.new(1,1,1)
+	b.Text=txt
+	b.Font=Enum.Font.SourceSansBold
+	b.TextSize=18
+	b.MouseButton1Click:Connect(fn)
+end
+
+local function lowQuality()
+	for _,v in pairs(workspace:GetDescendants()) do
+		if v:IsA("BasePart") then v.Material=Enum.Material.SmoothPlastic v.Reflectance=0
+		elseif v:IsA("Decal") or v:IsA("Texture") then v:Destroy()
+		elseif v:IsA("ParticleEmitter") or v:IsA("Trail") or v:IsA("Fire") or v:IsA("Smoke") then v.Enabled=false end
+	end
+	l.GlobalShadows=false l.FogEnd=9e9 l.Brightness=1
+	l.Ambient=Color3.new(.8,.8,.8) l.OutdoorAmbient=Color3.new(.8,.8,.8)
+	workspace.StreamingEnabled=true
+	pcall(function()
+		settings().Rendering.QualityLevel=Enum.QualityLevel.Level01
+		settings().Rendering.EagerBulkExecution=false
+	end)
+	print("✅ تم تقليل الجودة وتحسين الأداء الرسومي!")
+end
+
+btn("تقليل الجودة 🎮",60,lowQuality)
+btn("تحسين الأداء ⚡",115,function()
+	r:Set3dRenderingEnabled(true)
+	l.GlobalShadows=false
+	workspace.StreamingEnabled=true
+	print("✅ تم تحسين الأداء!")
+end)
+btn("تبريد الهاتف ❄️",170,lowQuality)
