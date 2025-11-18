@@ -1,0 +1,195 @@
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Player = Players.LocalPlayer
+
+local RE = ReplicatedStorage:WaitForChild("RE")
+local ClearEvent = RE:FindFirstChild("1Clea1rTool1s")
+local ToolEvent = RE:FindFirstChild("1Too1l")
+local FireEvent = RE:FindFirstChild("1Gu1n")
+
+local attackEnabled = false
+local targetPlayer = nil
+
+
+local ScreenGui = Instance.new("ScreenGui", Player.PlayerGui)
+ScreenGui.ResetOnSpawn = false
+
+local Frame = Instance.new("Frame", ScreenGui)
+Frame.Size = UDim2.new(0, 450, 0, 240)
+Frame.Position = UDim2.new(0.5, -225, 0.4, -120)
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BackgroundTransparency = 0.15
+Frame.Active = true
+Frame.Draggable = true
+Instance.new("UICorner", Frame).CornerRadius = UDim.new(0, 12)
+
+
+local CreditLabel = Instance.new("TextLabel", Frame)
+CreditLabel.Size = UDim2.new(1, -20, 0, 20)
+CreditLabel.Position = UDim2.new(0, 10, 0, 5)
+CreditLabel.Text = "by KIRA"
+CreditLabel.TextColor3 = Color3.fromRGB(255,255,255)
+CreditLabel.BackgroundTransparency = 1
+CreditLabel.Font = Enum.Font.SourceSansBold
+CreditLabel.TextScaled = true
+CreditLabel.TextStrokeTransparency = 0.6
+CreditLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+
+local PlayerImage = Instance.new("ImageLabel", Frame)
+PlayerImage.Size = UDim2.new(0, 70, 0, 70)
+PlayerImage.Position = UDim2.new(0, 10, 0, 40)
+PlayerImage.BackgroundColor3 = Color3.fromRGB(45,45,45)
+PlayerImage.Image = ""
+Instance.new("UICorner", PlayerImage).CornerRadius = UDim.new(0, 10)
+
+
+local InfoLabel = Instance.new("TextLabel", Frame)
+InfoLabel.Size = UDim2.new(0, 350, 0, 70)
+InfoLabel.Position = UDim2.new(0, 90, 0, 40)
+InfoLabel.BackgroundTransparency = 1
+InfoLabel.TextColor3 = Color3.fromRGB(255,255,255)
+InfoLabel.TextWrapped = true
+InfoLabel.TextXAlignment = Enum.TextXAlignment.Left
+InfoLabel.TextYAlignment = Enum.TextYAlignment.Top
+InfoLabel.Font = Enum.Font.SourceSans
+InfoLabel.TextSize = 16
+InfoLabel.Text = "لا يوجد لاعب"
+
+
+local SearchBox = Instance.new("TextBox", Frame)
+SearchBox.Size = UDim2.new(0, 350, 0, 35)
+SearchBox.Position = UDim2.new(0, 90, 0, 150)
+SearchBox.PlaceholderText = "اكتب اقل شي 3 احرف من اسم لاعب"
+SearchBox.Text = ""
+SearchBox.TextSize = 16
+SearchBox.BackgroundColor3 = Color3.fromRGB(45,45,45)
+SearchBox.TextColor3 = Color3.fromRGB(255,255,255)
+Instance.new("UICorner", SearchBox).CornerRadius = UDim.new(0, 8)
+
+
+local ToggleButton = Instance.new("TextButton", Frame)
+ToggleButton.Size = UDim2.new(0, 350, 0, 40)
+ToggleButton.Position = UDim2.new(0, 90, 0, 190)
+ToggleButton.Text = "تشغيل"
+ToggleButton.TextColor3 = Color3.fromRGB(255,255,255)
+ToggleButton.TextSize = 18
+ToggleButton.BackgroundColor3 = Color3.fromRGB(50,140,50)
+Instance.new("UICorner", ToggleButton).CornerRadius = UDim.new(0, 8)
+
+
+local function clearAllTools()
+    if ClearEvent then
+        ClearEvent:FireServer("ClearAllTools")
+    end
+end
+
+local function getAssault()
+    if ToolEvent then
+        ToolEvent:InvokeServer("PickingTools", "Assault")
+    end
+end
+
+local function hasAssault()
+    return Player.Backpack:FindFirstChild("Assault") ~= nil
+end
+
+local function fireAtPart(targetPart)
+    local gunScript = Player.Backpack:FindFirstChild("Assault")
+        and Player.Backpack.Assault:FindFirstChild("GunScript_Local")
+
+    if not gunScript or not targetPart then return end
+
+    local args = {
+        targetPart,
+        targetPart,
+        Vector3.new(1e14, 1e14, 1e14),
+        targetPart.Position,
+        gunScript:FindFirstChild("MuzzleEffect"),
+        gunScript:FindFirstChild("HitEffect"),
+        0,
+        0,
+        { false },
+        {
+            25,
+            Vector3.new(100, 100, 100),
+            BrickColor.new(29),
+            0.25,
+            Enum.Material.SmoothPlastic,
+            0.25
+        },
+        true,
+        false
+    }
+
+    FireEvent:FireServer(unpack(args))
+end
+
+local function startAssault()
+    task.spawn(function()
+        while attackEnabled do
+            if not targetPlayer or not targetPlayer.Character or not targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                task.wait(0.4)
+            else
+                clearAllTools()
+                getAssault()
+                repeat task.wait(0.1) until hasAssault() or not attackEnabled
+                for i = 1, 3 do
+                    if not attackEnabled then break end
+                    fireAtPart(targetPlayer.Character.HumanoidRootPart)
+                    task.wait(0.1)
+                end
+                task.wait(0.8)
+            end
+        end
+    end)
+end
+
+
+local function updatePlayerSearch(name)
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p ~= Player and p.Name:lower():sub(1, #name) == name:lower() then
+            targetPlayer = p
+            PlayerImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId="..p.UserId.."&width=150&height=150&format=png"
+            local days = p.AccountAge or 0  -- عدد الأيام منذ إنشاء
+            InfoLabel.Text = string.format(
+                "اسم: %s\nأيام منذ إنشاء الحساب: %d",
+                p.Name,
+                days
+            )
+            return
+        end
+    end
+    targetPlayer = nil
+    PlayerImage.Image = ""
+    InfoLabel.Text = "لايوجد لاعب"
+end
+
+
+SearchBox:GetPropertyChangedSignal("Text"):Connect(function()
+    local txt = SearchBox.Text
+    if #txt >= 3 then updatePlayerSearch(txt) end
+end)
+
+
+ToggleButton.MouseButton1Click:Connect(function()
+    attackEnabled = not attackEnabled
+    ToggleButton.Text = attackEnabled and "إيقاف" or "تشغيل"
+    ToggleButton.BackgroundColor3 = attackEnabled and Color3.fromRGB(200,50,50) or Color3.fromRGB(50,140,50)
+    if attackEnabled then startAssault() end
+end)
+
+
+Players.PlayerAdded:Connect(function()
+    local txt = SearchBox.Text
+    if #txt >= 3 then
+        updatePlayerSearch(txt)
+    end
+end)
+
+Players.PlayerRemoving:Connect(function()
+    local txt = SearchBox.Text
+    if #txt >= 3 then
+        updatePlayerSearch(txt)
+    end
+end)
