@@ -862,33 +862,7 @@ local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local player = Players.LocalPlayer
 
--- توغل للحماية على الصحة
-Tab4:AddToggle({
-    Name = "حماية الصحة",
-    Description = "يخلي الصحة دائماً 100",
-    Default = false,
-    Callback = function(state)
-        keepHealth = state
-    end
-})
 
--- تحديث الصحة كل فريم
-RunService.RenderStepped:Connect(function()
-    if keepHealth and player.Character and player.Character:FindFirstChild("Humanoid") then
-        local humanoid = player.Character.Humanoid
-        if humanoid.Health < humanoid.MaxHealth then
-            humanoid.Health = humanoid.MaxHealth
-        end
-    end
-end)
-
-Tab4:AddButton(
-    {
-Name = "موت لاعب",
-Callback = function()
-    game.Players.LocalPlayer.Character.Humanoid.Health = 0
-end
-})
 local Section = Tab6:AddSection({"عداد سرعه مسئول على كل شي ريمبو"})
 local rgbSpeed = 1
 Tab6:AddSlider(
