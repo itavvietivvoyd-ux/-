@@ -580,28 +580,19 @@ function AvatarManager:GetAvatarNames()
     end
     return nomes
 end
+
 function AvatarManager:EquiparAvatar(avatarName)
     for _, avatar in ipairs(self.Avatares) do
         if avatar.Nome == avatarName then
             local args = {avatar.ID}
-            local success, result =
-                pcall(
-                function()
-                    return self.ReplicatedStorage:WaitForChild("Remotes"):WaitForChild("Wear"):InvokeServer(
-                        unpack(args)
-                    )
-                end
-            )
-            if success then
-                self:MostrarNotificacao("تم " .. avatarName .. " صار لسكن بعد شتريد")
-            else
-                self:MostrarNotificacao("" .. avatarName .. "!")
-            end
+            pcall(function()
+                self.ReplicatedStorage:WaitForChild("Remotes"):WaitForChild("Wear"):InvokeServer(unpack(args))
+            end)
             return
         end
     end
-    self:MostrarNotificacao("مرات يصير خلل " .. avatarName .. " ")
 end
+
 local AvatarDropdown =
     Tab3:AddDropdown(
     {
@@ -614,16 +605,18 @@ local AvatarDropdown =
         end
     }
 )
-Tab3:AddButton(
-    {Name = "تطبيق ", Description = "عند ما تدوس الزر يطبق السكن", Callback = function()
-            if not _G.SelectedAvatar or _G.SelectedAvatar == "" then
-                AvatarManager:MostrarNotificacao("Nenhum avatar selecionado!")
-                return
-            end
-            AvatarManager:EquiparAvatar(_G.SelectedAvatar)
-        end}
-)
 
+Tab3:AddButton(
+    {
+        Name = "تطبيق",
+        Description = "عند ما تدوس الزر يطبق السكن",
+        Callback = function()
+            if _G.SelectedAvatar and _G.SelectedAvatar ~= "" then
+                AvatarManager:EquiparAvatar(_G.SelectedAvatar)
+            end
+        end
+    }
+)
 local Section = Tab4:AddSection({"حمايه لاعب"})
 Tab4:AddToggle(
     {
