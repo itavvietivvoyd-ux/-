@@ -551,27 +551,27 @@ AvatarManager.Avatares = {
     {Nome = "تراليتو", ID = 99459753608381},
     {Nome = "مونستر S.A", ID = 123609977175226},
     {Nome = "قطار توماس", ID = 80468697076178},
-    {Nome = "دينو", ID = 11941741105},
-    {Nome = "بوي ايدوس", ID = 15742966010},
-    {Nome = "كوكو", ID = 77013984520332},
+    {Nome = "دينصور برتقالي", ID = 11941741105},
+    {Nome = "ابو عيون", ID = 15742966010},
+    {Nome = "زر"" به", ID = 77013984520332},
     {Nome = "كوهيلو", ID = 71797333686800},
-    {Nome = "هيبو بو تامو", ID = 73215892129281},
-    {Nome = "راتاتوي", ID = 108557570415453},
-    {Nome = "جالينها", ID = 71251793812515},
+    {Nome = "مدري شسمه", ID = 73215892129281},
+    {Nome = "فاره", ID = 108557570415453},
+    {Nome = "ديج", ID = 71251793812515},
     {Nome = "بيبا", ID = 92979204778377},
     {Nome = "بطريق", ID = 94944293759578},
     {Nome = "سيد", ID = 87442757321244},
-    {Nome = "بوغا قراندي", ID = 111436158728716},
+    {Nome = "صرصره", ID = 111436158728716},
     {Nome = "شريك مالدياكو", ID = 120960401202173},
     {Nome = "موسكتي قراندي", ID = 108052868536435},
     {Nome = "نوب", ID = 106596990206151},
     {Nome = "باتو", ID = 135132836238349},
     {Nome = "كاتشورو تشيهوهو", ID = 18656467256},
-    {Nome = "كاتو سلا", ID = 18994959003},
-    {Nome = "كاتو في ", ID = 77506186615650},
+    {Nome = "قلم اصفر", ID = 18994959003},
+    {Nome = " بزونه ", ID = 77506186615650},
     {Nome = "انبوستر", ID = 18234669337},
-    {Nome = "سيمون اريملو", ID = 75183593514657},
-    {Nome = "سيمون ارزيل", ID = 76155710249925}
+    
+    {Nome = "قلم سمائي ", ID = 76155710249925}
 }
 function AvatarManager:GetAvatarNames()
     local nomes = {}
@@ -593,14 +593,14 @@ function AvatarManager:EquiparAvatar(avatarName)
                 end
             )
             if success then
-                self:MostrarNotificacao("Avatar " .. avatarName .. " equipado com sucesso!")
+                self:MostrarNotificacao("تم " .. avatarName .. " صار لسكن بعد شتريد")
             else
-                self:MostrarNotificacao("Falha ao equipar o avatar " .. avatarName .. "!")
+                self:MostrarNotificacao("" .. avatarName .. "!")
             end
             return
         end
     end
-    self:MostrarNotificacao("Avatar " .. avatarName .. " não encontrado!")
+    self:MostrarNotificacao("مرات يصير خلل " .. avatarName .. " ")
 end
 local AvatarDropdown =
     Tab3:AddDropdown(
@@ -623,113 +623,7 @@ Tab3:AddButton(
             AvatarManager:EquiparAvatar(_G.SelectedAvatar)
         end}
 )
-local Section = Tab3:AddSection({"Avatar Editor"})
-Tab3:AddParagraph({Title = "aviso vai resetar seu avatar", Content = ""})
-Tab3:AddButton(
-    {
-        Name = "ميني ريبو",
-        Callback = function()
-            local args = {
-                {117101023704825, 125767940563838, 137301494386930, 87357384184710, 133391239416999, 111818794467824}
-            }
-            game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ChangeCharacterBody"):InvokeServer(
-                unpack(args)
-            )
-            print("Todas as partes do corpo equipadas!")
-        end
-    }
-)
-Tab3:AddButton(
-    {
-        Name = "ميني كرانهو",
-        Callback = function()
-            local args = {{124355047456535, 120507500641962, 82273782655463, 113625313757230, 109182039511426, 0}}
-            game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ChangeCharacterBody"):InvokeServer(
-                unpack(args)
-            )
-            print("Todas as partes do corpo equipadas!")
-        end
-    }
-)
-Tab3:AddButton(
-    {
-        Name = "يلزك",
-        Callback = function()
-            local args = {{14731384498, 14731377938, 14731377894, 14731377875, 14731377941, 14731382899}}
-            game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ChangeCharacterBody"):InvokeServer(
-                unpack(args)
-            )
-            print("Todas as partes do corpo equipadas!")
-        end
-    }
-)
-Tab3:AddButton(
-    {
-        Name = "جانكي كبير",
-        Callback = function()
-            local args = {{15527827600, 15527827578, 15527831669, 15527836067, 15527827184, 15527827599}}
-            game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ChangeCharacterBody"):InvokeServer(
-                unpack(args)
-            )
-            print("Todas as partes do corpo equipadas!")
-        end
-    }
-)
-Tab3:AddButton(
-    {
-        Name = "سيرسيد سبايدر",
-        Callback = function()
-            local args = {
-                {134555168634906, 100269043793774, 125607053187319, 122504853343598, 95907982259204, 91289185840375}
-            }
-            game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ChangeCharacterBody"):InvokeServer(
-                unpack(args)
-            )
-            print("Todas as partes do corpo equipadas!")
-        end
-    }
-)
-Tab3:AddButton(
-    {
-        Name = "بوسيدسيد",
-        Callback = function()
-            local args = {
-                {122800511983371, 132465361516275, 125155800236527, 83070163355072, 102906187256945, 78311422507297}
-            }
-            game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ChangeCharacterBody"):InvokeServer(
-                unpack(args)
-            )
-            print("Todas as partes do corpo equipadas!")
-        end
-    }
-)
-Tab3:AddParagraph({Title = "سكنات", Content = ""})
 
-local remoteClone
-local remoteParent
-local alvoNome = "1Gu1n"
-local alvoCaminho = game:GetService("ReplicatedStorage"):WaitForChild("RE")
-
-local function removerRemote()
-    local remote = alvoCaminho:FindFirstChild(alvoNome)
-    if remote then
-        pcall(function()
-            remoteClone = remote:Clone()
-            remoteParent = remote.Parent
-            remote:Destroy()
-        end)
-    end
-end
-
-local function restaurarRemote()
-    if remoteClone and remoteParent then
-        pcall(function()
-            remoteClone.Parent = remoteParent
-        end)
-        remoteClone = nil
-        remoteParent = nil
-    end
-end
 local Section = Tab4:AddSection({"حمايه لاعب"})
 Tab4:AddToggle(
     {
@@ -963,8 +857,38 @@ Tab4:AddToggle(
     }
 )
 
+local keepHealth = false
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local player = Players.LocalPlayer
 
+-- توغل للحماية على الصحة
+Tab4:AddToggle({
+    Name = "حماية الصحة",
+    Description = "يخلي الصحة دائماً 100",
+    Default = false,
+    Callback = function(state)
+        keepHealth = state
+    end
+})
 
+-- تحديث الصحة كل فريم
+RunService.RenderStepped:Connect(function()
+    if keepHealth and player.Character and player.Character:FindFirstChild("Humanoid") then
+        local humanoid = player.Character.Humanoid
+        if humanoid.Health < humanoid.MaxHealth then
+            humanoid.Health = humanoid.MaxHealth
+        end
+    end
+end)
+
+Tab4:AddButton(
+    {
+Name = "موت لاعب",
+Callback = function()
+    game.Players.LocalPlayer.Character.Humanoid.Health = 0
+end
+})
 local Section = Tab6:AddSection({"عداد سرعه مسئول على كل شي ريمبو"})
 local rgbSpeed = 1
 Tab6:AddSlider(
