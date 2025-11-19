@@ -1,0 +1,2100 @@
+local a=loadstring(game:HttpGet("https://raw.githubusercontent.com/itavvietivvoyd-ux/-/refs/heads/main/%D8%A8%D8%AF%D9%88%D9%86%20.txt"))()task.wait(8)print("Done Loading!")local a=loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/Library-ui/refs/heads/main/Redzhubui"))()local b=a:MakeWindow({Title="KIRA | Brookhaven RP  1.0",SubTitle="By KIRA | RIP",SaveFolder=" update 1.0"})b:AddMinimizeButton({Button={Image="rbxassetid://87873786120601",BackgroundTransparency=0},Corner={CornerRadius=UDim.new(35,1)}})local c=b:MakeTab({"المعلومات","info"})local d=b:MakeTab({"متعه","fun"})local e=b:MakeTab({"سكنات","shirt"})local f=b:MakeTab({"مضادات","shield"})local g=b:MakeTab({"كلشي ريمبو","brush"})local h=b:MakeTab({"تخريب عل سيارات","Car"})local i=b:MakeTab({Title="التجميد",Icon="rbxassetid://10723414308"})local j=b:MakeTab({"تخريب عل لاعبين","skull"})local k=b:MakeTab({"تخريبات","star"})local l=b:MakeTab({"شادرات","sunmoon"})local m=b:MakeTab({"اطفال","baby"})local n=b:MakeTab({"تنقلات","map-pin"})c:AddSection({"معلومات"})c:AddDiscordInvite({Name="KIRA HUB",Description="حسابي تيك",Logo="rbxassetid://87873786120601",Invite="8b6p_"})local function o()if identifyexecutor then return identifyexecutor()elseif syn then return"Synapse X"elseif KRNL_LOADED then return"KRNL"elseif is_sirhurt_closure then return"SirHurt"elseif pebc_execute then return"ProtoSmasher"elseif getexecutorname then return getexecutorname()else return"Executor Desconhecido"end end;local p=o()local q=c:AddParagraph({"المنفذ",p})local r=c:AddSection({"update  1.0"})local q=c:AddParagraph({"KIRA","to update"})c:AddButton({Name="انسخ حسابي تلي",Callback=function()setclipboard("@X_th4")setclipboard("X_th4")end})local r=d:AddSection({"تحكم ب شخصيه"})d:AddSlider({Name="سرعه",Increase=1,MinValue=16,MaxValue=888,Default=16,Callback=function(s)local t=game.Players.LocalPlayer;local u=t.Character or t.CharacterAdded:Wait()local v=u:FindFirstChildOfClass("Humanoid")if v then v.WalkSpeed=s end end})d:AddSlider({Name="القفز",Increase=1,MinValue=50,MaxValue=500,Default=50,Callback=function(s)local t=game.Players.LocalPlayer;local u=t.Character or t.CharacterAdded:Wait()local v=u:FindFirstChildOfClass("Humanoid")if v then v.JumpPower=s end end})d:AddSlider({Name="جاذبيه",Increase=1,MinValue=0,MaxValue=10000,Default=196.2,Callback=function(s)game.Workspace.Gravity=s end})local w=false;game:GetService("UserInputService").JumpRequest:Connect(function()if w then local u=game.Players.LocalPlayer.Character;if u and u:FindFirstChild("Humanoid")then u.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)end end end)d:AddButton({Name="ريستات للسرعه و القفز و الجاذبيه",Callback=function()local t=game.Players.LocalPlayer;local u=t.Character or t.CharacterAdded:Wait()local v=u:FindFirstChildOfClass("Humanoid")if v then v.WalkSpeed=16;v.JumpPower=50 end;game.Workspace.Gravity=196.2;w=false end})d:AddToggle({Name="قفز لانهائي",Default=false,Callback=function(s)w=s end})local x={Enabled=false,Connections={},SoccerBalls={}}local y=game:GetService("Players")local z=game:GetService("RunService")local A=game:GetService("Workspace")local B=y.LocalPlayer;local function C(u)if not u then return end;for D,E in ipairs(u:GetDescendants())do if E:IsA("BasePart")then E.CanCollide=not x.Enabled;E.Anchored=false end end end;local function F(G)if G.Position.Y<-500 then local H=CFrame.new(0,100,0)local I=RaycastParams.new()I.FilterDescendantsInstances={B.Character}local J=A:Raycast(G.Position,Vector3.new(0,500,0),I)G.CFrame=J and CFrame.new(J.Position+Vector3.new(0,5,0))or H end end;local function K()local L=A:FindFirstChild("Com",true)and A.Com:FindFirstChild("001_SoccerBalls")if L then for D,M in ipairs(L:GetChildren())do if M.Name:match("^Soccer")then pcall(function()M.CanCollide=not x.Enabled;M.Anchored=x.Enabled end)x.SoccerBalls[M]=true end end;if not x.Connections.BallAdded then x.Connections.BallAdded=L.ChildAdded:Connect(function(M)if M.Name:match("^Soccer")then task.wait(0.3)pcall(function()M.CanCollide=not x.Enabled;M.Anchored=x.Enabled end)end end)end end end;local function N()x.Connections.Heartbeat=z.Heartbeat:Connect(function()local u=B.Character;if u then C(u)local G=u:FindFirstChild("HumanoidRootPart")if G then F(G)end end;if tick()%2<0.1 then K()end end)end;local O=d:AddToggle({Name="نوكليب",Description="",Default=false})O:Callback(function(P)x.Enabled=P;if P then N()K()x.Connections.CharAdded=B.CharacterAdded:Connect(function()task.wait(0.5)C(B.Character)end)else for D,Q in pairs(x.Connections)do Q:Disconnect()end;if B.Character then C(B.Character)end;for M in pairs(x.SoccerBalls)do if M.Parent then pcall(function()M.CanCollide=true;M.Anchored=false end)end end end end)local y=game:GetService("Players")local z=game:GetService("RunService")local R={}local S={}local T=false;local U="RGB Suave"d:AddButton({Name="طيران",Description="",Callback=function()local V,D=pcall(function()loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fly-gui-v3-30439"))()end)game.StarterGui:SetCore("SendNotification",{Title=V and"Sucesso"or"Erro",Text=V and"Fly GUI carregado!"or"Falha ao carregar o Fly GUI.",Duration=5})end})local r=d:AddSection({"كاشف"})d:AddDropdown({Name="كاشف",Default="ريمبو ",Options={"ريمبو","ابيض","اسود","احمر","اخضر","ازرك","اصفر","وردي","بنفسجي"},Callback=function(W)U=W end})local function X()if U=="ريمبو"then local Y=tick()%5/5;return Color3.fromHSV(Y,1,1)elseif U=="اسود"then return Color3.fromRGB(0,0,0)elseif U=="ابيض"then return Color3.fromRGB(255,255,255)elseif U=="احمر"then return Color3.fromRGB(255,0,0)elseif U=="اخضر"then return Color3.fromRGB(0,255,0)elseif U=="ازرك"then return Color3.fromRGB(0,170,255)elseif U=="اصفر"then return Color3.fromRGB(255,255,0)elseif U=="وردي"then return Color3.fromRGB(255,105,180)elseif U=="بنفسجي"then return Color3.fromRGB(128,0,128)end;return Color3.new(1,1,1)end;local function Z(t)if t==y.LocalPlayer then return end;if not T then return end;local u=t.Character;if u then local _=u:FindFirstChild("Head")if _ then if R[t]then R[t]:Destroy()end;local a0=Instance.new("BillboardGui")a0.Name="ESP_Billboard"a0.Parent=_;a0.Adornee=_;a0.Size=UDim2.new(0,200,0,50)a0.StudsOffset=Vector3.new(0,3,0)a0.AlwaysOnTop=true;local a1=Instance.new("TextLabel")a1.Name="TextLabel"a1.Parent=a0;a1.Size=UDim2.new(1,0,1,0)a1.BackgroundTransparency=1;a1.TextStrokeTransparency=0.5;a1.Font=Enum.Font.SourceSansBold;a1.TextSize=14;a1.Text=t.Name.." | "..t.AccountAge.." dias"a1.TextColor3=X()R[t]=a0 end end end;local function a2(t)if R[t]then R[t]:Destroy()R[t]=nil end end;local a3=d:AddToggle({Name="تشغيل كاشف",Description="",Default=false})a3:Callback(function(W)T=W;if T then for D,t in pairs(y:GetPlayers())do Z(t)end;local a4=z.Heartbeat:Connect(function()for D,t in pairs(y:GetPlayers())do Z(t)end;if U=="RGB"then for D,t in pairs(y:GetPlayers())do local a5=R[t]if a5 and a5:FindFirstChild("TextLabel")then a5.TextLabel.TextColor3=X()end end end end)table.insert(S,a4)local a6=y.PlayerAdded:Connect(function(t)Z(t)local a7=t.CharacterAdded:Connect(function()Z(t)end)table.insert(S,a7)end)table.insert(S,a6)local a8=y.PlayerRemoving:Connect(function(t)a2(t)end)table.insert(S,a8)else for D,t in pairs(y:GetPlayers())do a2(t)end;for D,Q in pairs(S)do Q:Disconnect()end;S={}R={}end end)local r=e:AddSection({"نسخ سكن"})local y=game:GetService("Players")local B=y.LocalPlayer;local a9=game:GetService("ReplicatedStorage")local aa=a9:WaitForChild("Remotes")local ab;local ac=nil;local function ad()local ae={}for D,t in ipairs(y:GetPlayers())do if t.Name~=B.Name then table.insert(ae,t.Name)end end;return ae end;local af=e:AddDropdown({Name="اختر لاعب",Description="",Options=ad(),Default="",Flag="player list",Callback=function(ag)ab=ag;ac=ag end})local function ah()af:Set(ad())end;ah()e:AddButton({"تحديث قائمه",function()ah()end})y.PlayerAdded:Connect(ah)y.PlayerRemoving:Connect(ah)e:AddButton({Name="ابدا ب نسخ السكن",Callback=function()if not ac then return end;local ai=y.LocalPlayer;local aj=ai.Character;local ak=y:FindFirstChild(ac)if ak and ak.Character then local al=aj and aj:FindFirstChildOfClass("Humanoid")local am=ak.Character:FindFirstChildOfClass("Humanoid")if al and am then local an=al:GetAppliedDescription()for D,ao in ipairs(an:GetAccessories(true))do if ao.AssetId and tonumber(ao.AssetId)then aa.Wear:InvokeServer(tonumber(ao.AssetId))task.wait(0.2)end end;if tonumber(an.Shirt)then aa.Wear:InvokeServer(tonumber(an.Shirt))task.wait(0.2)end;if tonumber(an.Pants)then aa.Wear:InvokeServer(tonumber(an.Pants))task.wait(0.2)end;if tonumber(an.Face)then aa.Wear:InvokeServer(tonumber(an.Face))task.wait(0.2)end;local ap=am:GetAppliedDescription()local aq={[1]={[1]=ap.Torso,[2]=ap.RightArm,[3]=ap.LeftArm,[4]=ap.RightLeg,[5]=ap.LeftLeg,[6]=ap.Head}}aa.ChangeCharacterBody:InvokeServer(unpack(aq))task.wait(0.5)if tonumber(ap.Shirt)then aa.Wear:InvokeServer(tonumber(ap.Shirt))task.wait(0.3)end;if tonumber(ap.Pants)then aa.Wear:InvokeServer(tonumber(ap.Pants))task.wait(0.3)end;if tonumber(ap.Face)then aa.Wear:InvokeServer(tonumber(ap.Face))task.wait(0.3)end;for D,ar in ipairs(ap:GetAccessories(true))do if ar.AssetId and tonumber(ar.AssetId)then aa.Wear:InvokeServer(tonumber(ar.AssetId))task.wait(0.3)end end;local as=ak.Character:FindFirstChild("Body Colors")if as then aa.ChangeBodyColor:FireServer(tostring(as.HeadColor))task.wait(0.3)end;if tonumber(ap.IdleAnimation)then aa.Wear:InvokeServer(tonumber(ap.IdleAnimation))task.wait(0.3)end;local at=ak:FindFirstChild("PlayersBag")if at then if at:FindFirstChild("RPName")and at.RPName.Value~=""then aa.RPNameText:FireServer("RolePlayName",at.RPName.Value)task.wait(0.3)end;if at:FindFirstChild("RPBio")and at.RPBio.Value~=""then aa.RPNameText:FireServer("RolePlayBio",at.RPBio.Value)task.wait(0.3)end;if at:FindFirstChild("RPNameColor")then aa.RPNameColor:FireServer("PickingRPNameColor",at.RPNameColor.Value)task.wait(0.3)end;if at:FindFirstChild("RPBioColor")then aa.RPNameColor:FireServer("PickingRPBioColor",at.RPBioColor.Value)task.wait(0.3)end end end end end})local r=e:AddSection({"سكنات 3D"})local a9=game:GetService("ReplicatedStorage")local au={}au.ReplicatedStorage=a9;function au:MostrarNotificacao(av)pcall(function()game:GetService("StarterGui"):SetCore("SendNotification",{Title="Aviso",Text=av,Duration=5})end)end;au.Avatares={{Nome="جاتو تي مانجا",ID=124948425515124},{Nome="تونغ ساهور",ID=117098257036480},{Nome="تراليتو",ID=99459753608381},{Nome="مونستر S.A",ID=123609977175226},{Nome="قطار توماس",ID=80468697076178},{Nome="دينصور برتقالي",ID=11941741105},{Nome="بوي ايدوس",ID=15742966010},{Nome="كوهيلو",ID=71797333686800},{Nome="هيبو بو تامو",ID=73215892129281},{Nome="راتاتوي",ID=108557570415453},{Nome="جالينها",ID=71251793812515},{Nome="بيبا",ID=92979204778377},{Nome="بطريق",ID=94944293759578},{Nome="سيد",ID=87442757321244},{Nome="بوغا قراندي",ID=111436158728716},{Nome="شريك مالدياكو",ID=120960401202173},{Nome="موسكتي قراندي",ID=108052868536435},{Nome="نوب",ID=106596990206151},{Nome="باتو",ID=135132836238349},{Nome="فيل فراوله بعمر ستينات",ID=14533748491},{Nome="قلم اصفر",ID=18994959003},{Nome="ابو العضلات ",ID=135861229178903},{Nome="الاخضر",ID=75125632205005},{Nome="نعامه",ID=96931373056689},{Nome="حمار",ID=129443208066000}}function au:GetAvatarNames()local aw={}for D,ax in ipairs(self.Avatares)do table.insert(aw,ax.Nome)end;return aw end;function au:EquiparAvatar(ay)for D,ax in ipairs(self.Avatares)do if ax.Nome==ay then local az={ax.ID}pcall(function()return self.ReplicatedStorage:WaitForChild("Remotes"):WaitForChild("Wear"):InvokeServer(unpack(az))end)return end end end;local aA=e:AddDropdown({Name="سكنات",Description="",Default=nil,Options=au:GetAvatarNames(),Callback=function(aB)_G.SelectedAvatar=aB end})e:AddButton({Name="تطبيق ",Description="عند ما تدوس الزر يطبق السكن",Callback=function()if not _G.SelectedAvatar or _G.SelectedAvatar==""then au:MostrarNotificacao("Nenhum avatar selecionado!")return end;au:EquiparAvatar(_G.SelectedAvatar)end})local r=e:AddSection({"قريبا"})local aC;local aD;local aE="1Gu1n"local aF=game:GetService("ReplicatedStorage"):WaitForChild("RE")local function aG()local aH=aF:FindFirstChild(aE)if aH then pcall(function()aC=aH:Clone()aD=aH.Parent;aH:Destroy()end)end end;local function aI()if aC and aD then pcall(function()aC.Parent=aD end)aC=nil;aD=nil end end;local r=f:AddSection({"حمايه لاعب"})f:AddToggle({Name="مضاد تجميد",Description="",Default=false,Callback=function(ar)if ar then aG()conexaoAutoRemocao=aF.ChildAdded:Connect(function(aJ)if aJ.Name==aE then task.wait(0.1)pcall(function()aC=aJ:Clone()aD=aJ.Parent;aJ:Destroy()end)end end)else if conexaoAutoRemocao then conexaoAutoRemocao:Disconnect()conexaoAutoRemocao=nil end;aI()end end})local r=f:AddSection({"حمايه لاعب من تجميدات"})local y=game:GetService("Players")local a9=game:GetService("ReplicatedStorage")local aK=y.LocalPlayer;_G.__AutoAntiBang=_G.__AutoAntiBang or{enabled=false,thread=nil}local function aL()local aM=1500;for D,aJ in pairs(workspace:GetDescendants())do if aJ:IsA("BasePart")and aJ.Position.Y>aM then aM=aJ.Position.Y end end;return aM+60 end;local function aN()local aO=aK.Character;if not aO then return end;local aP=aO:FindFirstChild("HumanoidRootPart")if not aP then return end;local aQ=aP.CFrame;local aR=aL()aP.CFrame=CFrame.new(aQ.X,aR,aQ.Z)task.wait(0.15)aP.CFrame=aQ;task.wait(0.1)end;local function aS()_G.__AutoAntiBang.enabled=true;local aT=nil;while _G.__AutoAntiBang.enabled do local aO=aK.Character;if aO then local aP=aO:FindFirstChild("HumanoidRootPart")if aP then local aU=aP.Position.Y;if aT and math.abs(aU-aT)>50 then print("🚨 Bang Detected! Anti-Bang Activated.")aN()end;aT=aU end end;task.wait(0.2)end end;f:AddToggle({Name="مضاد بانج",Default=true,Callback=function(aV)if aV then if not _G.__AutoAntiBang.enabled then _G.__AutoAntiBang.thread=task.spawn(aS)print("✅ Auto Anti-Bang Started")end else _G.__AutoAntiBang.enabled=false;print("🛑 Auto Anti-Bang Stopped")end end})local r=f:AddSection({"حمايه لاعب من البانج"})f:AddToggle({Name="مضاد جلوس V1",Description="",Default=false,Callback=function(P)antiSitEnabled=P;local B=game:GetService("Players").LocalPlayer;if P then local function aW(u)local v=u:FindFirstChild("Humanoid")if v then v.Sit=false;v:SetStateEnabled(Enum.HumanoidStateType.Seated,false)if antiSitConnection then antiSitConnection:Disconnect()end;antiSitConnection=v.Seated:Connect(function(aX)if aX then v.Sit=false;v:ChangeState(Enum.HumanoidStateType.GettingUp)end end)end end;if B.Character then aW(B.Character)end;local aY;aY=B.CharacterAdded:Connect(function(u)if not antiSitEnabled then aY:Disconnect()return end;local v=u:WaitForChild("Humanoid",5)if v then aW(u)end end)else if antiSitConnection then antiSitConnection:Disconnect()antiSitConnection=nil end;if B.Character then local v=B.Character:FindFirstChild("Humanoid")if v then v:SetStateEnabled(Enum.HumanoidStateType.Seated,true)end end end end})local r=f:AddSection({"الحمايه من فلنقات ب سيارات"})f:AddToggle({Name="مضاد جلوس V2",Description="",Default=false,Callback=function(P)antiSitEnabled=P;local B=game:GetService("Players").LocalPlayer;if P then local function aW(u)local v=u:FindFirstChild("Humanoid")if v then v.Sit=false;v:SetStateEnabled(Enum.HumanoidStateType.Seated,false)if antiSitConnection then antiSitConnection:Disconnect()end;antiSitConnection=v.Seated:Connect(function(aX)if aX then v.Sit=false;v:ChangeState(Enum.HumanoidStateType.GettingUp)end end)end end;if B.Character then aW(B.Character)end;local aY;aY=B.CharacterAdded:Connect(function(u)if not antiSitEnabled then aY:Disconnect()return end;local v=u:WaitForChild("Humanoid",5)if v then aW(u)end end)else if antiSitConnection then antiSitConnection:Disconnect()antiSitConnection=nil end;if B.Character then local v=B.Character:FindFirstChild("Humanoid")if v then v:SetStateEnabled(Enum.HumanoidStateType.Seated,true)end end end end})local r=f:AddSection({"لضمان حمايتك "})
+local a=Tab6:AddSection({"عداد سرعه مسئول على كل شي ريمبو"})local b=1;Tab6:AddSlider({Name=" حدد سرعه",Description="سرعه تغير لون",Min=1,Max=5,Increase=1,Default=3,Callback=function(c)b=c end})local function d(e)local f=tick()*e%5/5;return Color3.fromHSV(f,1,1)end;local function g(h,i)local j=game:GetService("ReplicatedStorage"):FindFirstChild("RE")if j and j:FindFirstChild(h)then pcall(function()j[h]:FireServer(unpack(i))end)end end;local a=Tab6:AddSection({"كلشي ريمبو"})local k=false;Tab6:AddToggle({Name="اسم ريمبو ",Default=false,Callback=function(l)k=l;if l then task.spawn(function()while k and LocalPlayer.Character do local m=d(b)g("1RPNam1eColo1r",{"PickingRPNameColor",m})g("1RPNam1eColo1r",{"PickingRPBioColor",m})task.wait(0.03)end end)end end})local a=Tab6:AddSection({"بيت ريمبو"})local n=Tab6:AddToggle({Name="بيت ريمبو",Description="",Default=false})n:Callback(function(c)getgenv().rgbCasa=c;task.spawn(function()while getgenv().rgbCasa do g("1Player1sHous1e",{"ColorPickHouse",d(b)})task.wait(0.1)end end)end)local o=false;Tab6:AddToggle({Name="تغير لون اضاء سياره التحت ريمبو",Description="قد يسبب ارتجاج لم يعد اصدار مميز",Default=false,Callback=function(l)o=l;if l then task.spawn(function()while o and LocalPlayer.Character do local m=d(b)g("1Player1sCa1r",{"PickingCarColor",m})task.wait(0.03)end end)end end})local p=Tab6:AddToggle({Name="سياره ريمبو ",Description="",Default=false})p:Callback(function(c)getgenv().rgbBicicleta=c;task.spawn(function()while getgenv().rgbBicicleta do g("1Player1sCa1r",{"NoMotorColor",d(b)})task.wait(0.1)end end)end)local a=Tab6:AddSection({"ادوات ريمبو"})local q=false;Tab6:AddToggle({Name="راديو ريمبو",Description="",Default=false,Callback=function(l)q=l;if l then task.spawn(function()while q and LocalPlayer.Character do local m=d(b)local r,s=pcall(function()return LocalPlayer:WaitForChild("PlayerGui"):WaitForChild("ToolGui"):WaitForChild("ToolSettings"):WaitForChild("Settings"):WaitForChild("PropsColor"):WaitForChild("SetColor")end)if r and s then pcall(function()s:FireServer(m)end)end;task.wait(0.03)end end)end end})local t=Tab6:AddToggle({Name="مكبر صوت ريمبو",Description="",Default=false})t:Callback(function(c)getgenv().rgbMegafone=c;task.spawn(function()while getgenv().rgbMegafone do local m=d(b)local u=game:GetService("Players").LocalPlayer:FindFirstChild("PlayerGui")if u then local v=u:FindFirstChild("ToolGui")if v then local w=v:FindFirstChild("ToolSettings")if w then local x=w:FindFirstChild("Settings"):FindFirstChild("PropsColor")if x and x:FindFirstChild("SetColor")then pcall(function()x.SetColor:FireServer(m)end)end end end end;task.wait(0.1)end end)end)local y=Tab6:AddToggle({Name="مال مكياج ريمبو",Description="",Default=false})y:Callback(function(c)getgenv().rgbRosquinha=c;task.spawn(function()while getgenv().rgbRosquinha do local m=d(b)local u=game:GetService("Players").LocalPlayer:FindFirstChild("PlayerGui")if u then local v=u:FindFirstChild("ToolGui")if v then local w=v:FindFirstChild("ToolSettings")if w then local x=w:FindFirstChild("Settings"):FindFirstChild("PropsColor")if x and x:FindFirstChild("SetColor")then pcall(function()x.SetColor:FireServer(m)end)end end end end;task.wait(0.1)end end)end)local a=Tab7:AddSection({"كل وضائف السياره"})local z=game:GetService("Players")local A=game:GetService("Workspace")local LocalPlayer=z.LocalPlayer;local B=A.CurrentCamera;local C={}C.Players=z;C.Workspace=A;C.LocalPlayer=LocalPlayer;C.Camera=B;function C:MostrarNotificacao(D)pcall(function()game:GetService("StarterGui"):SetCore("SendNotification",{Title="اشعار",Text=D,Duration=5})end)end;function C:ToggleFallDamage(E)if not self.LocalPlayer.Character or not self.LocalPlayer.Character:FindFirstChild("Humanoid")then return false end;local F=self.LocalPlayer.Character.Humanoid;if E then F:SetStateEnabled(Enum.HumanoidStateType.FallingDown,false)F:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,false)F:SetStateEnabled(Enum.HumanoidStateType.GettingUp,true)F.PlatformStand=false;return true else F:SetStateEnabled(Enum.HumanoidStateType.FallingDown,true)F:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,true)return false end end;function C:TeleportToSeat(G,H)if not self.LocalPlayer.Character or not self.LocalPlayer.Character:FindFirstChild("Humanoid")then self:MostrarNotificacao("الشخصية غير موجودة!")return false end;local F=self.LocalPlayer.Character.Humanoid;local I=self.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")if not I then self:MostrarNotificacao("لم يتم العثور على الجذر!")return false end;F.Sit=false;task.wait(0.1)I.CFrame=G.CFrame+Vector3.new(0,5,0)task.wait(0.1)G:Sit(F)task.wait(0.5)return F.SeatPart==G end;function C:TeleportToVoid(H)if not H then self:MostrarNotificacao("سيارة غير صالحة!")return end;if not H.PrimaryPart then local J=H:FindFirstChild("Body",true)or H:FindFirstChild("Chassis",true)if J and J:IsA("BasePart")then H.PrimaryPart=J else self:MostrarNotificacao("لم يتم العثور على الجزء الرئيسي!")return end end;H:SetPrimaryPartCFrame(CFrame.new(0,-1000,0))task.wait(0.5)end;function C:TeleportToPlayer(H,K)if not H then self:MostrarNotificacao("سيارة غير صالحة!")return end;if not H.PrimaryPart then local J=H:FindFirstChild("Body",true)or H:FindFirstChild("Chassis",true)if J and J:IsA("BasePart")then H.PrimaryPart=J else self:MostrarNotificacao("لم يتم العثور على الجزء الرئيسي!")return end end;local L=K+Vector3.new(5,0,5)H:SetPrimaryPartCFrame(CFrame.new(L))task.wait(0.5)end;function C:ExitCarAndReturn(M)if not self.LocalPlayer.Character or not self.LocalPlayer.Character:FindFirstChild("Humanoid")then return end;local F=self.LocalPlayer.Character.Humanoid;if F.SeatPart then F.Sit=false end;task.wait(0.1)if M then self.LocalPlayer.Character:PivotTo(CFrame.new(M))end end;function C:AtualizarListaCarros()local N=self.Workspace:FindFirstChild("Vehicles")local O={}if N then for P,Q in ipairs(N:GetChildren())do if Q.Name:match("Car$")then table.insert(O,Q.Name)end end end;return O end;Tab7:AddParagraph({Title="حماية السيارة",Content=""})Tab7:AddToggle({Name="نقل جميع السيارات",Default=false,Callback=function(l)local R;local S=l;local T=false;if l then if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")then R=LocalPlayer.Character.HumanoidRootPart.Position else C:MostrarNotificacao("الشخصية غير موجودة!")return end;T=C:ToggleFallDamage(true)task.spawn(function()local U=C.Workspace:FindFirstChild("Vehicles")if not U then C:MostrarNotificacao("مجلد السيارات غير موجود!")return end;local V={}for P,H in ipairs(U:GetChildren())do if H.Name:match("Car$")then table.insert(V,H)end end;for P,H in ipairs(V)do if not S then break end;local W=H:FindFirstChildWhichIsA("VehicleSeat",true)if W and W.Occupant==nil then local r=C:TeleportToSeat(W,H)if r then C:TeleportToVoid(H)C:ExitCarAndReturn(R)task.wait(1)end end end;if S then S=false;C:ToggleFallDamage(false)end end)else S=false;C:ToggleFallDamage(false)end end})local a=Tab7:AddSection({"وظائف السيارة"})local X=Tab7:AddDropdown({Name="اختر سيارة لاعب",Default=nil,Options=C:AtualizarListaCarros(),Callback=function(Y)_G.SelectedVehicle=Y end})Tab7:AddToggle({Name="مشاهدة السيارة المحددة",Default=false,Callback=function(l)if l then if not _G.SelectedVehicle or _G.SelectedVehicle==""then C:MostrarNotificacao("لم يتم اختيار سيارة!")return end;local U=A:FindFirstChild("Vehicles")local Z=U and U:FindFirstChild(_G.SelectedVehicle)if not Z then C:MostrarNotificacao("السيارة غير موجودة!")return end;local W=Z:FindFirstChildWhichIsA("VehicleSeat",true)if not W then C:MostrarNotificacao("مقعد السيارة غير موجود!")return end;C.OriginalCameraSubject=B.CameraSubject;C.OriginalCameraType=B.CameraType;B.CameraSubject=W;B.CameraType=Enum.CameraType.Follow;C:MostrarNotificacao("تم ربط الكاميرا بالسيارة!")else if C.OriginalCameraSubject then B.CameraSubject=C.OriginalCameraSubject;B.CameraType=C.OriginalCameraType or Enum.CameraType.Custom;C:MostrarNotificacao("تمت استعادة الكاميرا للوضع الطبيعي!")C.OriginalCameraSubject=nil;C.OriginalCameraType=nil end end end})C.Workspace:WaitForChild("Vehicles").ChildAdded:Connect(function()X:Set(C:AtualizarListaCarros())end)C.Workspace:WaitForChild("Vehicles").ChildRemoved:Connect(function()X:Set(C:AtualizarListaCarros())end)local a=Tab7:AddSection({"تخريب السيارات"})Tab7:AddButton({Name="نقل السيارة المحددة إلى الفراغ",Callback=function()if not _G.SelectedVehicle or _G.SelectedVehicle==""then C:MostrarNotificacao("لم يتم اختيار سيارة!")return end;local U=A:FindFirstChild("Vehicles")local Z=U and U:FindFirstChild(_G.SelectedVehicle)if not Z then C:MostrarNotificacao("السيارة غير موجودة!")return end;local W=Z:FindFirstChildWhichIsA("VehicleSeat",true)if W and not W.Occupant then local M=LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")and LocalPlayer.Character.HumanoidRootPart.Position;if M then local r=C:TeleportToSeat(W,Z)if r then C:TeleportToVoid(Z)C:ExitCarAndReturn(M)C:MostrarNotificacao("تم نقل السيارة إلى الفراغ!")end end else C:MostrarNotificacao("هناك شخص في السيارة!")end end})Tab7:AddButton({Name="نقل السيارة إليك",Callback=function()if not _G.SelectedVehicle or _G.SelectedVehicle==""then C:MostrarNotificacao("لم يتم اختيار سيارة!")return end;local U=A:FindFirstChild("Vehicles")local Z=U and U:FindFirstChild(_G.SelectedVehicle)if not Z then C:MostrarNotificacao("السيارة غير موجودة!")return end;local W=Z:FindFirstChildWhichIsA("VehicleSeat",true)if W and not W.Occupant then local M=LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")and LocalPlayer.Character.HumanoidRootPart.Position;if M then local r=C:TeleportToSeat(W,Z)if r then C:TeleportToPlayer(Z,M)C:ExitCarAndReturn(M)C:MostrarNotificacao("تم نقل السيارة إليك!")end end else C:MostrarNotificacao("هناك شخص في السيارة!")end end})Tab7:AddButton({Name="تجميع جميع سيارات السيرفر",Callback=function()local M=LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")and LocalPlayer.Character.HumanoidRootPart.Position;if not M then C:MostrarNotificacao("الشخصية غير موجودة!")return end;local U=A:FindFirstChild("Vehicles")if not U then C:MostrarNotificacao("مجلد السيارات غير موجود!")return end;local V={}for P,H in ipairs(U:GetChildren())do if H.Name:match("Car$")then table.insert(V,H)end end;for P,H in ipairs(V)do local W=H:FindFirstChildWhichIsA("VehicleSeat",true)if W and W.Occupant==nil then local r=C:TeleportToSeat(W,H)if r then C:TeleportToPlayer(H,M)C:ExitCarAndReturn(M)task.wait(1)end end end;if#V==0 then C:MostrarNotificacao("لا توجد سيارات!")end end})local _={"SchoolBus","SmartCar","FarmTruck","Cadillac","Excavator","Jeep","NascarTruck","TowTruck","Snowplow","MilitaryTruck","Tank","Limo","FireTruck"}local a0=false;local function a1(a2)local i={[1]="PickingCar",[2]=a2}game:GetService("ReplicatedStorage"):WaitForChild("RE"):WaitForChild("1Ca1r"):FireServer(unpack(i))end;Tab7:AddToggle({Name="سبام سيارات",Default=false,Callback=function(l)a0=l;if a0 then task.spawn(function()while a0 do for P,a2 in ipairs(_)do if not a0 then break end;a1(a2)task.wait(0)end end end)end end})local z=game:GetService("Players")local a3=game:GetService("ReplicatedStorage")local a4=z.LocalPlayer;local a5=a3:WaitForChild("RE")local a6=a5:FindFirstChild("1Clea1rTool1s")local a7=a5:FindFirstChild("1Too1l")local a8=a5:FindFirstChild("1Gu1n")local a9=false;local function aa()if a6 then a6:FireServer("ClearAllTools")end end;local function ab()if a7 then a7:InvokeServer("PickingTools","Assault")end end;local function ac()return a4.Backpack:FindFirstChild("Assault")~=nil end;local function ad(ae)local af=a4.Backpack:FindFirstChild("Assault")and a4.Backpack.Assault:FindFirstChild("GunScript_Local")if not af or not ae then return end;local i={ae,ae,Vector3.new(1e14,1e14,1e14),ae.Position,af:FindFirstChild("MuzzleEffect"),af:FindFirstChild("HitEffect"),0,0,{false},{25,Vector3.new(100,100,100),BrickColor.new(29),0.25,Enum.Material.SmoothPlastic,0.25},true,false}a8:FireServer(unpack(i))end;local function ag()task.spawn(function()while a9 do aa()ab()repeat task.wait(0.2)until ac()or not a9;for ah=1,3 do for P,ai in ipairs(z:GetPlayers())do if not a9 then return end;if ai~=a4 and ai.Character and ai.Character:FindFirstChild("HumanoidRootPart")then ad(ai.Character.HumanoidRootPart)task.wait(0.1)end end end;task.wait(1)end end)end;Tab8:AddToggle({Name="تجميد كل اللاعبين",Description="دون اي نطاق او مجال",Default=false,Callback=function(l)a9=l;if a9 then ag()end end})Tab8:AddSection({"تجميد فردي"})Tab8:AddButton({Name="تجميد فردي",Description="بمجرد ضغط الزر ستضهر واجه خاصه ب تجميد فردي",Callback=function()loadstring(game:HttpGet("https://raw.githubusercontent.com/itavvietivvoyd-ux/-/refs/heads/main/%D8%AA%D8%AC%D9%85%D9%8A%D8%AF%20%D9%81%D8%B1%D8%AF%D9%8A%20%D9%85%D8%B9%20%D9%88%D8%A7%D8%AC%D9%87.txt"))()end})Tab8:AddSection({"تجميد سيرفر مع تاثيرات"})Tab8:AddToggle({Name="توسيع المجال الأخضر",Description="تفعيل وضع المجال الأخضر المضيء والهجوم",Default=false,Callback=function(l)if l then local aj=game:GetService("Lighting")local z=game:GetService("Players")local a3=game:GetService("ReplicatedStorage")local a4=z.LocalPlayer;local function ak()local al=a4.Character or a4.CharacterAdded:Wait()local am=al:WaitForChild("HumanoidRootPart")local an=Instance.new("Model",workspace)an.Name="InfiniteVoid"local ao=Instance.new("Part")ao.Shape=Enum.PartType.Ball;ao.Size=Vector3.new(300,300,300)ao.Position=am.Position;ao.Anchored=true;ao.CanCollide=false;ao.Material=Enum.Material.ForceField;ao.Transparency=0.3;ao.Color=Color3.fromRGB(0,255,0)ao.Parent=an;local ap=Instance.new("PointLight",ao)ap.Color=Color3.fromRGB(0,255,0)ap.Brightness=10;ap.Range=300;local aq=Instance.new("ParticleEmitter",ao)aq.Texture="rbxassetid://243660364"aq.Color=ColorSequence.new(Color3.fromRGB(0,255,0))aq.LightEmission=1;aq.Size=NumberSequence.new(3)aq.Transparency=NumberSequence.new(0.2)aq.Rate=1000;aq.Lifetime=NumberRange.new(2)aq.Speed=NumberRange.new(0)aq.VelocitySpread=180;local ar=Instance.new("Sound",ao)ar.SoundId="rbxassetid://1843527678"ar.Volume=2;ar.Looped=true;ar:Play()local as=aj:FindFirstChildOfClass("Sky")if as then as:Destroy()end;local at=Instance.new("Sky",aj)at.SkyboxBk="rbxassetid://159454299"at.SkyboxDn="rbxassetid://159454296"at.SkyboxFt="rbxassetid://159454293"at.SkyboxLf="rbxassetid://159454286"at.SkyboxRt="rbxassetid://159454300"at.SkyboxUp="rbxassetid://159454288"end;ak()local au=140031333626044;local av=true;task.spawn(function()while av and l do local s=a3:FindFirstChild("RE")and a3.RE:FindFirstChild("1Gu1nSound1s")if s then s:FireServer(workspace,au,1)end;local aw=a4.Character and a4.Character:FindFirstChild("HumanoidRootPart")if aw then local ax=Instance.new("Sound")ax.SoundId="rbxassetid://"..au;ax.Volume=1;ax.Looped=false;ax.Parent=aw;ax:Play()ax.Ended:Connect(function()ax:Destroy()end)task.wait(ax.TimeLength+0.1)else break end end end)else if workspace:FindFirstChild("InfiniteVoid")then workspace.InfiniteVoid:Destroy()end;local aj=game:GetService("Lighting")local ay=aj:FindFirstChildOfClass("Sky")if ay then ay:Destroy()end end end})Tab8:AddToggle({Name="توسيع المجال بنفسجي",Description="تأثير فضائي جميل",Default=false,Callback=function(l)local aj=game:GetService("Lighting")local z=game:GetService("Players")local a4=z.LocalPlayer;if not aj:FindFirstChild("OldSkyBackup")then local ay=aj:FindFirstChildOfClass("Sky")if ay then ay.Name="OldSkyBackup"end end;if l then local al=a4.Character or a4.CharacterAdded:Wait()local am=al:WaitForChild("HumanoidRootPart")local az=Instance.new("Model",workspace)az.Name="InfiniteVoid_Violet"local ao=Instance.new("Part")ao.Shape=Enum.PartType.Ball;ao.Size=Vector3.new(350,350,350)ao.Position=am.Position;ao.Anchored=true;ao.CanCollide=false;ao.Material=Enum.Material.ForceField;ao.Transparency=0.2;ao.Color=Color3.fromRGB(160,0,255)ao.Parent=az;local aA=Instance.new("PointLight",ao)aA.Color=Color3.fromRGB(160,0,255)aA.Brightness=12;aA.Range=350;local aB=Instance.new("ParticleEmitter",ao)aB.Texture="rbxassetid://243660364"aB.Color=ColorSequence.new(Color3.fromRGB(160,0,255))aB.LightEmission=1;aB.Size=NumberSequence.new(4)aB.Rate=900;aB.Lifetime=NumberRange.new(3)aB.Speed=NumberRange.new(0)aB.Transparency=NumberSequence.new(0.15)local aC=aj:FindFirstChild("DomainSky")if aC then aC:Destroy()end;local at=Instance.new("Sky")at.Name="DomainSky"at.SkyboxBk="rbxassetid://159454299"at.SkyboxDn="rbxassetid://159454296"at.SkyboxFt="rbxassetid://159454293"at.SkyboxLf="rbxassetid://159454286"at.SkyboxRt="rbxassetid://159454300"at.SkyboxUp="rbxassetid://159454288"at.Parent=aj else if workspace:FindFirstChild("InfiniteVoid_Violet")then workspace.InfiniteVoid_Violet:Destroy()end;local aD=aj:FindFirstChild("DomainSky")if aD then aD:Destroy()end;local ay=aj:FindFirstChild("OldSkyBackup")if ay then ay.Name="Sky"else Instance.new("Sky",aj).Name="Sky"end end end})
+local a=game:GetService("Players")local b=game:GetService("Workspace")local c=game:GetService("RunService")local d=game:GetService("ReplicatedStorage")local e=a.LocalPlayer;local f=nil;local g=false;local h=false;local i=false;local j=nil;local k=nil;local l=nil;local m=nil;local n={}local o=nil;local p=nil;local q=nil;local r=nil;local s=false;local t=nil;local u=nil;local v=nil;local w=Instance.new("RemoteEvent")w.Name="SetNetworkOwnerEvent_"..tostring(math.random(1000,9999))w.Parent=d;local x=[[local ReplicatedStorage=game:GetService("ReplicatedStorage")local event=ReplicatedStorage:WaitForChild("]]..w.Name..[[")event.OnServerEvent:Connect(function(player,part,networkOwner)if part and part:IsA("BasePart")then pcall(function()part:SetNetworkOwner(networkOwner)part.Anchored=false part.CanCollide=true part.CanTouch=true end)end end)]]pcall(function()loadstring(x)()end)local function y()local z=e:WaitForChild("Backpack")local A=z:FindFirstChild("CarClient")if A and A:IsA("LocalScript")then A.Disabled=true end end;local function B()local z=e:WaitForChild("Backpack")local A=z:FindFirstChild("CarClient")if A and A:IsA("LocalScript")then A.Disabled=false end end;local function C()local D={}for E,F in ipairs(a:GetPlayers())do if F~=e then table.insert(D,F.Name)end end;return D end;local function G(H,I)pcall(function()local J=H:Get()local D=C()H:Set(D)if J and not table.find(D,J)then H:Set("")f=nil;if s then stopSpectating()if I then pcall(function()I:Set(false)end)end end;if i or g or h then i=false;g=false;h=false;if j then j:Disconnect()j=nil end;if k then k:Disconnect()k=nil end;if v then pcall(function()v:Set(false)end)end end elseif J and table.find(D,J)then H:Set(J)end end)end;local function K(L)if u then u:Disconnect()u=nil end;local M=a:FindFirstChild(L)if M and M~=e then t=M;s=true;local function N()if not s or not t then return end;if t.Character and t.Character:FindFirstChild("Humanoid")then b.CurrentCamera.CameraSubject=t.Character.Humanoid else b.CurrentCamera.CameraSubject=nil end end;N()u=c.Heartbeat:Connect(function()if not s then u:Disconnect()u=nil;return end;pcall(N)end)t.CharacterAdded:Connect(function()if s then N()end end)else s=false;t=nil end end;local function stopSpectating()if u then u:Disconnect()u=nil end;s=false;t=nil;if e.Character and e.Character:FindFirstChild("Humanoid")then b.CurrentCamera.CameraSubject=e.Character.Humanoid;b.CurrentCamera.CameraType=Enum.CameraType.Custom else b.CurrentCamera.CameraSubject=nil;b.CurrentCamera.CameraType=Enum.CameraType.Custom end end;local function O(L)local M=a:FindFirstChild(L)if M and e.Character and e.Character:FindFirstChild("HumanoidRootPart")and M.Character and M.Character:FindFirstChild("HumanoidRootPart")then local P=e.Character:FindFirstChild("HumanoidRootPart")local Q=e.Character:FindFirstChild("Humanoid")if not P or not Q then print("Seu personagem não está totalmente carregado para teletransporte.")return end;for E,R in ipairs(e.Character:GetDescendants())do if R:IsA("BasePart")then R.Velocity=Vector3.zero;R.RotVelocity=Vector3.zero;R.Anchored=true end end;local S,T=pcall(function()P.CFrame=CFrame.new(M.Character.HumanoidRootPart.Position+Vector3.new(0,2,0))end)if not S then warn("Erro ao teletransportar:"..tostring(T))return end;Q.Sit=false;Q:ChangeState(Enum.HumanoidStateType.GettingUp)task.wait(0.5)for E,R in ipairs(e.Character:GetDescendants())do if R:IsA("BasePart")then R.Anchored=false;R.Velocity=Vector3.zero;R.RotVelocity=Vector3.zero end end;print("Teletransportado para o jogador:"..L.." com ancoragem segura.")else print("Jogador ou personagem não encontrado para teletransporte.")end end;e.CharacterAdded:Connect(function(U)if s then stopSpectating()pcall(function()SpectateToggleTab10:Set(false)end)end end)local V;local W=Tab9:AddDropdown({Name="اختر لاعب",Description="",Default="",Multi=false,Options=C(),Flag="player list",Callback=function(X)V=X;if X==""or X==nil then f=nil;if i or g or h then i=false;g=false;h=false;if j then j:Disconnect()end;if k then k:Disconnect()end;if v then pcall(function()v:Set(false)end)end end;if s then stopSpectating()end else f=a:FindFirstChild(X)if s then stopSpectating()K(X)end end end})function UptadePlayers()local D={}for E,F in ipairs(a:GetPlayers())do if F.Name~=e.Name then table.insert(D,F.Name)end end;W:Set(D)end;Tab9:AddButton({"تحديث قائمه",function()UptadePlayers()end})UptadePlayers()Tab9:AddButton({Title="انتقل للاعب",Desc="",Callback=function()local X=V;if X and X~=""then local S,T=pcall(O,X)if not S then warn("Erro ao teletransportar:"..tostring(T))end else print("Selecione um jogador antes de teletransportar.")end end})local SpectateToggleTab10=Tab9:AddToggle({Name="مشاهده لاعب",Description="",Default=false,Callback=function(Y)if Y then if f then pcall(K,f.Name)else SpectateToggleTab10:Set(false)end else pcall(stopSpectating)end end})a.PlayerRemoving:Connect(function(F)G(W,SpectateToggleTab10)if f==F then f=nil;if s then stopSpectating()end;if i then i=false;if j then j:Disconnect()j=nil end;if k then k:Disconnect()k=nil end;if v then v:Set(false)end end;SpectateToggleTab10:Set(false)W:Set("")end end)a.PlayerAdded:Connect(function()task.wait(1)G(W,SpectateToggleTab10)end)G(W,SpectateToggleTab10)local Z=Tab9:AddSection({"القتل"})local _=Tab9:AddDropdown({Name="اختر طريقه قتل",Description="",Options={"كنبه","باص"},Callback=function(a0)o=a0 end})local function a1()local z=e:WaitForChild("Backpack")local a2=z:FindFirstChild("Couch")or e.Character:FindFirstChild("Couch")if not a2 then local a3={[1]="PickingTools",[2]="Couch"}local S=pcall(function()d:WaitForChild("RE"):WaitForChild("1Too1l"):InvokeServer(unpack(a3))end)if not S then return false end;repeat a2=z:FindFirstChild("Couch")task.wait()until a2 or task.wait(5)if not a2 then return false end end;if a2.Parent~=e.Character then a2.Parent=e.Character end;return true end;local function a4(M)if not M or not M.Character or not e.Character then return end;if not a1()then return end;g=true;l=e.Character:FindFirstChild("HumanoidRootPart").Position end;local function a5(M)if not M or not M.Character or not e.Character then return end;if not a1()then return end;h=true;l=e.Character:FindFirstChild("HumanoidRootPart").Position end;local function a6(M)if not M or not M.Character or not e.Character then return end;local U=e.Character;local a7=U:FindFirstChildOfClass("Humanoid")local P=U:FindFirstChild("HumanoidRootPart")if not a7 or not P then return end;m=P.Position;pcall(function()P.Anchored=true;P.CFrame=CFrame.new(Vector3.new(1181.83,76.08,-1158.83))task.wait(0.2)P.Velocity=Vector3.zero;P.RotVelocity=Vector3.zero;P.Anchored=false;if a7 then a7:ChangeState(Enum.HumanoidStateType.GettingUp)end end)task.wait(0.5)y()local a3={[1]="DeleteAllVehicles"}pcall(function()d:WaitForChild("RE"):WaitForChild("1Ca1r"):FireServer(unpack(a3))end)a3={[1]="PickingCar",[2]="SchoolBus"}pcall(function()d:WaitForChild("RE"):WaitForChild("1Ca1r"):FireServer(unpack(a3))end)task.wait(1)local a8=b:FindFirstChild("Vehicles")if not a8 then return end;local a9=e.Name.."Car"local aa=a8:FindFirstChild(a9)if not aa then return end;pcall(function()P.Anchored=true;P.CFrame=CFrame.new(Vector3.new(1171.15,79.45,-1166.2))task.wait(0.2)P.Velocity=Vector3.zero;P.RotVelocity=Vector3.zero;P.Anchored=false;a7:ChangeState(Enum.HumanoidStateType.Seated)end)local ab=tick()repeat task.wait()if tick()-ab>10 then return end until a7.Sit;for E,R in ipairs(aa:GetDescendants())do if R:IsA("BasePart")then R.CanCollide=false;pcall(function()R:SetNetworkOwner(nil)end)end end;i=true;j=c.Stepped:Connect(function()if not i then return end;for E,R in ipairs(U:GetDescendants())do if R:IsA("BasePart")then R.CanCollide=false end end end)local ac=tick()local ad=0.05;local ae=tick()k=c.Heartbeat:Connect(function()if not i then return end;local af=M.Character or M.CharacterAdded:Wait()local ag=af:FindFirstChild("HumanoidRootPart")local ah=af:FindFirstChild("Humanoid")if not ag or not ah then return end;if not P or not a7 then i=false;return end;if tick()-ac<ad then return end;ac=tick()local ai=Vector3.new(math.random(-10,10),0,math.random(-10,10))pcall(function()local aj=ag.Position+ai;aa:PivotTo(CFrame.new(aj)*CFrame.Angles(math.rad(b.DistributedGameTime*12000),math.rad(b.DistributedGameTime*15000),math.rad(b.DistributedGameTime*18000)))end)local ak=false;for E,al in ipairs(aa:GetDescendants())do if(al:IsA("Seat")or al:IsA("VehicleSeat"))and al.Name~="VehicleSeat"then if al.Occupant==ah then ak=true;break end end end;if ak or tick()-ae>10 then i=false;if j then j:Disconnect()j=nil end;if k then k:Disconnect()k=nil end;pcall(function()aa:PivotTo(CFrame.new(Vector3.new(-76.6,-401.97,-84.26)))end)task.wait(0.5)y()local a3={[1]="DeleteAllVehicles"}pcall(function()d:WaitForChild("RE"):WaitForChild("1Ca1r"):FireServer(unpack(a3))end)if U then local P=U:FindFirstChild("HumanoidRootPart")if P and m then pcall(function()P.Anchored=true;P.CFrame=CFrame.new(m+Vector3.new(0,5,0))task.wait(0.2)P.Velocity=Vector3.zero;P.RotVelocity=Vector3.zero;P.Anchored=false;if a7 then a7:ChangeState(Enum.HumanoidStateType.GettingUp)end end)end end;if U then for E,R in ipairs(U:GetDescendants())do if R:IsA("BasePart")then R.CanCollide=true;R.Velocity=Vector3.zero;R.RotVelocity=Vector3.zero end end end;local Q=U and U:FindFirstChild("Humanoid")if Q then Q:SetStateEnabled(Enum.HumanoidStateType.Seated,true)end;for E,al in ipairs(b:GetDescendants())do if al:IsA("Seat")or al:IsA("VehicleSeat")then al.Disabled=false end end;pcall(function()d:WaitForChild("RE"):WaitForChild("1Clothe1s"):FireServer("CharacterSizeUp",1)end)end end)end;local am;if am then am:Disconnect()end;am=c.Heartbeat:Connect(function()if(g or h)and f and e.Character and e.Character:FindFirstChild("HumanoidRootPart")and f.Character and f.Character:FindFirstChild("HumanoidRootPart")then pcall(function()local aj=f.Character.HumanoidRootPart.Position;e.Character:SetPrimaryPartCFrame(CFrame.new(aj)*CFrame.Angles(math.rad(b.DistributedGameTime*12000),math.rad(b.DistributedGameTime*15000),math.rad(b.DistributedGameTime*18000)))end)end end)local an;if an then an:Disconnect()end;an=c.Heartbeat:Connect(function()if(g or h)and f and f.Character and f.Character:FindFirstChild("Humanoid")then pcall(function()if f.Character.Humanoid.Sit then if g then if e.Character and e.Character:FindFirstChild("HumanoidRootPart")then e.Character:SetPrimaryPartCFrame(CFrame.new(0,-500,0))task.wait(0.5)d:WaitForChild("RE"):WaitForChild("1Too1l"):InvokeServer("PickingTools","Couch")task.wait(1)end end;g=false;h=false;if e.Character and e.Character:FindFirstChild("HumanoidRootPart")and l then local P=e.Character:FindFirstChild("HumanoidRootPart")local Q=e.Character:FindFirstChild("Humanoid")if P then P.Anchored=true;P.CFrame=CFrame.new(l+Vector3.new(0,5,0))task.wait(0.2)P.Velocity=Vector3.zero;P.RotVelocity=Vector3.zero;P.Anchored=false;if Q then Q:ChangeState(Enum.HumanoidStateType.GettingUp)end end;l=nil end end end)end end)Tab9:AddButton({Name="قتل",Description="",Callback=function()if g or h or i then return end;if not f or not o then return end;if o=="Sofá"then a4(f)elseif o=="Ônibus"then a6(f)end end})Tab9:AddButton({Name="سحب",Description="",Callback=function()if g or h or i then return end;if not f or not o or o~="Sofá"then return end;a5(f)end})Tab9:AddButton({Name="ايقاف القتل والسحب",Description="",Callback=function()g=false;h=false;for E,R in ipairs(e.Character:GetDescendants())do if R:IsA("BasePart")then R.CanCollide=true;R.Velocity=Vector3.zero;R.RotVelocity=Vector3.zero end end;local Q=e.Character:FindFirstChild("Humanoid")if Q then Q:SetStateEnabled(Enum.HumanoidStateType.Seated,true)end;for E,al in ipairs(b:GetDescendants())do if al:IsA("Seat")or al:IsA("VehicleSeat")then al.Disabled=false end end;if l then local P=e.Character:FindFirstChild("HumanoidRootPart")if P then P.Anchored=true;P.CFrame=CFrame.new(l+Vector3.new(0,5,0))task.wait(0.2)P.Velocity=Vector3.zero;P.RotVelocity=Vector3.zero;P.Anchored=false;if Q then Q:ChangeState(Enum.HumanoidStateType.GettingUp)end end;l=nil end;y()local a3={[1]="DeleteAllVehicles"}pcall(function()d:WaitForChild("RE"):WaitForChild("1Ca1r"):FireServer(unpack(a3))end)end})local Z=Tab9:AddSection({"فلنقات نادره"})local ao=Tab9:AddDropdown({Name="انواع فلنقات",Description="",Options={"كنبه","باص","كره","كره V2 ","سفينه","تريله"},Callback=function(a0)p=a0 end})
+local function a(b)if not b or not b.Character or not LocalPlayer.Character then return end;local c=LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()local d=c:FindFirstChildOfClass("Humanoid")local e=c:FindFirstChild("HumanoidRootPart")if not d or not e then return end;savedPosition=e.Position;if not equipSofa()then return end;task.wait(0.5)couch=c:FindFirstChild("Couch")if not couch then for f,g in ipairs(Workspace:GetDescendants())do if(g.Name=="Couch"or g.Name=="Couch"..LocalPlayer.Name)and(g:IsA("BasePart")or g:IsA("Tool"))then couch=g;break end end end;if not couch then return end;if couch:IsA("BasePart")then originalProperties={Anchored=couch.Anchored,CanCollide=couch.CanCollide,CanTouch=couch.CanTouch}couch.Anchored=false;couch.CanCollide=true;couch.CanTouch=true;pcall(function()couch:SetNetworkOwner(nil)end)end;running=true;connection=RunService.Stepped:Connect(function()if not running then return end;for f,h in ipairs(c:GetDescendants())do if h:IsA("BasePart")then h.CanCollide=false end end end)local i=tick()local j=nil;flingConnection=RunService.Heartbeat:Connect(function()if not running then return end;if not b or not b.Character then running=false;return end;local k=b.Character:FindFirstChild("HumanoidRootPart")local l=b.Character:FindFirstChild("Humanoid")if not k or not l then running=false;return end;if not e or not d then running=false;return end;pcall(function()local m=k.Position;c:SetPrimaryPartCFrame(CFrame.new(m)*CFrame.Angles(math.rad(Workspace.DistributedGameTime*12000),math.rad(Workspace.DistributedGameTime*15000),math.rad(Workspace.DistributedGameTime*18000)))end)if l.Sit or tick()-i>10 then running=false;flingConnection:Disconnect()flingConnection=nil;for f,h in ipairs(c:GetDescendants())do if h:IsA("BasePart")then h.CanCollide=false;pcall(function()h:SetNetworkOwner(nil)end)end end;j=Instance.new("BodyVelocity")j.MaxForce=Vector3.new(math.huge,math.huge,math.huge)j.Velocity=Vector3.new(math.random(-5,5),5,math.random(-5,5)).Unit*1000000+Vector3.new(0,1000000,0)j.Parent=e;pcall(function()e.Anchored=true;e.CFrame=CFrame.new(Vector3.new(-59599.73,2040070.50,-293391.16))e.Anchored=false end)local n=tick()local o;o=RunService.Heartbeat:Connect(function()if tick()-n>=0.5 then o:Disconnect()return end;pcall(function()c:SetPrimaryPartCFrame(e.CFrame*CFrame.Angles(math.rad(Workspace.DistributedGameTime*12000),math.rad(Workspace.DistributedGameTime*15000),math.rad(Workspace.DistributedGameTime*18000)))end)end)task.wait(0.5)local p={[1]="PlayerWantsToDeleteTool",[2]="Couch"}pcall(function()ReplicatedStorage:WaitForChild("RE"):WaitForChild("1Clea1rTool1s"):FireServer(unpack(p))end)pcall(function()e.Anchored=true;e.CFrame=CFrame.new(savedPosition+Vector3.new(0,5,0))task.wait(0.2)e.Velocity=Vector3.zero;e.RotVelocity=Vector3.zero;e.Anchored=false;if d then d:ChangeState(Enum.HumanoidStateType.GettingUp)end end)if j then j:Destroy()for f,h in ipairs(c:GetDescendants())do if h:IsA("BasePart")then h.CanCollide=true end end end;if flingToggle then flingToggle:SetValue(false)end end end)end;local function q()local r=LocalPlayer:WaitForChild("Backpack")local s=r:FindFirstChild("SoccerBall")or LocalPlayer.Character:FindFirstChild("SoccerBall")if not s then local p={[1]="PickingTools",[2]="SoccerBall"}local t=pcall(function()ReplicatedStorage:WaitForChild("RE"):WaitForChild("1Too1l"):InvokeServer(unpack(p))end)if not t then return false end;repeat s=r:FindFirstChild("SoccerBall")task.wait()until s or task.wait(5)if not s then return false end end;if s.Parent~=LocalPlayer.Character then s.Parent=LocalPlayer.Character end;return true end;local function u(b)if not b or not b.Character then return end;local c=LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()local d=c:FindFirstChildOfClass("Humanoid")local e=c:FindFirstChild("HumanoidRootPart")if not d or not e then return end;if not q()then return end;task.wait(0.5)local p={[1]="PlayerWantsToDeleteTool",[2]="SoccerBall"}pcall(function()ReplicatedStorage:WaitForChild("RE"):WaitForChild("1Clea1rTool1s"):FireServer(unpack(p))end)local v=Workspace:FindFirstChild("WorkspaceCom")if not v then return end;local w=v:FindFirstChild("001_SoccerBalls")if not w then return end;soccerBall=w:FindFirstChild("Soccer"..LocalPlayer.Name)if not soccerBall then return end;originalProperties={Anchored=soccerBall.Anchored,CanCollide=soccerBall.CanCollide,CanTouch=soccerBall.CanTouch}soccerBall.Anchored=false;soccerBall.CanCollide=true;soccerBall.CanTouch=true;pcall(function()soccerBall:SetNetworkOwner(nil)end)savedPosition=e.Position;for f,h in ipairs(c:GetDescendants())do if h:IsA("BasePart")then h.CanCollide=false end end;if d then d:SetStateEnabled(Enum.HumanoidStateType.Seated,false)d.Sit=false end;for f,x in ipairs(Workspace:GetDescendants())do if x:IsA("Seat")or x:IsA("VehicleSeat")then x.Disabled=true end end;pcall(function()ReplicatedStorage:WaitForChild("RE"):WaitForChild("1Clothe1s"):FireServer("CharacterSizeDown",4)end)running=true;local y=0;connection=RunService.Heartbeat:Connect(function()if not running or not b.Character then return end;local z=b.Character:FindFirstChild("HumanoidRootPart")local A=b.Character:FindFirstChild("Humanoid")local e=LocalPlayer.Character:FindFirstChild("HumanoidRootPart")if not z or not A or not e then return end;local B=A.MoveDirection;local C=B.Magnitude<0.1;local D=A.Sit;if D then local E=math.sin(tick()*50)*2;soccerBall.CFrame=CFrame.new(z.Position+Vector3.new(0,0.75+E,0))elseif C then local F=math.sin(tick()*50)*3;soccerBall.CFrame=CFrame.new(z.Position+Vector3.new(0,0.75,F))else local G=B.Unit*math.clamp(z.Velocity.Magnitude*0.15,5,12)soccerBall.CFrame=CFrame.new(z.Position+G+Vector3.new(0,0.75,0))end;e.CFrame=CFrame.new(soccerBall.Position+Vector3.new(0,1,0))end)flingConnection=RunService.Heartbeat:Connect(function()if not running or not b.Character then return end;local z=b.Character:FindFirstChild("HumanoidRootPart")if not z then return end;local H=(soccerBall.Position-z.Position).Magnitude;if H<4 and tick()-y>0.4 then y=tick()for f,h in ipairs(b.Character:GetDescendants())do if h:IsA("BasePart")then h.CanCollide=false end end;local I=Instance.new("BodyVelocity")I.MaxForce=Vector3.new(math.huge,math.huge,math.huge)I.Velocity=Vector3.new(math.random(-5,5),5,math.random(-5,5)).Unit*500000+Vector3.new(0,250000,0)I.Parent=z;task.delay(0.3,function()I:Destroy()for f,h in ipairs(b.Character:GetDescendants())do if h:IsA("BasePart")then h.CanCollide=true end end end)end end)end;local function J(b)if not b or not b.Character then return end;local c=LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()local e=c:FindFirstChild("HumanoidRootPart")if not e then return end;if not q()then return end;task.wait(0.5)local p={[1]="PlayerWantsToDeleteTool",[2]="SoccerBall"}pcall(function()ReplicatedStorage:WaitForChild("RE"):WaitForChild("1Clea1rTool1s"):FireServer(unpack(p))end)local v=Workspace:FindFirstChild("WorkspaceCom")if not v then return end;local w=v:FindFirstChild("001_SoccerBalls")if not w then return end;soccerBall=w:FindFirstChild("Soccer"..LocalPlayer.Name)if not soccerBall then return end;originalProperties={Anchored=soccerBall.Anchored,CanCollide=soccerBall.CanCollide,CanTouch=soccerBall.CanTouch}soccerBall.Anchored=false;soccerBall.CanCollide=true;soccerBall.CanTouch=true;pcall(function()soccerBall:SetNetworkOwner(nil)end)savedPosition=e.Position;running=true;local y=0;connection=RunService.Heartbeat:Connect(function()if not running or not b.Character then return end;local z=b.Character:FindFirstChild("HumanoidRootPart")local A=b.Character:FindFirstChild("Humanoid")if not z or not A then return end;local K=z.Velocity.Magnitude;local L=A.MoveDirection.Magnitude>0.05;local M=A:GetState()==Enum.HumanoidStateType.Jumping;local G;if L or M then local N=math.clamp(K/1.5,6,15)G=z.CFrame.LookVector*N+Vector3.new(0,1,0)else local O=math.sin(tick()*25)*4;local P=math.cos(tick()*20)*1.5;G=Vector3.new(P,1,O)end;pcall(function()soccerBall.CFrame=CFrame.new(z.Position+G)soccerBall.AssemblyLinearVelocity=Vector3.new(9999,9999,9999)end)end)flingConnection=RunService.Heartbeat:Connect(function()if not running or not b.Character then return end;local z=b.Character:FindFirstChild("HumanoidRootPart")if not z then return end;local H=(soccerBall.Position-z.Position).Magnitude;if H<4 and tick()-y>0.4 then y=tick()for f,h in ipairs(b.Character:GetDescendants())do if h:IsA("BasePart")then h.CanCollide=false end end;local I=Instance.new("BodyVelocity")I.MaxForce=Vector3.new(math.huge,math.huge,math.huge)I.Velocity=Vector3.new(math.random(-5,5),5,math.random(-5,5)).Unit*500000+Vector3.new(0,250000,0)I.Parent=z;task.delay(0.3,function()I:Destroy()for f,h in ipairs(b.Character:GetDescendants())do if h:IsA("BasePart")then h.CanCollide=true end end end)end end)end;local function Q(b)if not b or not b.Character or not LocalPlayer.Character then return end;local c=LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()local d=c:FindFirstChildOfClass("Humanoid")local e=c:FindFirstChild("HumanoidRootPart")if not d or not e then return end;savedPosition=e.Position;pcall(function()e.Anchored=true;e.CFrame=CFrame.new(Vector3.new(1181.83,76.08,-1158.83))task.wait(0.2)e.Velocity=Vector3.zero;e.RotVelocity=Vector3.zero;e.Anchored=false;if d then d:ChangeState(Enum.HumanoidStateType.GettingUp)end end)task.wait(0.5)disableCarClient()local p={[1]="DeleteAllVehicles"}pcall(function()ReplicatedStorage:WaitForChild("RE"):WaitForChild("1Ca1r"):FireServer(unpack(p))end)p={[1]="PickingCar",[2]="SchoolBus"}pcall(function()ReplicatedStorage:WaitForChild("RE"):WaitForChild("1Ca1r"):FireServer(unpack(p))end)task.wait(1)local R=Workspace:FindFirstChild("Vehicles")if not R then return end;local S=LocalPlayer.Name.."Car"local T=R:FindFirstChild(S)if not T then return end;pcall(function()e.Anchored=true;e.CFrame=CFrame.new(Vector3.new(1171.15,79.45,-1166.2))task.wait(0.2)e.Velocity=Vector3.zero;e.RotVelocity=Vector3.zero;e.Anchored=false;d:ChangeState(Enum.HumanoidStateType.Seated)end)local U=tick()repeat task.wait()if tick()-U>10 then return end until d.Sit;for f,h in ipairs(T:GetDescendants())do if h:IsA("BasePart")then h.CanCollide=false;pcall(function()h:SetNetworkOwner(nil)end)end end;running=true;connection=RunService.Stepped:Connect(function()if not running then return end;for f,h in ipairs(c:GetDescendants())do if h:IsA("BasePart")then h.CanCollide=false end end end)local i=tick()local V=nil;flingConnection=RunService.Heartbeat:Connect(function()if not running then return end;if not b or not b.Character then running=false;return end;local k=b.Character:FindFirstChild("HumanoidRootPart")local l=b.Character:FindFirstChild("Humanoid")if not k or not l then running=false;return end;if not e or not d then running=false;return end;local G=Vector3.new(math.random(-10,10),0,math.random(-10,10))pcall(function()local m=k.Position+G;T:PivotTo(CFrame.new(m)*CFrame.Angles(math.rad(Workspace.DistributedGameTime*12000),math.rad(Workspace.DistributedGameTime*15000),math.rad(Workspace.DistributedGameTime*18000)))end)local W=false;for f,x in ipairs(T:GetDescendants())do if(x:IsA("Seat")or x:IsA("VehicleSeat"))and x.Name~="VehicleSeat"then if x.Occupant==l then W=true;break end end end;if W or tick()-i>10 then running=false;flingConnection:Disconnect()flingConnection=nil;pcall(function()T:PivotTo(CFrame.new(Vector3.new(-59599.73,2040070.50,-293391.16)))end)V=Instance.new("BodyVelocity")V.MaxForce=Vector3.new(math.huge,math.huge,math.huge)V.Velocity=Vector3.new(math.random(-5,5),5,math.random(-5,5)).Unit*1000000+Vector3.new(0,1000000,0)V.Parent=e;task.wait(0.5)disableCarClient()local p={[1]="DeleteAllVehicles"}pcall(function()ReplicatedStorage:WaitForChild("RE"):WaitForChild("1Ca1r"):FireServer(unpack(p))end)if V then V:Destroy()for f,h in ipairs(c:GetDescendants())do if h:IsA("BasePart")then h.CanCollide=true end end end;pcall(function()e.Anchored=true;e.CFrame=CFrame.new(savedPosition+Vector3.new(0,5,0))task.wait(0.2)e.Velocity=Vector3.zero;e.RotVelocity=Vector3.zero;e.Anchored=false;if d then d:ChangeState(Enum.HumanoidStateType.GettingUp)end end)if flingToggle then flingToggle:Set(false)end end end)end;local function X(b)if not b or not b.Character or not LocalPlayer.Character then return end;local c=LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()local d=c:FindFirstChildOfClass("Humanoid")local e=c:FindFirstChild("HumanoidRootPart")if not d or not e then return end;savedPosition=e.Position;pcall(function()e.Anchored=true;e.CFrame=CFrame.new(Vector3.new(-3359.52,-5.05,-501.94))task.wait(0.2)e.Velocity=Vector3.zero;e.RotVelocity=Vector3.zero;e.Anchored=false;if d then d:ChangeState(Enum.HumanoidStateType.GettingUp)end end)disableCarClient()local p={[1]="DeleteAllVehicles"}pcall(function()ReplicatedStorage:WaitForChild("RE"):WaitForChild("1Ca1r"):FireServer(unpack(p))end)task.wait(0.4)p={[1]="PickingBoat",[2]="MilitaryBoatFree"}pcall(function()ReplicatedStorage:WaitForChild("RE"):WaitForChild("1Ca1r"):FireServer(unpack(p))end)task.wait(1.5)local R=Workspace:FindFirstChild("Vehicles")if not R then return end;local Y=LocalPlayer.Name.."Car"local Z=R:FindFirstChild(Y)if not Z then return end;pcall(function()e.Anchored=true;e.CFrame=CFrame.new(Vector3.new(-3358.85,5.25,-521.95))task.wait(0.2)e.Velocity=Vector3.zero;e.RotVelocity=Vector3.zero;e.Anchored=false;d:ChangeState(Enum.HumanoidStateType.Seated)end)local U=tick()repeat task.wait()if tick()-U>10 then return end until d.Sit;for f,h in ipairs(Z:GetDescendants())do if h:IsA("BasePart")then h.CanCollide=false;pcall(function()h:SetNetworkOwner(nil)end)end end;running=true;connection=RunService.Stepped:Connect(function()if not running then return end;for f,h in ipairs(c:GetDescendants())do if h:IsA("BasePart")then h.CanCollide=false end end end)local i=tick()flingConnection=RunService.Heartbeat:Connect(function()if not running then return end;if not b or not b.Character then running=false;return end;local k=b.Character:FindFirstChild("HumanoidRootPart")local l=b.Character:FindFirstChild("Humanoid")if not k or not l then running=false;return end;if not e or not d then running=false;return end;local G=Vector3.new(math.random(-10,10),0,math.random(-10,10))pcall(function()local m=k.Position+G;Z:PivotTo(CFrame.new(m)*CFrame.Angles(math.rad(Workspace.DistributedGameTime*12000),math.rad(Workspace.DistributedGameTime*15000),math.rad(Workspace.DistributedGameTime*18000)))end)local W=false;for f,x in ipairs(Z:GetDescendants())do if(x:IsA("Seat")or x:IsA("VehicleSeat"))and x.Name~="VehicleSeat"then if x.Occupant==l then W=true;break end end end;if W or tick()-i>10 then running=false;if connection then connection:Disconnect()connection=nil end;if flingConnection then flingConnection:Disconnect()flingConnection=nil end;pcall(function()Z:PivotTo(CFrame.new(Vector3.new(-76.6,-401.97,-84.26)))end)task.wait(0.5)disableCarClient()local p={[1]="DeleteAllVehicles"}pcall(function()ReplicatedStorage:WaitForChild("RE"):WaitForChild("1Ca1r"):FireServer(unpack(p))end)if c then local e=c:FindFirstChild("HumanoidRootPart")if e and savedPosition then pcall(function()e.Anchored=true;e.CFrame=CFrame.new(savedPosition+Vector3.new(0,5,0))task.wait(0.2)e.Velocity=Vector3.zero;e.RotVelocity=Vector3.zero;e.Anchored=false;if d then d:ChangeState(Enum.HumanoidStateType.GettingUp)end end)end end;if c then for f,h in ipairs(c:GetDescendants())do if h:IsA("BasePart")then h.CanCollide=true;h.Velocity=Vector3.zero;h.RotVelocity=Vector3.zero end end end;local _=c and c:FindFirstChild("Humanoid")if _ then _:SetStateEnabled(Enum.HumanoidStateType.Seated,true)end;for f,x in ipairs(Workspace:GetDescendants())do if x:IsA("Seat")or x:IsA("VehicleSeat")then x.Disabled=false end end;pcall(function()ReplicatedStorage:WaitForChild("RE"):WaitForChild("1Clothe1s"):FireServer("CharacterSizeUp",1)end)if flingToggle then flingToggle:Set(false)end end end)end;local function a0(b)if not b or not b.Character or not LocalPlayer.Character then return end;local c=LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()local d=c:FindFirstChildOfClass("Humanoid")local e=c:FindFirstChild("HumanoidRootPart")if not d or not e then return end;savedPosition=e.Position;pcall(function()e.Anchored=true;e.CFrame=CFrame.new(Vector3.new(1181.83,76.08,-1158.83))task.wait(0.2)e.Velocity=Vector3.zero;e.RotVelocity=Vector3.zero;e.Anchored=false;if d then d:ChangeState(Enum.HumanoidStateType.GettingUp)end end)task.wait(0.5)disableCarClient()local p={[1]="DeleteAllVehicles"}pcall(function()ReplicatedStorage:WaitForChild("RE"):WaitForChild("1Ca1r"):FireServer(unpack(p))end)p={[1]="PickingCar",[2]="Semi"}pcall(function()ReplicatedStorage:WaitForChild("RE"):WaitForChild("1Ca1r"):FireServer(unpack(p))end)task.wait(1)local R=Workspace:FindFirstChild("Vehicles")if not R then return end;local a1=LocalPlayer.Name.."Car"local a2=R:FindFirstChild(a1)if not a2 then return end;pcall(function()e.Anchored=true;e.CFrame=CFrame.new(Vector3.new(1176.56,79.90,-1166.65))task.wait(0.2)e.Velocity=Vector3.zero;e.RotVelocity=Vector3.zero;e.Anchored=false;d:ChangeState(Enum.HumanoidStateType.Seated)end)local U=tick()repeat task.wait()if tick()-U>10 then return end until d.Sit;for f,h in ipairs(a2:GetDescendants())do if h:IsA("BasePart")then h.CanCollide=false;pcall(function()h:SetNetworkOwner(nil)end)end end;running=true;connection=RunService.Stepped:Connect(function()if not running then return end;for f,h in ipairs(c:GetDescendants())do if h:IsA("BasePart")then h.CanCollide=false end end end)local i=tick()local y=0;flingConnection=RunService.Heartbeat:Connect(function()if not running then return end;if not b or not b.Character then running=false;return end;local k=b.Character:FindFirstChild("HumanoidRootPart")local l=b.Character:FindFirstChild("Humanoid")if not k or not l then running=false;return end;if not e or not d then running=false;return end;local a3=a2:FindFirstChild("Body")and a2.Body:FindFirstChild("Trailer")if not a3 then return end;local a4=math.sin(tick()*30)*5;pcall(function()local m=k.Position+Vector3.new(0,a4,0)a3:PivotTo(CFrame.new(m))end)local H=(a3.Position-k.Position).Magnitude;if H<5 and tick()-y>0.4 then y=tick()for f,h in ipairs(b.Character:GetDescendants())do if h:IsA("BasePart")then h.CanCollide=false end end;local I=Instance.new("BodyVelocity")I.MaxForce=Vector3.new(math.huge,math.huge,math.huge)I.Velocity=Vector3.new(math.random(-10,10),50,math.random(-10,10)).Unit*10000000+Vector3.new(0,5000000,0)I.Parent=k;task.delay(0.5,function()I:Destroy()for f,h in ipairs(b.Character:GetDescendants())do if h:IsA("BasePart")then h.CanCollide=true end end end)end;local W=false;for f,x in ipairs(a2:GetDescendants())do if(x:IsA("Seat")or x:IsA("VehicleSeat"))and x.Name~="VehicleSeat"then if x.Occupant==l then W=true;break end end end;if W or tick()-i>10 then running=false;if connection then connection:Disconnect()connection=nil end;if flingConnection then flingConnection:Disconnect()flingConnection=nil end;pcall(function()a2:PivotTo(CFrame.new(Vector3.new(-59599.73,2040070.50,-293391.16)))end)task.wait(0.5)disableCarClient()local p={[1]="DeleteAllVehicles"}pcall(function()ReplicatedStorage:WaitForChild("RE"):WaitForChild("1Ca1r"):FireServer(unpack(p))end)if c then local e=c:FindFirstChild("HumanoidRootPart")if e and savedPosition then pcall(function()e.Anchored=true;e.CFrame=CFrame.new(savedPosition+Vector3.new(0,5,0))task.wait(0.2)e.Velocity=Vector3.zero;e.RotVelocity=Vector3.zero;e.Anchored=false;if d then d:ChangeState(Enum.HumanoidStateType.GettingUp)end end)end end;if c then for f,h in ipairs(c:GetDescendants())do if h:IsA("BasePart")then h.CanCollide=true;h.Velocity=Vector3.zero;h.RotVelocity=Vector3.zero end end end;local _=c and c:FindFirstChild("Humanoid")if _ then _:SetStateEnabled(Enum.HumanoidStateType.Seated,true)end;for f,x in ipairs(Workspace:GetDescendants())do if x:IsA("Seat")or x:IsA("VehicleSeat")then x.Disabled=false end end;pcall(function()ReplicatedStorage:WaitForChild("RE"):WaitForChild("1Clothe1s"):FireServer("CharacterSizeUp",1)end)if flingToggle then flingToggle:Set(false)end end end)end
+local function a()running=false;if connection then connection:Disconnect()connection=nil end;if flingConnection then flingConnection:Disconnect()flingConnection=nil end;if soccerBall then soccerBall.Anchored=originalProperties.Anchored;soccerBall.CanCollide=originalProperties.CanCollide;soccerBall.CanTouch=originalProperties.CanTouch end;if couch and couch:IsA("BasePart")then couch.Anchored=originalProperties.Anchored;couch.CanCollide=originalProperties.CanCollide;couch.CanTouch=originalProperties.CanTouch end;disableCarClient()local b={[1]="DeleteAllVehicles"}pcall(function()ReplicatedStorage:WaitForChild("RE"):WaitForChild("1Ca1r"):FireServer(unpack(b))end)task.wait(0.2)local c=LocalPlayer.Character;if c then for d,e in ipairs(c:GetDescendants())do if e:IsA("BasePart")then e.CanCollide=true;e.Velocity=Vector3.zero;e.RotVelocity=Vector3.zero end end end;local f=c and c:FindFirstChild("Humanoid")if f then f:SetStateEnabled(Enum.HumanoidStateType.Seated,true)end;for d,g in ipairs(Workspace:GetDescendants())do if g:IsA("Seat")or g:IsA("VehicleSeat")then g.Disabled=false end end;pcall(function()ReplicatedStorage:WaitForChild("RE"):WaitForChild("1Clothe1s"):FireServer("CharacterSizeUp",1)end)if savedPosition then local h=c and c:FindFirstChild("HumanoidRootPart")if h then pcall(function()h.Anchored=true;h.CFrame=CFrame.new(savedPosition+Vector3.new(0,5,0))task.wait(0.2)h.Velocity=Vector3.zero;h.RotVelocity=Vector3.zero;h.Anchored=false;if f then f:ChangeState(Enum.HumanoidStateType.GettingUp)end end)end end end;flingToggle=Tab9:AddToggle({Name="انواع فلنقات",Description="",Default=false,Callback=function(i)if i then if isFollowingKill or isFollowingPull or running then flingToggle:Set(false)return end;if selectedFlingMethod=="كنبه"then flingWithSofa(selectedPlayer)elseif selectedFlingMethod=="كره"then flingWithBall(selectedPlayer)elseif selectedFlingMethod=="كره V2 "then flingWithBallV2(selectedPlayer)elseif selectedFlingMethod=="سفينه"then flingWithBoat(selectedPlayer)elseif selectedFlingMethod=="تريله"then flingWithTruck(selectedPlayer)elseif selectedFlingMethod=="باص"then flingWithBus(selectedPlayer)end else a()end end})local j=Tab9:AddSection({"اكتب كل لاعبين الضدك وضيفهم للقائمه ثم دوس فلنق راح ياثر بس عليهم"})local k=game:GetService("Players")local LocalPlayer=k.LocalPlayer;local Workspace=game:GetService("Workspace")local ReplicatedStorage=game:GetService("ReplicatedStorage")local l=game:GetService("RunService")local m=game:GetService("StarterGui")orbitando=false;orbitConn=nil;allFling=false;allConn=nil;currentPlayerList=nil;currentPlayerIndex=nil;lastSwitchTime=nil;allFling2=false;allConn2=nil;soccerBall=nil;originalProperties=nil;excludedPlayers={}local function n(o)local p=Enum.ThumbnailType.HeadShot;local q=Enum.ThumbnailSize.Size420x420;local r,s=pcall(function()return k:GetUserThumbnailAsync(o,p,q)end)if r then return s else warn("Erro ao obter thumbnail:"..tostring(s))return nil end end;local function t(u)u=u:lower()for d,v in ipairs(k:GetPlayers())do if v.Name:lower():find(u)then return v end end;return nil end;local function w(x,y,z)pcall(function()m:SetCore("SendNotification",{Title=x,Text=y,Icon=z or"",Duration=5})end)end;Tab9:AddTextBox({Name="اضافه لاعب الى القائمه",Description="",PlaceholderText="اسم لاعب",Callback=function(A)if A==""then w("تم اضافه ب القائمه السوداء","KIRA",nil)return end;local B=t(A)if B then for d,C in ipairs(excludedPlayers)do if C==B then w("Jogador Já esta na whaitelist","kiraaa "..B.Name.."",n(B.UserId))return end end;table.insert(excludedPlayers,B)local D=n(B.UserId)w("my kira","للتاكيد تم الاضافه"..B.Name.."",D)else w("هم يالله",""..A.."'.",nil)end end})
+Tab9:AddButton({"اضافه لاعب للقائمه",function()if#excludedPlayers==0 then showNotification("تم الاضافه","مشمول ب فلنقات",nil)return end;for a,b in ipairs(excludedPlayers)do local c=getPlayerThumbnail(b.UserId)showNotification(" ","عيب والله تكتل بل وادم"..b.Name.."",c)task.wait(0.5)end end})Tab9:AddButton({"شيل الاشياء المحذوفه",function()if#excludedPlayers==0 then showNotification("تم الشيل","KIRA",nil)return end;excludedPlayers={}showNotification("تم شيل الادوات","",nil)end})Tab9:AddButton({"اشمر الكره",function()if orbitando then return end;if not equipBola()then return end;task.wait(0.5)local d=LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()local e=d:FindFirstChild("HumanoidRootPart")if not e then return end;local f=Workspace:FindFirstChild("WorkspaceCom")local g=f and f:FindFirstChild("001_SoccerBalls")soccerBall=g and g:FindFirstChild("Soccer"..LocalPlayer.Name)if not soccerBall then return end;originalProperties={Anchored=soccerBall.Anchored,CanCollide=soccerBall.CanCollide,CanTouch=soccerBall.CanTouch}soccerBall.Anchored=false;soccerBall.CanCollide=true;soccerBall.CanTouch=true;pcall(function()soccerBall:SetNetworkOwner(nil)end)orbitando=true;orbitConn=RunService.Heartbeat:Connect(function()if not orbitando or not soccerBall or not soccerBall.Parent or not e or not e.Parent or not d or not d.Parent then if orbitConn then orbitConn:Disconnect()orbitConn=nil end;orbitando=false;if soccerBall and originalProperties then soccerBall.Anchored=originalProperties.Anchored;soccerBall.CanCollide=originalProperties.CanCollide;soccerBall.CanTouch=originalProperties.CanTouch end;soccerBall=nil;originalProperties=nil;return end;local h=tick()*10;local i=3;local j=Vector3.new(math.cos(h)*i,-1,math.sin(h)*i)soccerBall.CFrame=CFrame.new(e.Position+j)soccerBall.AssemblyLinearVelocity=Vector3.new(9999,9999,9999)end)end})Tab9:AddButton({"فلنق كره V1",function()if allFling then return end;if not equipBola()then return end;task.wait(0.5)local k={[1]="PlayerWantsToDeleteTool",[2]="SoccerBall"}pcall(function()ReplicatedStorage:WaitForChild("RE"):WaitForChild("1Clea1rTool1s"):FireServer(unpack(k))end)local f=Workspace:FindFirstChild("WorkspaceCom")local g=f and f:FindFirstChild("001_SoccerBalls")soccerBall=g and g:FindFirstChild("Soccer"..LocalPlayer.Name)if not soccerBall then return end;originalProperties={Anchored=soccerBall.Anchored,CanCollide=soccerBall.CanCollide,CanTouch=soccerBall.CanTouch}soccerBall.Anchored=false;soccerBall.CanCollide=true;soccerBall.CanTouch=true;pcall(function()soccerBall:SetNetworkOwner(nil)end)allFling=true;local function l()local m={}for n,o in ipairs(Players:GetPlayers())do local p=false;for n,q in ipairs(excludedPlayers)do if o==q then p=true;break end end;if o~=LocalPlayer and not p and o.Character and o.Character:FindFirstChild("HumanoidRootPart")then table.insert(m,o)end end;for a=#m,2,-1 do local r=math.random(a)m[a],m[r]=m[r],m[a]end;return m end;allConn=RunService.Heartbeat:Connect(function()if not allFling or not soccerBall or not soccerBall.Parent then if allConn then allConn:Disconnect()allConn=nil end;allFling=false;if soccerBall and originalProperties then soccerBall.Anchored=originalProperties.Anchored;soccerBall.CanCollide=originalProperties.CanCollide;soccerBall.CanTouch=originalProperties.CanTouch end;soccerBall=nil;originalProperties=nil;currentPlayerList=nil;currentPlayerIndex=nil;lastSwitchTime=nil;return end;if not currentPlayerList or#currentPlayerList==0 then currentPlayerList=l()currentPlayerIndex=1;lastSwitchTime=tick()end;if#currentPlayerList==0 then return end;if tick()-lastSwitchTime>=4 then currentPlayerIndex=currentPlayerIndex+1;if currentPlayerIndex>#currentPlayerList then currentPlayerList=l()currentPlayerIndex=1 end;lastSwitchTime=tick()end;local s=currentPlayerList[currentPlayerIndex]if not s or not s.Character then return end;local t=s.Character;if t and t:FindFirstChild("HumanoidRootPart")and t:FindFirstChild("Humanoid")then local u=t.HumanoidRootPart;local v=t.Humanoid;local w=u.Velocity;local x=w.Magnitude;local y=v:GetState()==Enum.HumanoidStateType.Jumping;local z=v.MoveDirection.Magnitude>0.05;local j;if z or y then local A=u.CFrame.LookVector;local B=math.clamp(x/1.5,6,18)j=A*B+Vector3.new(0,1,0)else local C=math.sin(tick()*25)*4;local D=math.cos(tick()*20)*1.5;j=Vector3.new(D,1,C)end;soccerBall.CFrame=CFrame.new(u.Position+j)soccerBall.AssemblyLinearVelocity=Vector3.new(9999,9999,9999)if(soccerBall.Position-u.Position).Magnitude<4 then local E=Instance.new("BodyVelocity")E.MaxForce=Vector3.new(math.huge,math.huge,math.huge)E.Velocity=Vector3.new(math.random(-5,5),5,math.random(-5,5)).Unit*500000+Vector3.new(0,250000,0)E.Parent=u;task.delay(0.3,function()E:Destroy()end)end end end)end})Tab9:AddButton({"فلنق كره V2",function()if allFling2 then return end;if not equipBola()then return end;task.wait(0.5)local k={[1]="PlayerWantsToDeleteTool",[2]="SoccerBall"}pcall(function()ReplicatedStorage:WaitForChild("RE"):WaitForChild("1Clea1rTool1s"):FireServer(unpack(k))end)local f=Workspace:FindFirstChild("WorkspaceCom")local g=f and f:FindFirstChild("001_SoccerBalls")soccerBall=g and g:FindFirstChild("Soccer"..LocalPlayer.Name)if not soccerBall then return end;originalProperties={Anchored=soccerBall.Anchored,CanCollide=soccerBall.CanCollide,CanTouch=soccerBall.CanTouch}soccerBall.Anchored=false;soccerBall.CanCollide=true;soccerBall.CanTouch=true;pcall(function()soccerBall:SetNetworkOwner(nil)end)allFling2=true;allConn2=RunService.Heartbeat:Connect(function()if not allFling2 or not soccerBall or not soccerBall.Parent then if allConn2 then allConn2:Disconnect()allConn2=nil end;allFling2=false;if soccerBall and originalProperties then soccerBall.Anchored=originalProperties.Anchored;soccerBall.CanCollide=originalProperties.CanCollide;soccerBall.CanTouch=originalProperties.CanTouch end;soccerBall=nil;originalProperties=nil;return end;local m={}for n,o in ipairs(Players:GetPlayers())do local p=false;for n,q in ipairs(excludedPlayers)do if o==q then p=true;break end end;if o~=LocalPlayer and not p and o.Character and o.Character:FindFirstChild("HumanoidRootPart")then table.insert(m,o)end end;for a=#m,2,-1 do local r=math.random(a)m[a],m[r]=m[r],m[a]end;for n,s in ipairs(m)do if not allFling2 then break end;local t=s.Character;if t and t:FindFirstChild("HumanoidRootPart")and t:FindFirstChild("Humanoid")then local u=t.HumanoidRootPart;local v=t.Humanoid;local w=u.Velocity;local x=w.Magnitude;local y=v:GetState()==Enum.HumanoidStateType.Jumping;local z=v.MoveDirection.Magnitude>0.05;local j;if z or y then local A=u.CFrame.LookVector;local B=math.clamp(x/1.5,6,18)j=A*B+Vector3.new(0,1,0)else local C=math.sin(tick()*25)*4;local D=math.cos(tick()*20)*1.5;j=Vector3.new(D,1,C)end;soccerBall.CFrame=CFrame.new(u.Position+j)soccerBall.AssemblyLinearVelocity=Vector3.new(9999,9999,9999)if(soccerBall.Position-u.Position).Magnitude<4 then local E=Instance.new("BodyVelocity")E.MaxForce=Vector3.new(math.huge,math.huge,math.huge)E.Velocity=Vector3.new(math.random(-5,5),5,math.random(-5,5)).Unit*1000000+Vector3.new(0,1000000,0)E.Parent=u;task.delay(0.3,function()E:Destroy()end)end end;task.wait(0.1)end end)end})
+Tab9:AddButton(
+    {"وكف كلشي", function()
+            orbitando = false
+            if orbitConn then
+                orbitConn:Disconnect()
+                orbitConn = nil
+            end
+            allFling = false
+            if allConn then
+                allConn:Disconnect()
+                allConn = nil
+            end
+            currentPlayerList = nil
+            currentPlayerIndex = nil
+            lastSwitchTime = nil
+            allFling2 = false
+            if allConn2 then
+                allConn2:Disconnect()
+                allConn2 = nil
+            end
+            if soccerBall and originalProperties then
+                soccerBall.Anchored = originalProperties.Anchored
+                soccerBall.CanCollide = originalProperties.CanCollide
+                soccerBall.CanTouch = originalProperties.CanTouch
+            end
+            soccerBall = nil
+            originalProperties = nil
+            showNotification("تم ايقاف كل شي", "الحمد لله كلت هاذ مايعوفهم", nil)
+        end}
+)
+local Section = Tab9:AddSection({"ادوات فلنق"})
+
+Tab9:AddButton(
+    {
+    Name = "اداة فلنق كنبة",
+    Callback = function()
+
+local jogadores = game:GetService("Players")
+local rep = game:GetService("ReplicatedStorage")
+local entrada = game:GetService("UserInputService")
+local eu = jogadores.LocalPlayer
+local cam = workspace.CurrentCamera
+
+local podeClicar = true
+local ferramentaEquipada = false
+local NOME_FERRAMENTA = "Click Fling Couch"
+
+local mochila = eu:WaitForChild("Backpack")
+
+if not mochila:FindFirstChild(NOME_FERRAMENTA) and not (eu.Character and eu.Character:FindFirstChild(NOME_FERRAMENTA)) then
+	local ferramenta = Instance.new("Tool")
+	ferramenta.Name = NOME_FERRAMENTA
+	ferramenta.RequiresHandle = false
+	ferramenta.CanBeDropped = false
+
+	ferramenta.Equipped:Connect(function()
+		ferramentaEquipada = true
+	end)
+
+	ferramenta.Unequipped:Connect(function()
+		ferramentaEquipada = false
+	end)
+
+	ferramenta.Parent = mochila
+end
+
+local function jogarComSofa(alvo)
+	if not ferramentaEquipada then return end
+	if not alvo or not alvo.Character or alvo == eu then return end
+
+	local jogando = true
+	local raiz = eu.Character and eu.Character:FindFirstChild("HumanoidRootPart")
+	local alvoRaiz = alvo.Character and alvo.Character:FindFirstChild("HumanoidRootPart")
+	if not raiz or not alvoRaiz then return end
+
+	local boneco = eu.Character
+	local humano = boneco:FindFirstChildOfClass("Humanoid")
+	local posOriginal = raiz.CFrame
+
+	rep:WaitForChild("RE"):WaitForChild("1Clea1rTool1s"):FireServer("ClearAllTools")
+	task.wait(0.2)
+
+	rep.RE:FindFirstChild("1Too1l"):InvokeServer("PickingTools", "Couch")
+	task.wait(0.3)
+
+	local sofa = eu.Backpack:FindFirstChild("Couch")
+	if sofa then
+		sofa.Parent = boneco
+	end
+	task.wait(0.1)
+
+	game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.F, false, game)
+	task.wait(0.25)
+
+	workspace.FallenPartsDestroyHeight = 0/0
+
+	local forca = Instance.new("BodyVelocity")
+	forca.Name = "ForcaJogada"
+	forca.Velocity = Vector3.new(9e8, 9e8, 9e8)
+	forca.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+	forca.Parent = raiz
+
+	humano:SetStateEnabled(Enum.HumanoidStateType.Seated, false)
+	humano.PlatformStand = false
+	cam.CameraSubject = alvo.Character:FindFirstChild("Head") or alvoRaiz or humano
+
+	task.spawn(function()
+		local angulo = 0
+		local partes = {raiz}
+		while jogando and alvo and alvo.Character and alvo.Character:FindFirstChildOfClass("Humanoid") do
+			local alvoHum = alvo.Character:FindFirstChildOfClass("Humanoid")
+			if alvoHum.Sit then break end
+			angulo += 50
+
+			for _, parte in ipairs(partes) do
+				local hrp = alvo.Character.HumanoidRootPart
+				local pos = hrp.Position + hrp.Velocity / 1.5
+				raiz.CFrame = CFrame.new(pos) * CFrame.Angles(math.rad(angulo), 0, 0)
+			end
+
+			raiz.Velocity = Vector3.new(9e8, 9e8, 9e8)
+			raiz.RotVelocity = Vector3.new(9e8, 9e8, 9e8)
+			task.wait()
+		end
+
+		jogando = false
+		forca:Destroy()
+		humano:SetStateEnabled(Enum.HumanoidStateType.Seated, true)
+		humano.PlatformStand = false
+		raiz.CFrame = posOriginal
+		cam.CameraSubject = humano
+
+		for _, p in pairs(boneco:GetDescendants()) do
+			if p:IsA("BasePart") then
+				p.Velocity = Vector3.zero
+				p.RotVelocity = Vector3.zero
+			end
+		end
+
+		humano:UnequipTools()
+		rep.RE:FindFirstChild("1Too1l"):InvokeServer("PickingTools", "Couch")
+	end)
+
+	while jogando do
+		task.wait()
+	end
+end
+
+entrada.TouchTap:Connect(function(toques, processado)
+	if processado or not podeClicar or not ferramentaEquipada then return end
+
+	local pos = toques[1]
+	local raio = cam:ScreenPointToRay(pos.X, pos.Y)
+	local acerto = workspace:Raycast(raio.Origin, raio.Direction * 1000)
+
+	if acerto and acerto.Instance then
+		local alvo = jogadores:GetPlayerFromCharacter(acerto.Instance:FindFirstAncestorOfClass("Model"))
+		if alvo and alvo ~= eu then
+			podeClicar = false
+			jogarComSofa(alvo)
+			task.delay(2, function()
+				podeClicar = true
+			end)
+		end
+	end
+end)
+end
+})
+
+Tab9:AddButton(
+    {
+    Name = "اداة فلنق كرة",
+    Callback = function()
+local jogadores = game:GetService("Players")
+local rep = game:GetService("ReplicatedStorage")
+local mundo = game:GetService("Workspace")
+local entrada = game:GetService("UserInputService")
+local cam = mundo.CurrentCamera
+local eu = jogadores.LocalPlayer
+
+local NOME_FERRAMENTA = "Click Fling Ball"
+local ferramentaEquipada = false
+
+local mochila = eu:WaitForChild("Backpack")
+if not mochila:FindFirstChild(NOME_FERRAMENTA) then
+	local ferramenta = Instance.new("Tool")
+	ferramenta.Name = NOME_FERRAMENTA
+	ferramenta.RequiresHandle = false
+	ferramenta.CanBeDropped = false
+
+	ferramenta.Equipped:Connect(function()
+		ferramentaEquipada = true
+	end)
+
+	ferramenta.Unequipped:Connect(function()
+		ferramentaEquipada = false
+	end)
+
+	ferramenta.Parent = mochila
+end
+
+-- FunÃ§Ã£o FlingBall (bola)
+local function FlingBall(target)
+    
+
+    local players = game:GetService("Players")
+    local player = players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+    local hrp = character:WaitForChild("HumanoidRootPart")
+    local backpack = player:WaitForChild("Backpack")
+    local ServerBalls = workspace.WorkspaceCom:WaitForChild("001_SoccerBalls")
+
+    local function GetBall()
+        if not backpack:FindFirstChild("SoccerBall") and not character:FindFirstChild("SoccerBall") then
+            game:GetService("ReplicatedStorage").RE:FindFirstChild("1Too1l"):InvokeServer("PickingTools", "SoccerBall")
+        end
+
+        repeat task.wait() until backpack:FindFirstChild("SoccerBall") or character:FindFirstChild("SoccerBall")
+
+        local ballTool = backpack:FindFirstChild("SoccerBall")
+        if ballTool then
+            ballTool.Parent = character
+        end
+
+        repeat task.wait() until ServerBalls:FindFirstChild("Soccer" .. player.Name)
+
+        return ServerBalls:FindFirstChild("Soccer" .. player.Name)
+    end
+
+    local Ball = ServerBalls:FindFirstChild("Soccer" .. player.Name) or GetBall()
+    Ball.CanCollide = false
+    Ball.Massless = true
+    Ball.CustomPhysicalProperties = PhysicalProperties.new(0.0001, 0, 0)
+
+    if target ~= player then
+        local tchar = target.Character
+        if tchar and tchar:FindFirstChild("HumanoidRootPart") and tchar:FindFirstChild("Humanoid") then
+            local troot = tchar.HumanoidRootPart
+            local thum = tchar.Humanoid
+
+            if Ball:FindFirstChildWhichIsA("BodyVelocity") then
+                Ball:FindFirstChildWhichIsA("BodyVelocity"):Destroy()
+            end
+
+            local bv = Instance.new("BodyVelocity")
+            bv.Name = "FlingPower"
+            bv.Velocity = Vector3.new(9e8, 9e8, 9e8)
+            bv.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+            bv.P = 9e900
+            bv.Parent = Ball
+
+            workspace.CurrentCamera.CameraSubject = thum
+
+            repeat
+                if troot.Velocity.Magnitude > 0 then
+                    local pos = troot.Position + (troot.Velocity / 1.5)
+                    Ball.CFrame = CFrame.new(pos)
+                    Ball.Orientation += Vector3.new(45, 60, 30)
+                else
+                    for i, v in pairs(tchar:GetChildren()) do
+                        if v:IsA("BasePart") and v.CanCollide and not v.Anchored then
+                            Ball.CFrame = v.CFrame
+                            task.wait(1/6000)
+                        end
+                    end
+                end
+                task.wait(1/6000)
+            until troot.Velocity.Magnitude > 1000 or thum.Health <= 0 or not tchar:IsDescendantOf(workspace) or target.Parent ~= players
+
+            workspace.CurrentCamera.CameraSubject = humanoid
+        end
+    end
+end
+
+-- Toque na tela para aplicar a bola
+entrada.TouchTap:Connect(function(toques, processado)
+	if not ferramentaEquipada or processado then return end
+	local pos = toques[1]
+	local raio = cam:ScreenPointToRay(pos.X, pos.Y)
+	local hit = mundo:Raycast(raio.Origin, raio.Direction * 1000)
+	if hit and hit.Instance then
+		local modelo = hit.Instance:FindFirstAncestorOfClass("Model")
+		local jogador = jogadores:GetPlayerFromCharacter(modelo)
+		if jogador and jogador ~= eu then
+			FlingBall(jogador)
+		end
+	end
+end)
+
+end
+})
+
+Tab9:AddButton(
+    {
+    Name = "اداء فلنق ادمن",
+    Callback = function()
+        local jogadores = game:GetService("Players")
+        local rep = game:GetService("ReplicatedStorage")
+        local mundo = game:GetService("Workspace")
+        local entrada = game:GetService("UserInputService")
+        local cam = mundo.CurrentCamera
+        local eu = jogadores.LocalPlayer
+
+        local NOME_FERRAMENTA = "Admin Fling"
+        local ferramentaEquipada = false
+
+        local mochila = eu:WaitForChild("Backpack")
+
+        for _, ferramentaExistente in pairs(mochila:GetChildren()) do
+            if ferramentaExistente:IsA("Tool") and ferramentaExistente.Name:lower():find("fling") then
+                ferramentaExistente.Name = "Admin Fling"
+            end
+        end
+
+        if not mochila:FindFirstChild(NOME_FERRAMENTA) then
+            local ferramenta = Instance.new("Tool")
+            ferramenta.Name = NOME_FERRAMENTA
+            ferramenta.RequiresHandle = true
+            ferramenta.CanBeDropped = false
+
+            local handle = Instance.new("Part")
+            handle.Name = "Handle"
+            handle.Size = Vector3.new(1, 1, 1)
+            handle.Transparency = 1
+            handle.Parent = ferramenta
+
+            local decal = Instance.new("Decal")
+            decal.Texture = "rbxassetid://775552544"
+            decal.Face = Enum.NormalId.Front
+            decal.Parent = handle
+
+            ferramenta.Equipped:Connect(function()
+                ferramentaEquipada = true
+            end)
+
+            ferramenta.Unequipped:Connect(function()
+                ferramentaEquipada = false
+            end)
+
+            ferramenta.Parent = mochila
+        end
+
+        local function FlingBall(target)
+            local player = jogadores.LocalPlayer
+            local character = player.Character or player.CharacterAdded:Wait()
+            local humanoid = character:WaitForChild("Humanoid")
+            local hrp = character:WaitForChild("HumanoidRootPart")
+            local backpack = player:WaitForChild("Backpack")
+            local ServerBalls = mundo:WaitForChild("WorkspaceCom"):WaitForChild("001_SoccerBalls")
+
+            local function GetBall()
+                if not backpack:FindFirstChild("SoccerBall") and not character:FindFirstChild("SoccerBall") then
+                    rep.RE:FindFirstChild("1Too1l"):InvokeServer("PickingTools", "SoccerBall")
+                end
+                repeat task.wait() until backpack:FindFirstChild("SoccerBall") or character:FindFirstChild("SoccerBall")
+                local ballTool = backpack:FindFirstChild("SoccerBall")
+                if ballTool then ballTool.Parent = character end
+                repeat task.wait() until ServerBalls:FindFirstChild("Soccer" .. player.Name)
+                return ServerBalls:FindFirstChild("Soccer" .. player.Name)
+            end
+
+            local Ball = ServerBalls:FindFirstChild("Soccer" .. player.Name) or GetBall()
+            Ball.CanCollide = false
+            Ball.Massless = true
+            Ball.Transparency = 1             -- BOLA INVISÃVEL
+            Ball.CustomPhysicalProperties = PhysicalProperties.new(0.0001, 0, 0)
+
+            if target ~= player then
+                local tchar = target.Character
+                if tchar and tchar:FindFirstChild("HumanoidRootPart") and tchar:FindFirstChild("Humanoid") then
+                    local troot = tchar.HumanoidRootPart
+                    local thum = tchar.Humanoid
+                    if Ball:FindFirstChildWhichIsA("BodyVelocity") then
+                        Ball:FindFirstChildWhichIsA("BodyVelocity"):Destroy()
+                    end
+                    local bv = Instance.new("BodyVelocity")
+                    bv.Name = "FlingPower"
+                    bv.Velocity = Vector3.new(9e8, 9e8, 9e8)
+                    bv.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+                    bv.P = 9e900
+                    bv.Parent = Ball
+                    mundo.CurrentCamera.CameraSubject = thum
+
+                    repeat
+                        if troot.Velocity.Magnitude > 0 then
+                            local pos = troot.Position + (troot.Velocity / 1.5)
+                            Ball.CFrame = CFrame.new(pos)
+                            Ball.Orientation += Vector3.new(45, 60, 30)
+                        else
+                            for _, v in pairs(tchar:GetChildren()) do
+                                if v:IsA("BasePart") and v.CanCollide and not v.Anchored then
+                                    Ball.CFrame = v.CFrame
+                                    task.wait(1/6000)
+                                end
+                            end
+                        end
+                        task.wait(1/6000)
+                    until troot.Velocity.Magnitude > 1000 or thum.Health <= 0 or not tchar:IsDescendantOf(mundo) or target.Parent ~= jogadores
+
+                    mundo.CurrentCamera.CameraSubject = humanoid
+                end
+            end
+        end
+
+        entrada.TouchTap:Connect(function(toques, processado)
+            if not ferramentaEquipada or processado then return end
+            local pos = toques[1]
+            local raio = cam:ScreenPointToRay(pos.X, pos.Y)
+            local hit = mundo:Raycast(raio.Origin, raio.Direction * 1000)
+            if hit and hit.Instance then
+                local modelo = hit.Instance:FindFirstAncestorOfClass("Model")
+                local jogador = jogadores:GetPlayerFromCharacter(modelo)
+                if jogador and jogador ~= eu then
+                    FlingBall(jogador)
+                end
+            end
+        end)
+
+    end
+})
+
+
+
+   Tab10:AddParagraph({"تخريب جو"}) 
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local AvatarManager = {}
+AvatarManager.ReplicatedStorage = ReplicatedStorage
+function AvatarManager:MostrarNotificacao(mensagem)
+    pcall(
+        function()
+            game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Aviso", Text = mensagem, Duration = 5})
+        end
+    )
+end
+AvatarManager.Avatares = {
+    {Nome = "كوكيد", ID = 85461264894562},
+    {Nome = "رصاصي", ID = 7683459677},
+    {Nome = "رقمي اسود", ID = 9936028435},
+    {Nome = "اسود مع تفطرات خضراء ", ID = 4888539621},
+    {Nome = "هالوين", ID = 6074054267 },
+    {Nome = "جمجمه", ID = 300169816},
+      {Nome = "اخضر و اسود", ID = 5417858215 },
+    {Nome = "جمجمه خضره", ID = 99419498829832},
+    {Nome = "تنين اسود", ID = 105670722939866},
+    {Nome = "ابيض و احمر ", ID = 18214204122},
+    {Nome = "ابيض و اسود", ID = 15990913226 },
+    {Nome = "اخضر و اسود مثل لغه برمجه", ID = 9003199127},
+        {Nome = "دموي", ID = 7799682401},
+    {Nome = "رصاصي مع اخضر", ID = 14942013416},
+    {Nome = "ابو سجين", ID = 6866730483},
+    {Nome = "ابيض موشم", ID = 11607314013},
+    {Nome = "اصفر", ID = 14132962406 },
+    {Nome = "ريالي", ID = 13716378674},
+      {Nome = "هالوين ثاني", ID = 5790341430 },
+    {Nome = "ابيض بيه كتابات", ID = 14836989155},
+    {Nome = "زومبي ", ID = 128034574943237},
+    {Nome = "احمر", ID = 14747772616 },
+
+}
+function AvatarManager:GetAvatarNames()
+    local nomes = {}
+    for _, avatar in ipairs(self.Avatares) do
+        table.insert(nomes, avatar.Nome)
+    end
+    return nomes
+end
+function AvatarManager:EquiparAvatar(avatarName)
+    for _, avatar in ipairs(self.Avatares) do
+        if avatar.Nome == avatarName then
+            local args = {avatar.ID}
+            local success, result =
+                pcall(
+                function()
+                    return self.ReplicatedStorage:WaitForChild("Remotes"):WaitForChild("Wear"):InvokeServer(
+                        unpack(args)
+                    )
+                end
+            )
+            if success then
+                self:MostrarNotificacao("Avatar " .. avatarName .. " equipado com sucesso!")
+            else
+                self:MostrarNotificacao("Falha ao equipar o avatar " .. avatarName .. "!")
+            end
+            return
+        end
+    end
+    self:MostrarNotificacao("Avatar " .. avatarName .. " não encontrado!")
+end
+local AvatarDropdown =
+    Tab10:AddDropdown(
+    {
+        Name = "اختر سكن من هنا وابدي تخري",
+        Description = "",
+        Default = nil,
+        Options = AvatarManager:GetAvatarNames(),
+        Callback = function(avatarSelecionado)
+            _G.SelectedAvatar = avatarSelecionado
+        end
+    }
+)
+Tab10:AddButton({
+    Name = "تخريب الجو",
+    Description = "by BRUTON",
+    Callback = function()
+        -- أولاً: equipar
+        if not _G.SelectedAvatar or _G.SelectedAvatar == "" then
+            AvatarManager:MostrarNotificacao("Nenhum avatar selecionado!")
+        else
+            AvatarManager:EquiparAvatar(_G.SelectedAvatar)
+        end
+
+        -- ثانياً: تفعيل تخريب الجو
+        local Players = game:GetService("Players")
+        local ReplicatedStorage = game:GetService("ReplicatedStorage")
+        local LocalPlayer = Players.LocalPlayer
+
+        local Remotes = ReplicatedStorage:WaitForChild("Remotes")
+        local WearRemote = Remotes:WaitForChild("Wear")
+        local ChangeCharacterBody = Remotes:WaitForChild("ChangeCharacterBody")
+        local WearShirtRemote = Remotes:WaitForChild("WearShirt")
+
+        local CurrentTrack
+        local BodyId = "100839513065432"
+        local SkyboxActive = false
+        local Humanoid, Animator
+
+        local function SetupCharacter(char)
+            Humanoid = char:WaitForChild("Humanoid")
+            Animator = Humanoid:FindFirstChildOfClass("Animator")
+            if not Animator then
+                Animator = Instance.new("Animator", Humanoid)
+            end
+        end
+        
+        SetupCharacter(LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait())
+        LocalPlayer.CharacterAdded:Connect(SetupCharacter)
+
+        local function ApplyAccessories()
+            local Desc = Humanoid:GetAppliedDescription()
+            for _, accessory in ipairs(Desc:GetAccessories(true)) do
+                if accessory.AssetId then
+                    pcall(function()
+                        WearRemote:InvokeServer(accessory.AssetId)
+                    end)
+                end
+            end
+        end
+
+        local function ApplyBody()
+            pcall(function()
+                ChangeCharacterBody:InvokeServer({
+                    [1] = tonumber(BodyId),
+                    [2] = nil,
+                    [3] = nil,
+                    [4] = nil,
+                    [5] = nil,
+                    [6] = nil
+                })
+            end)
+        end
+
+        local function PlayAnimation()
+            local AnimId = "rbxassetid://101852027997337"
+            local newAnim = Instance.new("Animation")
+            newAnim.AnimationId = AnimId
+
+            local newTrack
+            pcall(function()
+                newTrack = Animator:LoadAnimation(newAnim)
+                newTrack.Priority = Enum.AnimationPriority.Action4
+                newTrack:Play(0.1, 1, 1)
+            end)
+
+            CurrentTrack = newTrack
+        end
+
+        local function StopAnimation()
+            if CurrentTrack then
+                pcall(function()
+                    CurrentTrack:Stop(0)
+                end)
+            end
+        end
+
+        SkyboxActive = not SkyboxActive
+        if SkyboxActive then
+            local id = tonumber(getgenv().SkyboxClothID or "")
+            if id then
+                pcall(function()
+                    WearShirtRemote:InvokeServer(id)
+                end)
+            end
+            ApplyAccessories()
+            ApplyBody()
+            PlayAnimation()
+            print("تم equipar وتفعيل Skybox مع الملابس ✅")
+        else
+            StopAnimation()
+            print("تم إيقاف Skybox")
+        end
+    end
+})
+
+
+
+  local Section = Tab10:AddSection({"تقفل سيرفر", "wifi"})
+Tab10:AddButton(
+    {
+Name = "تقفيل سيرفر V1", 
+    Callback = function()
+  tools = "FireX"
+          shutdownserver = true
+          if game.Players.LocalPlayer.Character.Humanoid.Sit == true then
+              task.wait()
+              game.Players.LocalPlayer.Character.Humanoid.Sit = false
+          end
+          if game:GetService("Workspace"):FindFirstChild("Camera") then
+              game:GetService("Workspace"):FindFirstChild("Camera"):Destroy()
+          end
+          wait(0.1)
+          if game:GetService("Workspace"):FindFirstChild("Camera") then
+              game:GetService("Workspace"):FindFirstChild("Camera"):Destroy()
+          end
+          game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").WorkspaceCom["001_GiveTools"].FireX.CFrame + Vector3.new(0, -15, 0)
+          task.wait(0.2)
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+          ddos = true
+          for i = 1, 1350 do
+              task.wait()
+              if ddos == false then
+                  local args = {
+                      [1] = "ClearAllTools"
+                  }
+   
+                  cleartoolremote:FireServer(unpack(args))
+                  game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+                  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(9999, -475, 9999)
+                  return
+              end
+              if game:GetService("Workspace"):FindFirstChild("Camera") then
+                  game:GetService("Workspace"):FindFirstChild("Camera"):Destroy()
+              end
+              if game:GetService("Players").LocalPlayer.Character:FindFirstChild(tools) then
+                  game:GetService("Players").LocalPlayer.Character:FindFirstChild(tools):Destroy()
+              end
+              if ddos == false then return end
+              fireclickdetector(game:GetService("Workspace").WorkspaceCom["001_GiveTools"].FireX.ClickDetector, 0)
+          end
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+          game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, -475, 0)
+    end
+  })
+
+  Tab10:AddButton(
+    {
+  Name = "تقفيل سيرفر V2", 
+    Callback = function()
+  tools = "FireX"
+          shutdownserver = true
+          if game.Players.LocalPlayer.Character.Humanoid.Sit == true then
+              task.wait()
+              game.Players.LocalPlayer.Character.Humanoid.Sit = false
+          end
+          if game:GetService("Workspace"):FindFirstChild("Camera") then
+              game:GetService("Workspace"):FindFirstChild("Camera"):Destroy()
+          end
+          wait(0.1)
+          if game:GetService("Workspace"):FindFirstChild("Camera") then
+              game:GetService("Workspace"):FindFirstChild("Camera"):Destroy()
+          end
+          game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").WorkspaceCom["001_GiveTools"].FireX.CFrame + Vector3.new(0, -15, 0)
+          task.wait(0.2)
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+          ddos = true
+          for i = 1, 1350 do
+              task.wait()
+              if ddos == false then
+                  local args = {
+                      [1] = "ClearAllTools"
+                  }
+   
+                  cleartoolremote:FireServer(unpack(args))
+                  game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+                  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(9999, -475, 9999)
+                  return
+              end
+              if game:GetService("Workspace"):FindFirstChild("Camera") then
+                  game:GetService("Workspace"):FindFirstChild("Camera"):Destroy()
+              end
+              if game:GetService("Players").LocalPlayer.Character:FindFirstChild(tools) then
+                  game:GetService("Players").LocalPlayer.Character:FindFirstChild(tools):Destroy()
+              end
+              if ddos == false then return end
+              fireclickdetector(game:GetService("Workspace").WorkspaceCom["001_GiveTools"].FireX.ClickDetector, 0)
+          end
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+          game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, -475, 0)
+    end
+  })
+  
+  local Section = Tab10:AddSection({"حدد سرعه سفينه"})
+Tab10:AddTextBox({
+Name = "سرعة السفينة",
+Description = "اكتب السرعة المطلوبة للسفينة",
+Placeholder = "مثلاً 500",
+Default = "500",
+Callback = function(text)
+local num = tonumber(text)
+if num and num > 0 then
+SpeedValue = num
+print("✅ تم ضبط سرعة السفينة إلى:", SpeedValue)
+else
+warn("❌ الرجاء إدخال رقم صحيح للسرعة.")
+end
+end
+})
+
+Tab10:AddToggle({
+Name = "حط سفينه",
+Description = "زر لتشغيل أو إزالة السفينة، تتحرك بالسرعة اللي تختارها من العداد فوق",
+Default = false,
+Callback = function(state)
+local RS = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
+local Player = game.Players.LocalPlayer
+local Character = Player.Character or Player.CharacterAdded:Wait()
+local Humanoid = Character:WaitForChild("Humanoid")
+local RootPart = Character:WaitForChild("HumanoidRootPart")
+local Vehicles = workspace:WaitForChild("Vehicles")
+
+    if state then
+        local function spawnBoat()
+            RootPart.CFrame = CFrame.new(1754, -2, 58)
+            task.wait(0.5)
+            RS:WaitForChild("RE"):FindFirstChild("1Ca1r"):FireServer("PickingBoat", "PirateFree")
+            task.wait(1)
+            return Vehicles:FindFirstChild(Player.Name .. "Car")
+        end
+
+        local PCar = spawnBoat()
+        if not PCar then return warn("فشل إنشاء السفينة") end
+
+        local Seat = PCar:FindFirstChild("Body") and PCar.Body:FindFirstChild("VehicleSeat")
+        if not Seat then return warn("Seat غير موجود") end
+
+        repeat task.wait(0.1)
+            RootPart.CFrame = Seat.CFrame * CFrame.new(0, 1, 0)
+        until Humanoid.SeatPart == Seat
+
+        -- قلب السفينة كل 0.1 ثانية
+        local RE_Flip = RS:WaitForChild("RE"):WaitForChild("1Player1sCa1r")
+        task.spawn(function()
+            while PCar and PCar.Parent and state do
+                RE_Flip:FireServer("Flip")
+                task.wait(0.5)
+            end
+        end)
+
+
+        local waypoints = {
+            Vector3.new(-16, 0, -47),
+            Vector3.new(-110, 0, -45),
+            Vector3.new(16, 0, -55)
+        }
+
+        local currentIndex, nextIndex, progress, currentRotation = 1, 2, 0, 0
+        local moveSpeed = SpeedValue
+        local rotationSpeed = math.rad(720)
+
+        local function lerpCFrame(a, b, t)
+            return a:lerp(b, t)
+        end
+
+        RunService.Heartbeat:Connect(function(dt)
+            if not state or not (PCar and PCar.PrimaryPart) then return end
+            local startPos = waypoints[currentIndex]
+            local endPos = waypoints[nextIndex]
+            progress += (moveSpeed * dt) / (startPos - endPos).Magnitude
+            if progress >= 1 then
+                progress = 0
+                currentIndex = nextIndex
+                nextIndex = (nextIndex % #waypoints) + 1
+            end
+            local newPos = lerpCFrame(CFrame.new(startPos), CFrame.new(endPos), progress).p
+            currentRotation += rotationSpeed * dt
+            local cf = CFrame.new(newPos) * CFrame.Angles(0, currentRotation, 0)
+            PCar:SetPrimaryPartCFrame(cf)
+        end)
+
+    else
+        local success, err = pcall(function()
+            RS:WaitForChild("RE"):WaitForChild("1Ca1r"):FireServer("DeleteAllVehicles")
+        end)
+        if success then
+            print(" تم حذف السفينة بنجاح")
+        else
+            warn(" فشل حذف السفينة:", err)
+        end
+    end
+end
+})
+
+
+
+Tab11:AddButton({"شادر ليلي", function()
+    local workspace = game:GetService("Workspace")
+    local Lighting = game:GetService("Lighting")
+    local RunService = game:GetService("RunService")
+    local Debris = game:GetService("Debris")
+    local TweenService = game:GetService("TweenService")
+    local SoundService = game:GetService("SoundService")
+    local Players = game:GetService("Players")
+    local player = Players.LocalPlayer
+
+    -- 🔊 صوت التفعيل
+    local sound = Instance.new("Sound")
+    sound.SoundId = "rbxassetid://131644923"
+    sound.Volume = 1
+    sound.Parent = SoundService
+    sound:Play()
+
+    -- 🔹 تطبيق المواد على الخرائط (Basalt وCobblestone)
+    local model = workspace:FindFirstChild("Model")
+    if model then
+        local function setMat(obj)
+            for _, c in pairs(obj:GetChildren()) do
+                if c:IsA("BasePart") then
+                    c.Material = Enum.Material.Basalt
+                elseif c:IsA("Model") or c:IsA("Folder") then
+                    setMat(c)
+                end
+            end
+        end
+        if model:FindFirstChild("001_SnowStreet") then setMat(model["001_SnowStreet"]) end
+        if model:FindFirstChild("Street") then
+            for _, o in pairs(model.Street:GetDescendants()) do
+                if o:IsA("BasePart") then o.Material = Enum.Material.Basalt end
+            end
+        end
+        for _, o in pairs(model:GetChildren()) do
+            if o:IsA("BasePart") and (o.Name=="Sidewalk" or o.Name=="Wedge") and o.Material==Enum.Material.SmoothPlastic then
+                o.Material = Enum.Material.Cobblestone
+            end
+        end
+        model.ChildAdded:Connect(function(obj)
+            if obj:IsA("BasePart") and (obj.Name=="Sidewalk" or obj.Name=="Wedge") and obj.Material==Enum.Material.SmoothPlastic then
+                obj.Material = Enum.Material.Cobblestone
+            end
+        end)
+    end
+
+    -- 🔊 إعداد أصوات البيئة
+    local character = player.Character or player.CharacterAdded:Wait()
+    local hrp = character:WaitForChild("HumanoidRootPart")
+
+    local soundPart = Instance.new("Part")
+    soundPart.Size = Vector3.new(1,1,1)
+    soundPart.Transparency = 1
+    soundPart.Anchored = true
+    soundPart.CanCollide = false
+    soundPart.Parent = workspace
+
+    local birdSound = Instance.new("Sound")
+    birdSound.Name = "BirdsSound"
+    birdSound.SoundId = "rbxassetid://1237969272"
+    birdSound.Looped = true
+    birdSound.Volume = 0.05
+    birdSound.Parent = soundPart
+
+    local wolfSound = Instance.new("Sound")
+    wolfSound.SoundId = "rbxassetid://6654360741"
+    wolfSound.Volume = 0.05
+    wolfSound.Looped = false
+    wolfSound.Parent = workspace
+
+    RunService.Heartbeat:Connect(function()
+        if hrp and hrp.Parent then
+            soundPart.Position = hrp.Position + Vector3.new(0,10,0)
+        end
+    end)
+
+    local function isNight()
+        local t = Lighting.ClockTime
+        return (t >= 18 or t <= 6)
+    end
+
+    task.spawn(function()
+        while true do
+            if isNight() then
+                if birdSound.IsPlaying then birdSound:Stop() end
+                if wolfSound.IsPlaying then wolfSound:Stop() end
+                wolfSound:Play()
+            else
+                if wolfSound.IsPlaying then wolfSound:Stop() end
+                if not birdSound.IsPlaying then birdSound:Play() end
+            end
+            wait(20)
+        end
+    end)
+
+    -- 🔊 نافورة
+    local fountainPart = Instance.new("Part")
+    fountainPart.Anchored = true
+    fountainPart.CanCollide = false
+    fountainPart.Transparency = 1
+    fountainPart.Size = Vector3.new(1,1,1)
+    fountainPart.Position = Vector3.new(-27,19,15)
+    fountainPart.Parent = workspace
+
+    local attachment = Instance.new("Attachment")
+    attachment.Position = Vector3.new(-27,19,15)
+    attachment.Parent = fountainPart
+
+    local fountainSound = Instance.new("Sound")
+    fountainSound.Name = "FountainSound"
+    fountainSound.SoundId = "rbxassetid://4766793559"
+    fountainSound.Looped = true
+    fountainSound.Volume = 0.03
+    fountainSound.EmitterSize = 10
+    fountainSound.RollOffMode = Enum.RollOffMode.Linear
+    fountainSound.MaxDistance = 100
+    fountainSound.Parent = attachment
+    fountainSound:Play()
+
+    -- 🔊 صوت مخصص
+    local customSound = Instance.new("Sound")
+    customSound.Name = "MyCustomSound"
+    customSound.SoundId = "rbxassetid://9048659736"
+    customSound.Volume = 0.01
+    customSound.Looped = true
+    customSound.Parent = workspace
+    customSound:Play()
+
+    -- 🔹 النجوم والنجوم الطائرة
+    local active = false
+    local stars = {}
+    local shootingStarsFolder = Instance.new("Folder",workspace)
+    shootingStarsFolder.Name = "ShootingStars"
+    local STAR_COUNT = 300
+    local SHOOTING_STAR_CHANCE = 0.3
+    local SHOOTING_STAR_MAX = 12
+    local shootingStarCooldown = 0.1
+
+    local spaceSound = Instance.new("Sound",workspace)
+    spaceSound.SoundId = "rbxassetid://1843520836"
+    spaceSound.Volume = 0.3
+    spaceSound.Looped = true
+    spaceSound.Name = "SpaceAmbience"
+
+    local function createStar()
+        local star = Instance.new("Part")
+        local size = math.random(1,3)*0.5
+        star.Size = Vector3.new(size,size,size)
+        star.Position = Vector3.new(math.random(-1000,1000),math.random(300,700),math.random(-1000,1000))
+        star.Anchored = true
+        star.CanCollide = false
+        star.Material = Enum.Material.Neon
+        local colors = {Color3.fromRGB(255,255,255),Color3.fromRGB(255,255,180),Color3.fromRGB(180,200,255)}
+        star.Color = colors[math.random(1,#colors)]
+        star.Name = "Star"
+        star.Parent = workspace
+        local light = Instance.new("PointLight",star)
+        light.Brightness = 2 + math.random()*1.5
+        light.Range = 12
+        spawn(function()
+            while star.Parent and active do
+                star.Transparency = 0.2 + math.sin(tick()*math.random(2,5))*0.2
+                RunService.Heartbeat:Wait()
+            end
+            if star.Parent then star:Destroy() end
+        end)
+        table.insert(stars,star)
+    end
+
+    local function createShootingStar()
+        if not active then return end
+        local startPos = Vector3.new(math.random(-1000,1000),math.random(350,600),math.random(-1000,1000))
+        local dir = Vector3.new(math.random(-1,1),math.random(-0.1,0.1),math.random(-1,1)).Unit
+        local speed = math.random(350,550)
+        local isFire = math.random() <= SHOOTING_STAR_CHANCE
+        local color = isFire and Color3.fromRGB(255,50,50) or Color3.fromRGB(255,255,220)
+        local trailColor = isFire and ColorSequence.new(Color3.fromRGB(255,120,0),Color3.fromRGB(255,230,50)) or ColorSequence.new(Color3.fromRGB(255,255,255),Color3.fromRGB(255,255,180))
+        local star = Instance.new("Part")
+        star.Size = Vector3.new(0.5,0.5,3)
+        star.Position = startPos
+        star.Anchored = true
+        star.CanCollide = false
+        star.Material = Enum.Material.Neon
+        star.Color = color
+        star.Name = "ShootingStar"
+        star.Parent = shootingStarsFolder
+        local att0 = Instance.new("Attachment",star)
+        local att1 = Instance.new("Attachment",star)
+        att1.Position = Vector3.new(0,0,-3)
+        local trail = Instance.new("Trail",star)
+        trail.Attachment0 = att0
+        trail.Attachment1 = att1
+        trail.Lifetime = 0.35
+        trail.Color = trailColor
+        trail.LightEmission = 1
+        trail.WidthScale = NumberSequence.new({NumberSequenceKeypoint.new(0,1),NumberSequenceKeypoint.new(1,0)})
+        local light = Instance.new("PointLight",star)
+        light.Brightness = isFire and 12 or 7
+        light.Range = 35
+        light.Color = color
+        if isFire then
+            local fire = Instance.new("Fire",star)
+            fire.Heat = 15
+            fire.Size = 3.5
+            fire.Color = Color3.fromRGB(255,110,0)
+            fire.SecondaryColor = Color3.fromRGB(255,210,0)
+        end
+        local lifetime = math.random(1,1.5)
+        local timePassed = 0
+        local moveConn
+        moveConn = RunService.Heartbeat:Connect(function(dt)
+            if not active then moveConn:Disconnect() if star.Parent then star:Destroy() end return end
+            timePassed += dt
+            if timePassed >= lifetime then moveConn:Disconnect() if star.Parent then star:Destroy() end return end
+            local curve = math.sin(timePassed*20)*0.5
+            star.Position += (dir+Vector3.new(0,curve,0)).Unit*speed*dt
+        end)
+        Debris:AddItem(star,4)
+    end
+
+    local function updateSky()
+        local hour = Lighting.ClockTime
+        local shouldBeActive = hour >= 18 or hour < 6
+        if shouldBeActive and not active then
+            active = true
+            Lighting.FogColor = Color3.fromRGB(10,10,30)
+            Lighting.FogEnd = 5000
+            Lighting.Brightness = 2
+            for _,s in ipairs(stars) do if s and s.Parent then s:Destroy() end end
+            stars = {}
+            for _,p in ipairs(shootingStarsFolder:GetChildren()) do p:Destroy() end
+            for i=1,STAR_COUNT do createStar() end
+            spaceSound:Play()
+        elseif not shouldBeActive and active then
+            active = false
+            for _,s in ipairs(stars) do if s and s.Parent then s:Destroy() end end
+            stars = {}
+            for _,p in ipairs(shootingStarsFolder:GetChildren()) do p:Destroy() end
+            spaceSound:Stop()
+            Lighting.FogColor = Color3.fromRGB(192,192,192)
+            Lighting.FogEnd = 100000
+            Lighting.Brightness = 2
+        end
+    end
+
+    task.spawn(function()
+        while true do
+            if active then
+                for i=1,SHOOTING_STAR_MAX do
+                    createShootingStar()
+                    task.wait(shootingStarCooldown)
+                end
+            else
+                task.wait(1)
+            end
+        end
+    end)
+
+    task.spawn(function()
+        while true do
+            updateSky()
+            task.wait(1)
+        end
+    end)
+
+    -- 🔹 المطر والبرق
+    local rainFolder = Instance.new("Folder",workspace)
+    rainFolder.Name = "FakeRain"
+    local isRaining = false
+
+    local birds = Instance.new("Sound",SoundService)
+    birds.SoundId = "rbxassetid://9111139882"
+    birds.Volume = 0.2
+    birds.Looped = true
+    birds:Play()
+
+    local rainSound = Instance.new("Sound",SoundService)
+    rainSound.SoundId = "rbxassetid://9118823106"
+    rainSound.Volume = 0.3
+    rainSound.Looped = true
+    rainSound:Play()
+
+    local thunder = Instance.new("Sound",SoundService)
+    thunder.SoundId = "rbxassetid://9120018695"
+    thunder.Volume = 0.4
+
+    local function updateBirdSound()
+        birds.Volume = isRaining and 0 or 0.2
+    end
+
+    local function spawnRain()
+        isRaining = true
+        updateBirdSound()
+        for i=1,120 do
+            local drop = Instance.new("Part")
+            drop.Size = Vector3.new(0.1,2,0.1)
+            drop.Anchored = true
+            drop.CanCollide = false
+            drop.Material = Enum.Material.Glass
+            drop.Transparency = 0.5
+            drop.Color = Color3.fromRGB(160,160,255)
+            drop.Position = Vector3.new(math.random(-150,150),100,math.random(-150,150))
+            drop.Parent = rainFolder
+            local tween = TweenService:Create(drop,TweenInfo.new(1),{Position=drop.Position-Vector3.new(0,60,0)})
+            tween:Play()
+            Debris:AddItem(drop,1.5)
+        end
+        wait(1.5)
+        isRaining = false
+        updateBirdSound()
+    end
+
+    local function lightningStrike()
+        local flash = Instance.new("Part")
+        flash.Size = Vector3.new(1,1000,1)
+        flash.Anchored = true
+        flash.CanCollide = false
+        flash.Transparency = 0.4
+        flash.Material = Enum.Material.Neon
+        flash.Color = Color3.new(1,1,1)
+        flash.Position = Vector3.new(math.random(-100,100),500,math.random(-100,100))
+        flash.Parent = workspace
+        Lighting.Brightness = Lighting.Brightness + 1.5
+        thunder:Play()
+        wait(0.1)
+        Lighting.Brightness = Lighting.Brightness - 1.5
+        flash:Destroy()
+    end
+
+    task.spawn(function()
+        while true do
+            spawnRain()
+            if math.random() < 0.2 then lightningStrike() end
+            wait(1)
+        end
+    end)
+
+    -- 🔹 الجو الليلي الإضافي
+    local ccNight = Instance.new("ColorCorrectionEffect")
+    ccNight.Name = "Moon_CC"
+    ccNight.Parent = Lighting
+    ccNight.Brightness = -0.05
+    ccNight.Contrast = 0.1
+    ccNight.Saturation = -0.3
+    ccNight.TintColor = Color3.fromRGB(160,180,255)
+
+    Lighting.FogStart = 0
+    Lighting.FogEnd = 150
+    Lighting.FogColor = Color3.fromRGB(120,140,200)
+    Lighting.Brightness = 0.5
+    Lighting.Ambient = Color3.fromRGB(70,80,110)
+
+    print("✅ تم تفعيل الشادر الكامل مع الجو الليلي بنجاح")
+end})
+
+Tab11:AddButton({"شادر ب جو صباح ", function()
+    -- Aviso: script otimizado, ativaÃ§Ã£o automÃ¡tica sem interface grÃ¡fica.
+
+local workspace = game:GetService("Workspace")
+local Lighting = game:GetService("Lighting")
+local RunService = game:GetService("RunService")
+local Debris = game:GetService("Debris")
+local TweenService = game:GetService("TweenService")
+local SoundService = game:GetService("SoundService")
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local model = workspace:FindFirstChild("Model")
+
+-- Som de ativaÃ§Ã£o
+local sound = Instance.new("Sound")
+sound.SoundId = "rbxassetid://131644923"
+sound.Volume = 1
+sound.Parent = SoundService
+sound:Play()
+
+-- Aplicar materiais ao mapa
+if model then
+	local function setMat(obj)
+		for _, c in pairs(obj:GetChildren()) do
+			if c:IsA("BasePart") then
+				c.Material = Enum.Material.Basalt
+			elseif c:IsA("Model") or c:IsA("Folder") then
+				setMat(c)
+			end
+		end
+	end
+	if model:FindFirstChild("001_SnowStreet") then
+		setMat(model["001_SnowStreet"])
+	end
+	if model:FindFirstChild("Street") then
+		for _, o in pairs(model.Street:GetDescendants()) do
+			if o:IsA("BasePart") then
+				o.Material = Enum.Material.Basalt
+			end
+		end
+	end
+	for _, o in pairs(model:GetChildren()) do
+		if o:IsA("BasePart") and (o.Name == "Sidewalk" or o.Name == "Wedge") and o.Material == Enum.Material.SmoothPlastic then
+			o.Material = Enum.Material.Cobblestone
+		end
+	end
+	model.ChildAdded:Connect(function(obj)
+		if obj:IsA("BasePart") and (obj.Name == "Sidewalk" or obj.Name == "Wedge") and obj.Material == Enum.Material.SmoothPlastic then
+			obj.Material = Enum.Material.Cobblestone
+		end
+	end)
+end
+
+local soundPart = Instance.new("Part")
+soundPart.Size = Vector3.new(1,1,1)
+soundPart.Transparency = 1
+soundPart.Anchored = true
+soundPart.CanCollide = false
+soundPart.Parent = workspace
+local character = player.Character or player.CharacterAdded:Wait()
+local hrp = character:WaitForChild("HumanoidRootPart")
+
+local birdSound = Instance.new("Sound")
+birdSound.Name = "BirdsSound"
+birdSound.SoundId = "rbxassetid://1237969272"
+birdSound.Looped = true
+birdSound.Volume = 0.05
+birdSound.Parent = soundPart
+local wolfSound = Instance.new("Sound")
+wolfSound.SoundId = "rbxassetid://6654360741"
+wolfSound.Volume = 0.05
+wolfSound.Looped = false
+wolfSound.Parent = workspace
+RunService.Heartbeat:Connect(function()
+	if hrp and hrp.Parent then
+		soundPart.Position = hrp.Position + Vector3.new(0,10,0)
+	end
+end)
+local function isNight()
+	local t = Lighting.ClockTime
+	return (t >= 18 or t <= 6)
+end
+task.spawn(function()
+	while true do
+		if isNight() then
+			if birdSound.IsPlaying then birdSound:Stop() end
+			if wolfSound.IsPlaying then wolfSound:Stop() end
+			wolfSound:Play()
+		else
+			if wolfSound.IsPlaying then wolfSound:Stop() end
+			if not birdSound.IsPlaying then birdSound:Play() end
+		end
+		wait(20)
+	end
+end)
+
+local fountainPart = Instance.new("Part")
+fountainPart.Anchored = true
+fountainPart.CanCollide = false
+fountainPart.Transparency = 1
+fountainPart.Size = Vector3.new(1,1,1)
+fountainPart.Position = Vector3.new(-27,19,15)
+fountainPart.Parent = workspace
+local attachment = Instance.new("Attachment")
+attachment.Position = Vector3.new(-27,19,15)
+attachment.Parent = fountainPart
+local fountainSound = Instance.new("Sound")
+fountainSound.Name = "FountainSound"
+fountainSound.SoundId = "rbxassetid://4766793559"
+fountainSound.Looped = true
+fountainSound.Volume = 0.03
+fountainSound.EmitterSize = 10
+fountainSound.RollOffMode = Enum.RollOffMode.Linear
+fountainSound.MaxDistance = 100
+fountainSound.Parent = attachment
+fountainSound:Play()
+local customSound = Instance.new("Sound")
+customSound.Name = "MyCustomSound"
+customSound.SoundId = "rbxassetid://9048659736"
+customSound.Volume = 0.01
+customSound.Looped = true
+customSound.PlayOnRemove = false
+customSound.Parent = workspace
+customSound:Play()
+local active = false
+local stars = {}
+local shootingStarsFolder = Instance.new("Folder",workspace)
+shootingStarsFolder.Name = "ShootingStars"
+local STAR_COUNT = 300
+local SHOOTING_STAR_CHANCE = 0.3
+local SHOOTING_STAR_MAX = 12
+local shootingStarCooldown = 0.1
+local spaceSound = Instance.new("Sound",workspace)
+spaceSound.SoundId = "rbxassetid://1843520836"
+spaceSound.Volume = 0.3
+spaceSound.Looped = true
+spaceSound.Name = "SpaceAmbience"
+local function createStar()
+	local star = Instance.new("Part")
+	local size = math.random(1,3)*0.5
+	star.Size = Vector3.new(size,size,size)
+	star.Position = Vector3.new(math.random(-1000,1000),math.random(300,700),math.random(-1000,1000))
+	star.Anchored = true
+	star.CanCollide = false
+	star.Material = Enum.Material.Neon
+	local colors = {Color3.fromRGB(255,255,255),Color3.fromRGB(255,255,180),Color3.fromRGB(180,200,255)}
+	star.Color = colors[math.random(1,#colors)]
+	star.Name = "Star"
+	star.Parent = workspace
+	local light = Instance.new("PointLight",star)
+	light.Brightness = 2 + math.random()*1.5
+	light.Range = 12
+	spawn(function()
+		while star.Parent and active do
+			star.Transparency = 0.2 + math.sin(tick()*math.random(2,5))*0.2
+			RunService.Heartbeat:Wait()
+		end
+		if star.Parent then star:Destroy() end
+	end)
+	table.insert(stars,star)
+end
+local function createShootingStar()
+	if not active then return end
+	local startPos = Vector3.new(math.random(-1000,1000),math.random(350,600),math.random(-1000,1000))
+	local dir = Vector3.new(math.random(-1,1),math.random(-0.1,0.1),math.random(-1,1)).Unit
+	local speed = math.random(350,550)
+	local isFire = math.random() <= SHOOTING_STAR_CHANCE
+	local color = isFire and Color3.fromRGB(255,50,50) or Color3.fromRGB(255,255,220)
+	local trailColor = isFire and ColorSequence.new(Color3.fromRGB(255,120,0),Color3.fromRGB(255,230,50)) or ColorSequence.new(Color3.fromRGB(255,255,255),Color3.fromRGB(255,255,180))
+	local star = Instance.new("Part")
+	star.Size = Vector3.new(0.5,0.5,3)
+	star.Position = startPos
+	star.Anchored = true
+	star.CanCollide = false
+	star.Material = Enum.Material.Neon
+	star.Color = color
+	star.Name = "ShootingStar"
+	star.Parent = shootingStarsFolder
+	local att0 = Instance.new("Attachment",star)
+	local att1 = Instance.new("Attachment",star)
+	att1.Position = Vector3.new(0,0,-3)
+	local trail = Instance.new("Trail",star)
+	trail.Attachment0 = att0
+	trail.Attachment1 = att1
+	trail.Lifetime = 0.35
+	trail.Color = trailColor
+	trail.LightEmission = 1
+	trail.WidthScale = NumberSequence.new({NumberSequenceKeypoint.new(0,1),NumberSequenceKeypoint.new(1,0)})
+	local light = Instance.new("PointLight",star)
+	light.Brightness = isFire and 12 or 7
+	light.Range = 35
+	light.Color = color
+	if isFire then
+		local fire = Instance.new("Fire",star)
+		fire.Heat = 15
+		fire.Size = 3.5
+		fire.Color = Color3.fromRGB(255,110,0)
+		fire.SecondaryColor = Color3.fromRGB(255,210,0)
+	end
+	local lifetime = math.random(1,1.5)
+	local timePassed = 0
+	local moveConn
+	moveConn = RunService.Heartbeat:Connect(function(dt)
+		if not active then moveConn:Disconnect() if star.Parent then star:Destroy() end return end
+		timePassed += dt
+		if timePassed >= lifetime then moveConn:Disconnect() if star.Parent then star:Destroy() end return end
+		local curve = math.sin(timePassed*20)*0.5
+		star.Position += (dir+Vector3.new(0,curve,0)).Unit*speed*dt
+	end)
+	Debris:AddItem(star,4)
+end
+local function updateSky()
+	local hour = Lighting.ClockTime
+	local shouldBeActive = hour >= 18 or hour < 6
+	if shouldBeActive and not active then
+		active = true
+		Lighting.FogColor = Color3.fromRGB(10,10,30)
+		Lighting.FogEnd = 5000
+		Lighting.Brightness = 2
+		for _,s in ipairs(stars) do if s and s.Parent then s:Destroy() end end
+		stars = {}
+		for _,p in ipairs(shootingStarsFolder:GetChildren()) do p:Destroy() end
+		for i=1,STAR_COUNT do createStar() end
+		spaceSound:Play()
+	elseif not shouldBeActive and active then
+		active = false
+		for _,s in ipairs(stars) do if s and s.Parent then s:Destroy() end end
+		stars = {}
+		for _,p in ipairs(shootingStarsFolder:GetChildren()) do p:Destroy() end
+		spaceSound:Stop()
+		Lighting.FogColor = Color3.fromRGB(192,192,192)
+		Lighting.FogEnd = 100000
+		Lighting.Brightness = 2
+	end
+end
+task.spawn(function()
+	while true do
+		if active then
+			for i=1,SHOOTING_STAR_MAX do
+				createShootingStar()
+				task.wait(shootingStarCooldown)
+			end
+		else
+			task.wait(1)
+		end
+	end
+end)
+task.spawn(function()
+	while true do
+		updateSky()
+		task.wait(1)
+	end
+end)
+local rainFolder = Instance.new("Folder",workspace)
+rainFolder.Name = "FakeRain"
+local isRaining = false
+
+local birds = Instance.new("Sound",SoundService)
+birds.SoundId = "rbxassetid://9111139882"
+birds.Volume = 0.2
+birds.Looped = true
+birds:Play()
+
+local rainSound = Instance.new("Sound",SoundService)
+rainSound.SoundId = "rbxassetid://9118823106"
+rainSound.Volume = 0.3
+rainSound.Looped = true
+rainSound:Play()
+
+local thunder = Instance.new("Sound",SoundService)
+thunder.SoundId = "rbxassetid://9120018695"
+thunder.Volume = 0.4
+
+local function updateBirdSound()
+	birds.Volume = isRaining and 0 or 0.2
+end
+
+local function spawnRain()
+	isRaining = true
+	updateBirdSound()
+	for i=1,120 do
+		local drop = Instance.new("Part")
+		drop.Size = Vector3.new(0.1,2,0.1)
+		drop.Anchored = true
+		drop.CanCollide = false
+		drop.Material = Enum.Material.Glass
+		drop.Transparency = 0.5
+		drop.Color = Color3.fromRGB(160,160,255)
+		drop.Position = Vector3.new(math.random(-150,150),100,math.random(-150,150))
+		drop.Parent = rainFolder
+		local tween = TweenService:Create(drop,TweenInfo.new(1),{Position=drop.Position-Vector3.new(0,60,0)})
+		tween:Play()
+		Debris:AddItem(drop,1.5)
+	end
+	wait(1.5)
+	isRaining = false
+	updateBirdSound()
+end
+
+local function lightningStrike()
+	local flash = Instance.new("Part")
+	flash.Size = Vector3.new(1,1000,1)
+	flash.Anchored = true
+	flash.CanCollide = false
+	flash.Transparency = 0.4
+	flash.Material = Enum.Material.Neon
+	flash.Color = Color3.new(1,1,1)
+	flash.Position = Vector3.new(math.random(-100,100),500,math.random(-100,100))
+	flash.Parent = workspace
+	Lighting.Brightness = Lighting.Brightness + 1.5
+	thunder:Play()
+	wait(0.1)
+	Lighting.Brightness = Lighting.Brightness - 1.5
+	flash:Destroy()
+end
+
+for _,part in pairs(workspace:GetDescendants()) do
+	if part:IsA("BasePart") and part.Material == Enum.Material.SmoothPlastic then
+		part.Reflectance = 0.25
+	end
+end
+
+task.spawn(function()
+	while true do
+		spawnRain()
+		if math.random() < 0.2 then lightningStrike() end
+		wait(1)
+	end
+end)
+
+-- IluminaÃ§Ã£o e ambiente geral
+Lighting.Brightness = 2
+Lighting.GlobalShadows = true
+Lighting.OutdoorAmbient = Color3.fromRGB(70, 70, 70)
+Lighting.FogColor = Color3.fromRGB(120, 130, 140)
+Lighting.FogStart = 80
+Lighting.FogEnd = 600
+Lighting.EnvironmentSpecularScale = 1
+Lighting.EnvironmentDiffuseScale = 0.5
+
+local sky = Instance.new("Sky")
+sky.SkyboxBk = "rbxassetid://159454299"
+sky.SkyboxDn = "rbxassetid://159454296"
+sky.SkyboxFt = "rbxassetid://159454293"
+sky.SkyboxLf = "rbxassetid://159454286"
+sky.SkyboxRt = "rbxassetid://159454300"
+sky.SkyboxUp = "rbxassetid://159454304"
+sky.Parent = Lighting
+
+local color = Instance.new("ColorCorrectionEffect", Lighting)
+color.Brightness = 0.03
+color.Contrast = 0.15
+color.Saturation = 0.05
+color.TintColor = Color3.fromRGB(255, 240, 220)
+
+local bloom = Instance.new("BloomEffect", Lighting)
+bloom.Intensity = 0.8
+bloom.Size = 56
+bloom.Threshold = 0.9
+
+local sunRays = Instance.new("SunRaysEffect", Lighting)
+sunRays.Intensity = 0.05
+sunRays.Spread = 0.8
+
+local blur = Instance.new("BlurEffect", Lighting)
+blur.Size = 0
+end})
+local Section = Tab11:AddSection({"شادرات قابله للاطفاء"})
+
+
+
+Tab11:AddToggle({
+    Name = "جو ليلي",
+    Default = false,
+    Callback = function(state)
+        local Lighting = game:GetService("Lighting")
+        local tag = "Moon_"
+        if state then
+            local cc = Instance.new("ColorCorrectionEffect")
+            cc.Name = tag.."CC"
+            cc.Parent = Lighting
+            cc.Brightness = -0.05
+            cc.Contrast = 0.1
+            cc.Saturation = -0.3
+            cc.TintColor = Color3.fromRGB(160,180,255)
+
+            Lighting.FogStart = 0
+            Lighting.FogEnd = 150
+            Lighting.FogColor = Color3.fromRGB(120,140,200)
+            Lighting.Brightness = 0.5
+            Lighting.Ambient = Color3.fromRGB(70,80,110)
+        else
+            if Lighting:FindFirstChild(tag.."CC") then
+                Lighting[tag.."CC"]:Destroy()
+            end
+            Lighting.FogEnd = 100000
+            Lighting.FogColor = Color3.new(1,1,1)
+            Lighting.Brightness = 2
+            Lighting.Ambient = Color3.fromRGB(127,127,127)
+        end
+    end
+})
+
+    Tab11:AddToggle({
+    Name = "جو مرعب",
+    Default = false,
+    Callback = function(state)
+        local Lighting = game:GetService("Lighting")
+        local Players = game:GetService("Players")
+        local LocalPlayer = Players.LocalPlayer
+        local tagPrefix = "ScaryAtmos_"
+
+        -- تفعيل الجو المرعب الخفيف
+        if state then
+            -- حفظ الإعدادات الأصلية إذا لم تُحفظ
+            if not Lighting:FindFirstChild(tagPrefix .. "OriginalValues") then
+                local original = Instance.new("StringValue")
+                original.Name = tagPrefix .. "OriginalValues"
+                local amb = Lighting.Ambient
+                local outAmb = Lighting.OutdoorAmbient
+                local fogStart = Lighting.FogStart or 0
+                local fogEnd = Lighting.FogEnd or 100000
+                local fogColor = Lighting.FogColor or Color3.new(1,1,1)
+                original.Value = string.format("%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f",
+                    amb.R, amb.G, amb.B,
+                    outAmb.R, outAmb.G, outAmb.B,
+                    fogStart, fogEnd,
+                    fogColor.R, fogColor.G, fogColor.B
+                )
+                original.Parent = Lighting
+            end
+
+            -- إعداد جو غامض لكن غير مظلم جداً
+            Lighting.Ambient = Color3.fromRGB(45,45,55)
+            Lighting.OutdoorAmbient = Color3.fromRGB(25,25,35)
+            Lighting.Brightness = 0.5
+            Lighting.FogStart = 0
+            Lighting.FogEnd = 120
+            Lighting.FogColor = Color3.fromRGB(25,25,40)
+
+            -- تأثير لون خفيف (تصحيح لوني)
+            local cc = Instance.new("ColorCorrectionEffect")
+            cc.Name = tagPrefix .. "ColorCorrection"
+            cc.Parent = Lighting
+            cc.Brightness = -0.05
+            cc.Contrast = 0.15
+            cc.Saturation = -0.4
+            cc.TintColor = Color3.fromRGB(120,100,120)
+
+            -- ضوء يتبع اللاعب
+            local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+            local light = Instance.new("PointLight")
+            light.Name = tagPrefix .. "PlayerLight"
+            light.Range = 20      -- مدى الإضاءة
+            light.Brightness = 2  -- شدة الضوء
+            light.Color = Color3.fromRGB(255, 240, 200)
+            light.Parent = character:WaitForChild("HumanoidRootPart")
+
+            -- إضافة مؤثر غامض بسيط
+            local bloom = Instance.new("BloomEffect")
+            bloom.Name = tagPrefix .. "Bloom"
+            bloom.Parent = Lighting
+            bloom.Intensity = 0.4
+            bloom.Size = 22
+            bloom.Threshold = 0.9
+
+        else
+            -- إيقاف التأثير واسترجاع الإعدادات الأصلية
+            for _, name in ipairs({"ColorCorrection","Bloom"}) do
+                local obj = Lighting:FindFirstChild(tagPrefix .. name)
+                if obj then obj:Destroy() end
+            end
+
+            -- إزالة الضوء من اللاعب
+            local character = LocalPlayer.Character
+            if character and character:FindFirstChild("HumanoidRootPart") then
+                local light = character.HumanoidRootPart:FindFirstChild(tagPrefix .. "PlayerLight")
+                if light then light:Destroy() end
+            end
+
+            if Lighting:FindFirstChild(tagPrefix .. "OriginalValues") then
+                local saved = Lighting[tagPrefix .. "OriginalValues"]
+                local ok, vals = pcall(function() return saved.Value end)
+                if ok and type(vals) == "string" then
+                    local parts = {}
+                    for part in string.gmatch(vals, "[^,]+") do
+                        table.insert(parts, part)
+                    end
+                    if #parts >= 11 then
+                        Lighting.Ambient = Color3.new(tonumber(parts[1]), tonumber(parts[2]), tonumber(parts[3]))
+                        Lighting.OutdoorAmbient = Color3.new(tonumber(parts[4]), tonumber(parts[5]), tonumber(parts[6]))
+                        Lighting.FogStart = tonumber(parts[7])
+                        Lighting.FogEnd = tonumber(parts[8])
+                        Lighting.FogColor = Color3.new(tonumber(parts[9]), tonumber(parts[10]), tonumber(parts[11]))
+                    end
+                end
+                saved:Destroy()
+            end
+        end
+    end
+})
+
+
+Tab11:AddToggle({
+    Name = "جو ترابي",
+    Default = false,
+    Callback = function(state)
+        local Lighting = game:GetService("Lighting")
+        local tag = "Sunset_"
+        if state then
+            local cc = Instance.new("ColorCorrectionEffect")
+            cc.Name = tag.."CC"
+            cc.Parent = Lighting
+            cc.Brightness = 0.1
+            cc.Contrast = 0.2
+            cc.Saturation = 0.4
+            cc.TintColor = Color3.fromRGB(255,150,100)
+
+            Lighting.FogStart = 0
+            Lighting.FogEnd = 200
+            Lighting.FogColor = Color3.fromRGB(255,180,120)
+            Lighting.Brightness = 1
+            Lighting.Ambient = Color3.fromRGB(255,160,120)
+        else
+            if Lighting:FindFirstChild(tag.."CC") then
+                Lighting[tag.."CC"]:Destroy()
+            end
+            Lighting.FogEnd = 100000
+            Lighting.FogColor = Color3.new(1,1,1)
+            Lighting.Brightness = 2
+            Lighting.Ambient = Color3.fromRGB(127,127,127)
+        end
+    end
+})
+
+Tab11:AddToggle({
+    Name = "جو ضبابي",
+    Default = false,
+    Callback = function(state)
+        local Lighting = game:GetService("Lighting")
+        local tag = "RainFog_"
+        if state then
+            local cc = Instance.new("ColorCorrectionEffect")
+            cc.Name = tag.."CC"
+            cc.Parent = Lighting
+            cc.Brightness = -0.15
+            cc.Contrast = 0.1
+            cc.Saturation = -0.5
+            cc.TintColor = Color3.fromRGB(100,100,120)
+
+            Lighting.FogStart = 0
+            Lighting.FogEnd = 80
+            Lighting.FogColor = Color3.fromRGB(70,70,90)
+            Lighting.Brightness = 0.4
+            Lighting.Ambient = Color3.fromRGB(60,60,70)
+        else
+            if Lighting:FindFirstChild(tag.."CC") then
+                Lighting[tag.."CC"]:Destroy()
+            end
+            Lighting.FogEnd = 100000
+            Lighting.FogColor = Color3.new(1,1,1)
+            Lighting.Brightness = 2
+            Lighting.Ambient = Color3.fromRGB(127,127,127)
+        end
+    end
+})
+
+local Section = Tab11:AddSection({"شادرات 3D"})
+local carSpawnDelay = 0.2
+local toggleCar = false
+Tab11:AddSlider({
+Name = "سرعة سبام السيارات",
+Min = 0,        -- أقل قيمة
+Max = 1,        -- أعلى قيمة
+Default = 0.2,  -- قيمة البداية
+Increment = 0.1, -- كل خطوة 0.1
+Callback = function(value)
+-- تقريب القيمة لأقرب خطوة 0.1 لضمان النقاط: 0,0.1,0.2,...,1
+carSpawnDelay = math.floor(value * 10 + 0.5) / 10
+end
+})
+Tab11:AddToggle({
+Name = "سبام سيارات",
+Default = false,
+Callback = function(state)
+toggleCar = state
+if toggleCar then
+task.spawn(function()
+while toggleCar do
+local model = game:GetObjects("rbxassetid://8714153713")[1]
+model.Parent = workspace
+model:MoveTo(
+game.Players.LocalPlayer.Character and
+game.Players.LocalPlayer.Character:GetPivot().Position + Vector3.new(0,5,0) or
+Vector3.zero
+)
+task.wait(carSpawnDelay)
+end
+end)
+end
+end
+})
+local Section = ChildTab:AddSection({
+    Name = "لازم تحط طفل ودوس ارسال"
+})
+local pl = game.Players.LocalPlayer
+local players = {}
+
+-- FunÃ§Ã£o para atualizar a lista de players
+local function updatePlayerList()
+    players = {}
+    for _, player in pairs(game.Players:GetPlayers()) do
+        table.insert(players, player.Name)
+    end
+    return players
+end
+updatePlayerList()
+ChildTab:AddParagraph({"ملاحضة:", "تقدر ترسل طفل مزعج لاي لاعب."}) 
+local chasingplayer = nil
+local playerChild = ChildTab:AddDropdown({
+    Name = "اختيار اللاعب لارسال الطفل",
+    Options = players,
+    Default = "",
+    Callback = function(selected)
+        if game.Players:FindFirstChild(selected) then
+            chasingplayer = selected
+        else
+            chasingplayer = nil
+        end
+    end
+})
+ChildTab:AddButton({
+    Name = "تحديث القائمة",
+    Callback = function()
+        local updatedPlayers = updatePlayerList()
+        if playerChild and updatedPlayers then
+            pcall(function()
+                playerChild:Refresh(updatedPlayers)
+            end)
+            if chasingplayer and not game.Players:FindFirstChild(chasingplayer) then
+                chasingplayer = nil
+                pcall(function()
+                    playerChild:Set("")
+                end)
+            end
+        end
+    end
+})
+-- Eventos de entrada/saÃ­da de players
+game.Players.PlayerAdded:Connect(function()
+    task.wait(0.1)
+    local updatedPlayers = updatePlayerList()
+    if playerChild and updatedPlayers then
+        pcall(function()
+            playerChild:Refresh(updatedPlayers)
+        end)
+    end
+end)
+
+game.Players.PlayerRemoving:Connect(function(player)
+    task.wait(0.1)
+    local updatedPlayers = updatePlayerList()
+    if playerChild and updatedPlayers then
+        pcall(function()
+            playerChild:Refresh(updatedPlayers)
+        end)
+        if chasingplayer == player.Name then
+            chasingplayer = nil
+            pcall(function()
+                playerChild:Set("")
+            end)
+        end
+    end
+end)
+ChildTab:AddButton({
+    Name = "ارسال الطفل",
+    Callback = function()
+        if not chasingplayer then
+            warn("Nenhum jogador selecionado!")
+            return
+        end
+        if not workspace:FindFirstChild(pl.Name) or not workspace[pl.Name]:FindFirstChild("FollowCharacter") then
+            local args = {
+                [1] = "CharacterFollowSpawnPlayer",
+                [2] = "BabyBoy"
+            }
+            local success, err = pcall(function()
+                game:GetService("ReplicatedStorage").RE:FindFirstChild("1Bab1yFollo1w"):FireServer(unpack(args))
+            end)
+            if not success then
+                warn("Erro ao enviar crianÃ§a: " .. err)
+            end
+        end
+        
+        task.wait(0.2)
+        
+        if workspace:FindFirstChild(pl.Name) then
+            for _, v in pairs(workspace[pl.Name]:GetChildren()) do
+                if v:IsA("BasePart") then
+                    v.CanCollide = true
+                end
+            end
+        end
+
+        local target = chasingplayer
+        if workspace:FindFirstChild(target) and workspace:FindFirstChild(pl.Name) and workspace[pl.Name]:FindFirstChild("FollowCharacter") then
+            workspace[pl.Name].FollowCharacter.Parent = workspace[target]
+
+            if rawget(getgenv(), "RunService") then
+                return
+            end
+
+            getgenv().RunService = game:GetService("RunService").Heartbeat:Connect(function()
+                local followCharacter = workspace[target]:FindFirstChild("FollowCharacter")
+                if followCharacter and followCharacter:FindFirstChild("Torso") and followCharacter.Torso:FindFirstChild("BodyPosition") then
+                    local humanoidRootPart = workspace[target]:FindFirstChild("HumanoidRootPart")
+                    if humanoidRootPart then
+                        followCharacter.Torso.BodyPosition.Position = humanoidRootPart.Position - (humanoidRootPart.CFrame.LookVector * 3)
+                        followCharacter.Torso.BodyGyro.CFrame = humanoidRootPart.CFrame
+                    end
+                end
+            end)
+        end
+    end
+})
+ChildTab:AddButton({
+    Name = "ارجاع الطفل",
+    Callback = function()
+        if rawget(getgenv(), "RunService") then
+            getgenv().RunService:Disconnect()
+            getgenv().RunService = nil
+        end
+
+        local args = { [1] = "DeleteFollowCharacter" }
+        local success, err = pcall(function()
+            game:GetService("ReplicatedStorage").RE:FindFirstChild("1Bab1yFollo1w"):FireServer(unpack(args))
+        end)
+        if not success then
+            warn("Erro ao retornar crianÃ§a: " .. err)
+        end
+
+        local args1 = { [1] = "CharacterFollowSpawnPlayer", [2] = "BabyBoy" }
+        success, err = pcall(function()
+            game:GetService("ReplicatedStorage").RE:FindFirstChild("1Bab1yFollo1w"):FireServer(unpack(args1))
+        end)
+        if not success then
+            warn("Erro ao spawnar crianÃ§a: " .. err)
+        end
+    end
+})
+ChildTab:AddToggle({
+    Name = "مشاهدة اللاعب",
+    Default = false,
+    Callback = function(Value)
+        local Players = game:GetService("Players")
+        local RunService = game:GetService("RunService")
+        local LocalPlayer = Players.LocalPlayer
+        local Camera = workspace.CurrentCamera
+
+        if Value then
+            if not chasingplayer then
+                warn("Nenhum jogador selecionado para spectar!")
+                return false
+            end
+
+            if not rawget(getgenv(), "CameraConnection") then
+                getgenv().CameraConnection = RunService.Heartbeat:Connect(function()
+                    local targetPlayer = Players:FindFirstChild(chasingplayer)
+                    if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("Humanoid") then
+                        Camera.CameraSubject = targetPlayer.Character.Humanoid
+                    else
+                        if rawget(getgenv(), "CameraConnection") then
+                            getgenv().CameraConnection:Disconnect()
+                            getgenv().CameraConnection = nil
+                        end
+                        Camera.CameraSubject = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Humanoid") or nil
+                    end
+                end)
+            end
+        else
+            if rawget(getgenv(), "CameraConnection") then
+                getgenv().CameraConnection:Disconnect()
+                getgenv().CameraConnection = nil
+            end
+            if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Humanoid") then
+                Camera.CameraSubject = LocalPlayer.Character.Humanoid
+            end
+        end
+    end
+})
+local teleportDistance = 25 -- القيمة الافتراضية
+Tab12:AddSlider({
+    Name = "مسافة التنقل",
+    MinValue = 10,
+    MaxValue = 50,
+    Default = 25,
+    Increase = 1,
+    Callback = function(Value)
+        teleportDistance = Value
+    end
+})
+
+
+Tab12:AddButton({
+    Name = "اداة تنقل",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local mouse = player:GetMouse()
+        
+        local tool = Instance.new("Tool")
+        tool.RequiresHandle = false
+        tool.Name = "اداة تنقل"
+
+        tool.Activated:Connect(function()
+            local pos = mouse.Hit.Position + Vector3.new(0, teleportDistance / 10, 0)
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(pos.X, pos.Y, pos.Z)
+        end)
+
+        tool.Parent = player.Backpack
+    end
+})
+local Section = Tab12:AddSection({"تنقل اماكن"})
+local teleportLocations = {
+    ["امام البيوت"] = Vector3.new(0, 0, 0), -- ضع هنا الإحداثيات الصحيحة
+    ["مكان الأسلحة"] = Vector3.new(-119, -28, 235),
+    ["البيت المهجور"] = Vector3.new(986, 4, 63),
+    ["المكان السري"] = Vector3.new(672, 4, -296),
+    ["اسفل الارض1"] = Vector3.new(505, -75, 143),
+    ["عند المدرسة"] = Vector3.new(-312, 4, 211),
+    ["عند الكوفي"] = Vector3.new(161, 8, 52),
+    ["باللوبي"] = Vector3.new(-26, 4, -23),
+    ["عند المستشفى"] = Vector3.new(-309, 4, 71),
+    ["اسفل الارض2"] = Vector3.new(-343, 4, -613),
+    ["عند الجزيرة"] = Vector3.new(-1925, 23, 127),
+    ["عند المطار"] = Vector3.new(310, 5, 31),
+    ["فوق الجسر"] = Vector3.new(-589, 141, -59),
+    ["مكان المولدة"] = Vector3.new(179, 4, -464)
+}
+local selectedLocation = nil
+Tab12:AddDropdown({
+    Name = "اختر المكان",
+    Description = "اختر المكان الذي تريد الذهاب إليه",
+    Options = (function()
+        local keys = {}
+        for k,_ in pairs(teleportLocations) do
+            table.insert(keys, k)
+        end
+        return keys
+    end)(),
+    Callback = function(value)
+        selectedLocation = value
+    end
+})
+Tab12:AddButton({
+    Name = "اذهب إلى المكان",
+    Description = "ينقلك إلى المكان المختار في القائمة",
+    Callback = function()
+        if selectedLocation and teleportLocations[selectedLocation] then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(teleportLocations[selectedLocation])
+        else
+            warn("الرجاء اختيار مكان أولاً!")
+        end
+    end
+})
+local Section = Tab12:AddSection({"تنقلات بيوت"})
+local casas = {
+    ["بيت 1"] = Vector3.new(260.29, 4.37, 209.32),
+    ["بيت 2"] = Vector3.new(234.49, 4.37, 228.00),
+    ["بيت 3"] = Vector3.new(262.79, 21.37, 210.84),
+    ["بيت 4"] = Vector3.new(229.60, 21.37, 225.40),
+    ["بيت 5"] = Vector3.new(173.44, 21.37, 228.11),
+    ["بيت 6"] = Vector3.new(-43, 21, -137),
+    ["بيت 7"] = Vector3.new(-40, 36, -137),
+    ["بيت 11"] = Vector3.new(-21, 40, 436),
+    ["بيت 12"] = Vector3.new(155, 37, 433),
+    ["بيت 13"] = Vector3.new(255, 35, 431),
+    ["بيت 14"] = Vector3.new(254, 38, 394),
+    ["بيت 15"] = Vector3.new(148, 39, 387),
+    ["بيت 16"] = Vector3.new(-17, 42, 395),
+    ["بيت 17"] = Vector3.new(-189, 37, -247),
+    ["بيت 18"] = Vector3.new(-354, 37, -244),
+    ["بيت 19"] = Vector3.new(-456, 36, -245),
+    ["بيت 20"] = Vector3.new(-453, 38, -295),
+    ["بيت 21"] = Vector3.new(-356, 38, -294),
+    ["بيت 22"] = Vector3.new(-187, 37, -295),
+    ["بيت 23"] = Vector3.new(-410, 68, -447),
+    ["بيت 24"] = Vector3.new(-348, 69, -496),
+    ["بيت 28"] = Vector3.new(-103, 12, 1087),
+    ["بيت 29"] = Vector3.new(-730, 6, 808),
+    ["بيت 30"] = Vector3.new(-245, 7, 822),
+    ["بيت 31"] = Vector3.new(639, 76, -361),
+    ["بيت 32"] = Vector3.new(-908, 6, -361),
+    ["بيت 33"] = Vector3.new(-111, 70, -417),
+    ["بيت 34"] = Vector3.new(230, 38, 569),
+    ["بيت 35"] = Vector3.new(-30, 13, 2209)
+}
+local casasNomes = {}
+for nome, _ in pairs(casas) do
+    table.insert(casasNomes, nome)
+end
+table.sort(casasNomes, function(a, b)
+    local numA = tonumber(a:match("%d+")) or 0
+    local numB = tonumber(b:match("%d+")) or 0
+    return numA < numB
+end)
+local casaSelecionada = nil
+pcall(function()
+    Tab12:AddDropdown({
+        Name = "اختيار البيت",
+        Options = casasNomes,
+        Callback = function(casa)
+            casaSelecionada = casa
+        end
+    })
+end)
+pcall(function()
+    Tab12:AddButton({
+        Name = "تنقل",
+        Callback = function()
+            if casaSelecionada then
+                local player = game.Players.LocalPlayer
+                if player and player.Character then
+                    player.Character.HumanoidRootPart.CFrame = CFrame.new(casas[casaSelecionada])
+                end
+            else
+                print("يرجى اختيار البيت أولًا!")
+            end
+        end
+    })
+end)
+pcall(function()
+    Tab12:AddLabel("اختر البيت ثم اضغط زر التلي بورتر")
+end)
