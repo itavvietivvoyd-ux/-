@@ -6,7 +6,7 @@ task.wait(8) -- انتضر 8 ثواني
 print("Done Loading!") -- اكتب يلي تريده بعد الانتظار
 local redzlib =
     loadstring(game:HttpGet("https://raw.githubusercontent.com/itavvietivvoyd-ux/-/refs/heads/main/%D9%88%D8%A7%D8%AC%D9%87%20%D8%AA%D8%B1%D8%AC%D9%8A%D8%A8%D9%8A.txt"))()
-local Window =
+local Window = 
     redzlib:MakeWindow(
     {Title = "KIRA | Brookhaven RP  1.0", SubTitle = "By KIRA | RIP", SaveFolder = " update 1.0"}
 )
