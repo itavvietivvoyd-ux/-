@@ -54,6 +54,8 @@ local redzlib = {
 		UISize = {550, 380},
 		TabSize = 160,
 		Theme = "Darker"
+		Theme = "Dark"
+		Theme = "Purple"
 	},@
 	Settings = {},
 	Connection = {},
@@ -1590,51 +1592,7 @@ function redzlib:MakeWindow(Configs)
 			}
 		})
 	end
-	-- أسماء الثيمات
-local ThemeOrder = {"Darker", "Dark", "Purple"}
-
--- زر Brush لتغيير الثيم
-local BrushButton = Instance.new("TextButton")
-BrushButton.Size = UDim2.new(0, 80, 0, 25)
-BrushButton.Position = UDim2.new(1, -120, 0, 35) -- تحت زر Close
-BrushButton.AnchorPoint = Vector2.new(1, 0)
-BrushButton.BackgroundColor3 = Color3.fromRGB(50, 150, 255)
-BrushButton.TextColor3 = Color3.new(1,1,1)
-BrushButton.Text = "Brush"
-BrushButton.Parent = ButtonsFolder
-
--- قائمة ألوان (ثيمات)
-local BrushList = Instance.new("Frame")
-BrushList.Size = UDim2.new(0, 80, 0, 75)
-BrushList.Position = UDim2.new(0, 0, 1, 5)
-BrushList.BackgroundColor3 = Color3.fromRGB(30,30,30)
-BrushList.Visible = false
-BrushList.Parent = BrushButton
-
--- إنشاء زر لكل ثيم
-local yOffset = 0
-for i, themeName in ipairs(ThemeOrder) do
-    local btn = Instance.new("TextButton")
-    btn.Size = UDim2.new(1, 0, 0, 25)
-    btn.Position = UDim2.new(0, 0, 0, yOffset)
-    btn.BackgroundColor3 = redzlib.Themes[themeName]["Color Theme"] -- لون الثيم مباشرة
-    btn.TextColor3 = Color3.new(1,1,1)
-    btn.Text = themeName
-    btn.Parent = BrushList
-
-    -- عند الضغط على أي زر → يطبق الثيم
-    btn.Activated:Connect(function()
-        ApplyTheme(themeName) -- كود تغيير الثيم
-        BrushList.Visible = false -- اخفاء القائمة
-    end)
-
-    yOffset = yOffset + 25
-end
-
--- اظهار القائمة عند الضغط على زر Brush
-BrushButton.Activated:Connect(function()
-    BrushList.Visible = not BrushList.Visible
-end)
+	
 	function Window:MinimizeBtn()
 		if WaitClick then return end
 		WaitClick = true
