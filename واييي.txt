@@ -8,79 +8,53 @@ local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 local PlayerMouse = Player:GetMouse()
 
--- نسخة redzlib الخاصة بك مع Theme auto-apply
-local TweenService = game:GetService("TweenService")
-
 local redzlib = {   
-    Themes = {
-        Darker = {
-            ["Color Hub 1"] = ColorSequence.new({
-                ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)),
-                ColorSequenceKeypoint.new(0.50, Color3.fromRGB(132, 0, 255)),
-                ColorSequenceKeypoint.new(1.00, Color3.fromRGB(132, 0, 255))
-            }),     
-            ["Color Hub 2"] = Color3.fromRGB(0, 0, 0),
-            ["Color Stroke"] = Color3.fromRGB(0, 0, 0),
-            ["Color Theme"] = Color3.fromRGB(132, 0, 255),
-            ["Color Text"] = Color3.fromRGB(132, 0, 255),
-            ["Color Dark Text"] = Color3.fromRGB(132, 0, 255)
-        },
-        Dark = {
-            ["Color Hub 1"] = ColorSequence.new({
-                ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)),
-                ColorSequenceKeypoint.new(0.50, Color3.fromRGB(255, 0, 0)),
-                ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 0, 0))
-            }),
-            ["Color Hub 2"] = Color3.fromRGB(0, 0, 0),
-            ["Color Stroke"] = Color3.fromRGB(0, 0, 0),
-            ["Color Theme"] = Color3.fromRGB(255, 0, 0),
-            ["Color Text"] = Color3.fromRGB(255, 0, 0),
-            ["Color Dark Text"] = Color3.fromRGB(255, 0, 0)
-        },
-        Purple = {
-            ["Color Hub 1"] = ColorSequence.new({
-                ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)),
-                ColorSequenceKeypoint.new(0.50, Color3.fromRGB(141, 232, 1)),
-                ColorSequenceKeypoint.new(1.00, Color3.fromRGB(141, 232, 1))
-            }),   
-            ["Color Hub 2"] = Color3.fromRGB(0, 0, 0),
-            ["Color Stroke"] = Color3.fromRGB(0, 0, 0),
-            ["Color Theme"] = Color3.fromRGB(141, 232, 1),
-            ["Color Text"] = Color3.fromRGB(141, 232, 1),
-            ["Color Dark Text"] = Color3.fromRGB(141, 232, 1)
-        }
-    },
-    Info = {
-        Version = "1.1.0"
-    },
-    Save = {
-        UISize = {550, 380},
-        TabSize = 160,
-        Theme = "Darker"
-    }
-}
-
--- دالة لتطبيق الثيم على كل عناصر GUI
-local function ApplyTheme(themeName)
-    local theme = redzlib.Themes[themeName]
-    if not theme then return end
-
-    redzlib.Save.Theme = themeName
-
-    -- نحصل على GUI
-    local GUI = script.Parent -- السكربت داخل واجهتك
-
-    for _, obj in ipairs(GUI:GetDescendants()) do
-        if obj:IsA("Frame") or obj:IsA("ImageLabel") then
-            TweenService:Create(obj, TweenInfo.new(1), {BackgroundColor3 = theme["Color Theme"]}):Play()
-        elseif obj:IsA("TextLabel") or obj:IsA("TextButton") then
-            TweenService:Create(obj, TweenInfo.new(1), {TextColor3 = theme["Color Text"]}):Play()
-        end
-    end
-end
-
--- تطبيق الثيم تلقائيًا عند تشغيل السكربت
-ApplyTheme(redzlib.Save.Theme)
+	Themes = {
+		Darker = {
+			["Color Hub 1"] = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(132, 0, 255)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(132, 0, 255))
+			}),     
+			["Color Hub 2"] = Color3.fromRGB(0, 0, 0),
+			["Color Stroke"] = Color3.fromRGB(0, 0, 0),
+			["Color Theme"] = Color3.fromRGB(132, 0, 255),
+			["Color Text"] = Color3.fromRGB(132, 0, 255),
+			["Color Dark Text"] = Color3.fromRGB(132, 0, 255)
+		},
+		Dark = {
+			["Color Hub 1"] = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(255, 0, 0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 0, 0))
+			}),
+			["Color Hub 2"] = Color3.fromRGB(0, 0, 0),
+			["Color Stroke"] = Color3.fromRGB(0, 0, 0),
+			["Color Theme"] = Color3.fromRGB(255, 0, 0),
+			["Color Text"] = Color3.fromRGB(255, 0, 0),
+			["Color Dark Text"] = Color3.fromRGB(255, 0, 0)
+		},
+		Purple = {
+			["Color Hub 1"] = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(141, 232, 1)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(141, 232, 1))
+			}),   
+			["Color Hub 2"] = Color3.fromRGB(0, 0, 0),
+			["Color Stroke"] = Color3.fromRGB(0, 0, 0),
+			["Color Theme"] = Color3.fromRGB(141, 232, 1),
+			["Color Text"] = Color3.fromRGB(141, 232, 1),
+			["Color Dark Text"] = Color3.fromRGB(141, 232, 1)
+		}
+	},
+	Info = {
+		Version = "1.1.0"
+	},
+	Save = {
+		UISize = {550, 380},
+		TabSize = 160,
+		Theme = "Darker"
+	},@
 	Settings = {},
 	Connection = {},
 	Instances = {},
@@ -1606,16 +1580,61 @@ function redzlib:MakeWindow(Configs)
 	local Window, FirstTab = {}, false
 	function Window:CloseBtn()
 		local Dialog = Window:Dialog({
-			Title = "Close",
-			Text = "You Want Close Ui?",
+			Title = "يغلق ",
+			Text = "تريد تطفي سكربت؟ ",
 			Options = {
-				{"Confirm", function()
+				{"اطفاء", function()
 					ScreenGui:Destroy()
 				end},
-				{"Cancel"}
+				{"رجوع للقائمه"}
 			}
 		})
 	end
+	-- أسماء الثيمات
+local ThemeOrder = {"Darker", "Dark", "Purple"}
+
+-- زر Brush لتغيير الثيم
+local BrushButton = Instance.new("TextButton")
+BrushButton.Size = UDim2.new(0, 80, 0, 25)
+BrushButton.Position = UDim2.new(1, -120, 0, 35) -- تحت زر Close
+BrushButton.AnchorPoint = Vector2.new(1, 0)
+BrushButton.BackgroundColor3 = Color3.fromRGB(50, 150, 255)
+BrushButton.TextColor3 = Color3.new(1,1,1)
+BrushButton.Text = "Brush"
+BrushButton.Parent = ButtonsFolder
+
+-- قائمة ألوان (ثيمات)
+local BrushList = Instance.new("Frame")
+BrushList.Size = UDim2.new(0, 80, 0, 75)
+BrushList.Position = UDim2.new(0, 0, 1, 5)
+BrushList.BackgroundColor3 = Color3.fromRGB(30,30,30)
+BrushList.Visible = false
+BrushList.Parent = BrushButton
+
+-- إنشاء زر لكل ثيم
+local yOffset = 0
+for i, themeName in ipairs(ThemeOrder) do
+    local btn = Instance.new("TextButton")
+    btn.Size = UDim2.new(1, 0, 0, 25)
+    btn.Position = UDim2.new(0, 0, 0, yOffset)
+    btn.BackgroundColor3 = redzlib.Themes[themeName]["Color Theme"] -- لون الثيم مباشرة
+    btn.TextColor3 = Color3.new(1,1,1)
+    btn.Text = themeName
+    btn.Parent = BrushList
+
+    -- عند الضغط على أي زر → يطبق الثيم
+    btn.Activated:Connect(function()
+        ApplyTheme(themeName) -- كود تغيير الثيم
+        BrushList.Visible = false -- اخفاء القائمة
+    end)
+
+    yOffset = yOffset + 25
+end
+
+-- اظهار القائمة عند الضغط على زر Brush
+BrushButton.Activated:Connect(function()
+    BrushList.Visible = not BrushList.Visible
+end)
 	function Window:MinimizeBtn()
 		if WaitClick then return end
 		WaitClick = true
