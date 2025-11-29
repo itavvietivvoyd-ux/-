@@ -858,7 +858,7 @@ CloseBtn.MouseButton1Up:Connect(function()
         UIHidden = true
         OrionLib:MakeNotification({
             Name = "الاشعار",
-            Content = ",
+            Content = "",
             Time = 5
         })
         WindowConfig.CloseCallback()
@@ -891,7 +891,7 @@ local function LoadSequence()
 		TextXAlignment = Enum.TextXAlignment.Center,
 		Font = Enum.Font.GothamBold,
 		TextTransparency = 1
-	})
+	})  
 
 	TweenService:Create(LoadSequenceLogo, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
 		ImageTransparency = 0, 
