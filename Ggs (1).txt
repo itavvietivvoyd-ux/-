@@ -481,7 +481,7 @@ function OrionLib:MakeWindow(WindowConfig)
 	local UIHidden = false
 
 	WindowConfig = WindowConfig or {}
-	WindowConfig.Name = WindowConfig.Name or "Orion Library"
+	WindowConfig.Name = WindowConfig.Name or ""
 	WindowConfig.ConfigFolder = WindowConfig.ConfigFolder or WindowConfig.Name
 	WindowConfig.SaveConfig = WindowConfig.SaveConfig or false
 	WindowConfig.HidePremium = WindowConfig.HidePremium or false
@@ -701,7 +701,7 @@ local ToggleBtn = Instance.new("TextButton")
 ToggleBtn.Size = UDim2.new(0, 145, 0, 36)
 ToggleBtn.Position = UDim2.new(0.5, -10, 0, -50)
 ToggleBtn.AnchorPoint = Vector2.new(0.5, 0)
-ToggleBtn.BackgroundColor3 = Color3.fromRGB(200, 0, 0)
+ToggleBtn.BackgroundColor3 = Color3.fromRGB(1, 30, 222)
 ToggleBtn.Text = ""
 ToggleBtn.Visible = false
 ToggleBtn.Parent = Orion
@@ -721,7 +721,7 @@ local ToggleLabel = Instance.new("TextLabel")
 ToggleLabel.Size = UDim2.new(1, -40, 1, 0)
 ToggleLabel.Position = UDim2.new(0, 35, 0, 0)
 ToggleLabel.BackgroundTransparency = 1
-ToggleLabel.Text = "فتح الواجها | Open"
+ToggleLabel.Text = "Open"
 ToggleLabel.Font = Enum.Font.GothamBold
 ToggleLabel.TextSize = 16
 ToggleLabel.TextColor3 = Color3.fromRGB(0,0,0)
