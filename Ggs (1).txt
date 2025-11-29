@@ -714,7 +714,7 @@ local ToggleIcon = Instance.new("ImageLabel")
 ToggleIcon.Size = UDim2.new(0, 20, 0, 20)
 ToggleIcon.Position = UDim2.new(0, 10, 0.5, -10)
 ToggleIcon.BackgroundTransparency = 1
-ToggleIcon.Image = "rbxassetid://108584636372574"
+ToggleIcon.Image = "rbxassetid://"
 ToggleIcon.Parent = ToggleBtn
 
 local ToggleLabel = Instance.new("TextLabel")
@@ -858,7 +858,7 @@ CloseBtn.MouseButton1Up:Connect(function()
         UIHidden = true
         OrionLib:MakeNotification({
             Name = "الاشعار",
-            Content = "تم اغلاق السكربت",
+            Content = ",
             Time = 5
         })
         WindowConfig.CloseCallback()
