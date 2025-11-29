@@ -398,7 +398,7 @@ function OrionLib:MakeNotification(NotificationConfig)
 	spawn(function()
 		NotificationConfig.Name = NotificationConfig.Name or "Notification"
 		NotificationConfig.Content = NotificationConfig.Content or "Test"
-		NotificationConfig.Image = NotificationConfig.Image or "rbxassetid://"
+		NotificationConfig.Image = NotificationConfig.Image or "rbxassetid://105066004053129"
 		NotificationConfig.Time = NotificationConfig.Time or 15
 
 		local NotificationParent = SetProps(MakeElement("TFrame"), {
@@ -714,7 +714,7 @@ local ToggleIcon = Instance.new("ImageLabel")
 ToggleIcon.Size = UDim2.new(0, 20, 0, 20)
 ToggleIcon.Position = UDim2.new(0, 10, 0.5, -10)
 ToggleIcon.BackgroundTransparency = 1
-ToggleIcon.Image = "rbxassetid://"
+ToggleIcon.Image = "rbxassetid://108584636372574"
 ToggleIcon.Parent = ToggleBtn
 
 local ToggleLabel = Instance.new("TextLabel")
@@ -858,7 +858,7 @@ CloseBtn.MouseButton1Up:Connect(function()
         UIHidden = true
         OrionLib:MakeNotification({
             Name = "الاشعار",
-            Content = "",
+            Content = "تم اغلاق السكربت",
             Time = 5
         })
         WindowConfig.CloseCallback()
@@ -891,7 +891,7 @@ local function LoadSequence()
 		TextXAlignment = Enum.TextXAlignment.Center,
 		Font = Enum.Font.GothamBold,
 		TextTransparency = 1
-	})  
+	})
 
 	TweenService:Create(LoadSequenceLogo, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
 		ImageTransparency = 0, 
