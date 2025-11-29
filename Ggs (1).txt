@@ -680,12 +680,12 @@ frameStroke.Parent = ToggleFrame
 
 local frameGradient = Instance.new("UIGradient")
 frameGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.0, Color3.fromRGB(255, 0, 0)),
-    ColorSequenceKeypoint.new(0.25, Color3.fromRGB(255, 0, 0)),
+    ColorSequenceKeypoint.new(0.0, Color3.fromRGB(1, 30, 222)),
+    ColorSequenceKeypoint.new(0.25, Color3.fromRGB(1, 30, 222)),
     ColorSequenceKeypoint.new(0.35, Color3.fromRGB(0, 0, 0)),
     ColorSequenceKeypoint.new(0.65, Color3.fromRGB(0, 0, 0)),
-    ColorSequenceKeypoint.new(0.75, Color3.fromRGB(255, 0, 0)),
-    ColorSequenceKeypoint.new(1.0, Color3.fromRGB(255, 0, 0))
+    ColorSequenceKeypoint.new(0.75, Color3.fromRGB(1, 30, 222)),
+    ColorSequenceKeypoint.new(1.0, Color3.fromRGB(1, 30, 222)), 
 }
 frameGradient.Rotation = 0
 frameGradient.Parent = frameStroke
@@ -879,7 +879,7 @@ local function LoadSequence()
 		AnchorPoint = Vector2.new(0.5, 0.5),
 		Position = UDim2.new(0.5, 0, 0.4, 0),
 		Size = UDim2.new(0, 28, 0, 28),
-		ImageColor3 = Color3.fromRGB(255, 0, 0),
+		ImageColor3 = Color3.fromRGB(1, 30, 222),
 		ImageTransparency = 1
 	})
 
@@ -939,13 +939,13 @@ corner.Parent = borderFrame
 
 local stroke = Instance.new("UIStroke")
 stroke.Thickness = thickness
-stroke.Color = Color3.fromRGB(255, 0, 0)
+stroke.Color = Color3.fromRGB(1, 30, 222)
 stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 stroke.Parent = borderFrame
 
 local gradient = Instance.new("UIGradient")
 gradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.0, Color3.fromRGB(255, 0, 0)),
+    ColorSequenceKeypoint.new(0.0, Color3.fromRGB(1, 30, 222)),
     ColorSequenceKeypoint.new(1.0, Color3.fromRGB(0, 0, 0))
 }
 gradient.Rotation = 0
@@ -1008,14 +1008,14 @@ borderFrame.Parent = TabFrame
 
 local stroke = Instance.new("UIStroke")
 stroke.Thickness = 1.5
-stroke.Color = Color3.fromRGB(255, 0, 0)
+stroke.Color = Color3.fromRGB(1, 30, 222)
 stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 stroke.Parent = borderFrame
 
 -- ===== التدرج اللوني: أحمر يسار → أسود يمين =====
 local gradient = Instance.new("UIGradient")
 gradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.0, Color3.fromRGB(255, 0, 0)), -- يسار احمر
+    ColorSequenceKeypoint.new(0.0, Color3.fromRGB(1, 30, 222)), -- يسار احمر
     ColorSequenceKeypoint.new(1.0, Color3.fromRGB(0, 0, 0))    -- يمين اسود
 }
 gradient.Rotation = 0
@@ -1150,7 +1150,7 @@ if paragraphStroke then
 
     local gradient = Instance.new("UIGradient")
     gradient.Color = ColorSequence.new{
-        ColorSequenceKeypoint.new(0.0, Color3.fromRGB(255, 0, 0)),
+        ColorSequenceKeypoint.new(0.0, Color3.fromRGB(1, 30, 222)),
         ColorSequenceKeypoint.new(1.0, Color3.fromRGB(0, 0, 0))
     }
     gradient.Rotation = 0
@@ -1249,13 +1249,13 @@ corner.Parent = borderFrame
 
 local stroke = Instance.new("UIStroke")
 stroke.Thickness = thickness
-stroke.Color = Color3.fromRGB(255, 0, 0)
+stroke.Color = Color3.fromRGB(1, 30, 222)
 stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 stroke.Parent = borderFrame
 
 local gradient = Instance.new("UIGradient")
 gradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.0, Color3.fromRGB(255, 0, 0)), -- يسار أحمر
+    ColorSequenceKeypoint.new(0.0, Color3.fromRGB(1, 30, 222)), -- يسار أحمر
     ColorSequenceKeypoint.new(1.0, Color3.fromRGB(0, 0, 0))    -- يمين أسود
 }
 gradient.Rotation = 0
@@ -1370,13 +1370,13 @@ corner.Parent = borderFrame
 
 local stroke = Instance.new("UIStroke")
 stroke.Thickness = thickness
-stroke.Color = Color3.fromRGB(255, 0, 0)
+stroke.Color = Color3.fromRGB(1, 30, 222)
 stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 stroke.Parent = borderFrame
 
 local gradient = Instance.new("UIGradient")
 gradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.0, Color3.fromRGB(255, 0, 0)), -- يسار أحمر
+    ColorSequenceKeypoint.new(0.0, Color3.fromRGB(1, 30, 222)), -- يسار أحمر
     ColorSequenceKeypoint.new(1.0, Color3.fromRGB(0, 0, 0))    -- يمين أسود
 }
 gradient.Rotation = 0
@@ -1513,13 +1513,13 @@ corner.Parent = borderFrame
 
 local stroke = Instance.new("UIStroke")
 stroke.Thickness = thickness
-stroke.Color = Color3.fromRGB(255, 0, 0)
+stroke.Color = Color3.fromRGB(1, 30, 222)
 stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 stroke.Parent = borderFrame
 
 local gradient = Instance.new("UIGradient")
 gradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.0, Color3.fromRGB(255, 0, 0)),
+    ColorSequenceKeypoint.new(0.0, Color3.fromRGB(1, 30, 222)),
     ColorSequenceKeypoint.new(1.0, Color3.fromRGB(0, 0, 0))
 }
 gradient.Rotation = 0
@@ -1654,7 +1654,7 @@ if dropdownStroke then
 
     local gradient = Instance.new("UIGradient")
     gradient.Color = ColorSequence.new{
-        ColorSequenceKeypoint.new(0.0, Color3.fromRGB(255, 0, 0)),
+        ColorSequenceKeypoint.new(0.0, Color3.fromRGB(1, 30, 222)),
         ColorSequenceKeypoint.new(1.0, Color3.fromRGB(0, 0, 0))
     }
     gradient.Rotation = 0
@@ -1723,13 +1723,13 @@ corner.Parent = borderFrame
 
 local stroke = Instance.new("UIStroke")
 stroke.Thickness = thickness
-stroke.Color = Color3.fromRGB(255, 0, 0)
+stroke.Color = Color3.fromRGB(1, 30, 222)
 stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 stroke.Parent = borderFrame
 
 local gradient = Instance.new("UIGradient")
 gradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.0, Color3.fromRGB(255, 0, 0)),
+    ColorSequenceKeypoint.new(0.0, Color3.fromRGB(1, 30, 222)),
     ColorSequenceKeypoint.new(1.0, Color3.fromRGB(0, 0, 0))
 }
 gradient.Rotation = 0
@@ -2003,13 +2003,13 @@ corner.Parent = borderFrame
 
 local stroke = Instance.new("UIStroke")
 stroke.Thickness = thickness
-stroke.Color = Color3.fromRGB(255, 0, 0)
+stroke.Color = Color3.fromRGB(1, 30, 222)
 stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 stroke.Parent = borderFrame
 
 local gradient = Instance.new("UIGradient")
 gradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0.0, Color3.fromRGB(255, 0, 0)),
+    ColorSequenceKeypoint.new(0.0, Color3.fromRGB(1, 30, 222)),
     ColorSequenceKeypoint.new(1.0, Color3.fromRGB(0, 0, 0))
 }
 gradient.Rotation = 0
