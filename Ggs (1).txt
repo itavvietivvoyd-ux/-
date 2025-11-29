@@ -426,7 +426,7 @@ function OrionLib:MakeNotification(NotificationConfig)
 				Position = UDim2.new(0, 30, 0, 0),
 				Font = Enum.Font.GothamBold,
 				Name = "Title",
-				TextColor3 = Color3.fromRGB(200, 0, 0
+				TextColor3 = Color3.fromRGB(1, 30, 222
 
 )  -- Cor da legenda (título)
 			}),
