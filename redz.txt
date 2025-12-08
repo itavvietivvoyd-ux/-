@@ -19,13 +19,14 @@ local redzlib = {
 
 			["Color Hub 2"] = Color3.fromRGB(6, 0, 12),
 
-			["Color Stroke"] = Color3.fromRGB(180, 0, 255), 
+			["Color Stroke"] = Color3.fromRGB(180, 0, 255), -- بنفسجي نيون قوي
 
-			["Color Theme"] = Color3.fromRGB(140, 0, 220),
+			["Color Theme"] = Color3.fromRGB(140, 0, 220), -- اللون الأساسي
 
 			["Color Text"] = Color3.fromRGB(240, 230, 255),
 
 			["Color Dark Text"] = Color3.fromRGB(150, 100, 180)
+		
 
 		},
 		Dark = {
