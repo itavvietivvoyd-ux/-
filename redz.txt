@@ -11,9 +11,6 @@ local PlayerMouse = Player:GetMouse()
 local redzlib = {
 	Themes = {
 		Darker = {
-local redzlib = {
-	Themes = {
-		Darker = {
 			-- خلفية الواجهة: أحمر مسيطر مع قليل من الأسود على الأطراف
 			["Color Hub 1"] = ColorSequence.new({
 				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(60, 0, 0)),  -- طرف غامق
@@ -35,7 +32,10 @@ local redzlib = {
 
 			-- نص ثانوي أبيض لكن أقل سطوعًا
 			["Color Dark Text"] = Color3.fromRGB(220, 220, 220)
-		}
+		},
+	}
+}
+
 		Dark = {
 			["Color Hub 1"] = ColorSequence.new({
 				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(40, 40, 40)),
