@@ -43,6 +43,7 @@ local redzlib = {
 	Tabs = {},
 	Icons = (function()
 		return {
+		    ["KIRA"] = "rbxassetid://120337214458971",
 			["accessibility"] = "rbxassetid://10709751939",
 			["activity"] = "rbxassetid://10709752035",
 			["airvent"] = "rbxassetid://10709752131",
