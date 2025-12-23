@@ -19,10 +19,10 @@ local redzlib = {
 	    ["Color Hub 2"] = Color3.fromRGB(0, 0, 0),
      	["Color Stroke"] = Color3.fromRGB(0, 0, 0),
     	["Color Theme"] = Color3.fromRGB(0, 255, 33),       
-    	["Color Text"] = Color3.fromRGB(255, 255, 255),      
+    	["Color Text"] = Color3.fromRGB(0, 255, 33),      
     	["Color Dark Text"] = Color3.fromRGB(0, 255, 33),
     	["Color Dark Purple"] = Color3.fromRGB(0, 255, 33),
-    	["Color Hub 9"] = Color3.fromRGB(15, 0, 0),
+    	["Color Hub 9"] = Color3.fromRGB(10, 50, 10),
     	["Color Dark Green"] = Color3.fromRGB(0, 255, 33)
 		}
 	},
@@ -1907,7 +1907,7 @@ end
 	end
 function Window:AddMinimizeButton(Configs)
 	local Button = MakeDrag(Create("ImageButton", ScreenGui, {
-		Size = UDim2.fromOffset(60, 60),
+		Size = UDim2.fromOffset(35, 35),
 		Position = UDim2.fromScale(0.15, 0.15),
 		BackgroundTransparency = 1,
 		AutoButtonColor = false
