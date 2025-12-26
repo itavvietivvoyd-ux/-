@@ -8,9 +8,7 @@ local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 local PlayerMouse = Player:GetMouse()
 
-
-math.randomseed(tick())
-
+math.randomseed(os.clock())
 
 local ThemeNames = {
 	"CyanBright",
@@ -20,11 +18,11 @@ local ThemeNames = {
 	"Green"
 }
 
-
 local RandomTheme = ThemeNames[math.random(#ThemeNames)]
 
 local redzlib = {
 	Themes = {
+
 		CyanBright = {
 			["Color Hub 1"] = ColorSequence.new({
 				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)),
@@ -42,19 +40,19 @@ local redzlib = {
 		},
 
 		Darker = {
-["Color Hub 1"] = ColorSequence.new({
-		ColorSequenceKeypoint.new(0.00, Color3.fromRGB(20, 0, 0)),
-		ColorSequenceKeypoint.new(0.50, Color3.fromRGB(255, 0, 0)),
-		ColorSequenceKeypoint.new(1.00, Color3.fromRGB(20, 0, 0))
-	       }),	
-	    ["Color Hub 2"] = Color3.fromRGB(40, 0, 0),
-     	["Color Stroke"] = Color3.fromRGB(255, 0, 0),
-    	["Color Theme"] = Color3.fromRGB(255, 40, 40),       
-    	["Color Text"] = Color3.fromRGB(255, 255, 255),      
-    	["Color Dark Text"] = Color3.fromRGB(255, 255, 255),
-    	["Color Dark Purple"] = Color3.fromRGB(60, 0, 0),
-    	["Color Hub 9"] = Color3.fromRGB(15, 0, 0),
-    	["Color Dark Green"] = Color3.fromRGB(180, 0, 0)
+			["Color Hub 1"] = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(20, 0, 0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(255, 0, 0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(20, 0, 0))
+			}),
+			["Color Hub 2"] = Color3.fromRGB(40, 0, 0),
+			["Color Stroke"] = Color3.fromRGB(255, 0, 0),
+			["Color Theme"] = Color3.fromRGB(255, 40, 40),
+			["Color Text"] = Color3.fromRGB(255, 255, 255),
+			["Color Dark Text"] = Color3.fromRGB(255, 255, 255),
+			["Color Dark Purple"] = Color3.fromRGB(60, 0, 0),
+			["Color Hub 9"] = Color3.fromRGB(15, 0, 0),
+			["Color Dark Green"] = Color3.fromRGB(180, 0, 0)
 		},
 
 		Dark = {
@@ -80,8 +78,8 @@ local redzlib = {
 			["Color Stroke"] = Color3.fromRGB(40, 40, 40),
 			["Color Theme"] = Color3.fromRGB(150, 0, 255),
 			["Color Text"] = Color3.fromRGB(240, 240, 240),
-			["Color Dark Text"] = Color3.fromRGB(180, 180, 180)
-						["Color Hub 9"] = Color3.fromRGB(17, 66, 213),
+			["Color Dark Text"] = Color3.fromRGB(180, 180, 180),
+			["Color Hub 9"] = Color3.fromRGB(17, 66, 213),
 			["Color Dark Green"] = Color3.fromRGB(17, 66, 213)
 		},
 
@@ -95,8 +93,8 @@ local redzlib = {
 			["Color Stroke"] = Color3.fromRGB(35, 55, 40),
 			["Color Theme"] = Color3.fromRGB(50, 205, 50),
 			["Color Text"] = Color3.fromRGB(235, 245, 235),
-			["Color Dark Text"] = Color3.fromRGB(180, 200, 180)
-						["Color Hub 9"] = Color3.fromRGB(125, 213, 17),
+			["Color Dark Text"] = Color3.fromRGB(180, 200, 180),
+			["Color Hub 9"] = Color3.fromRGB(125, 213, 17),
 			["Color Dark Green"] = Color3.fromRGB(125, 213, 17)
 		}
 	},
@@ -108,7 +106,7 @@ local redzlib = {
 	Save = {
 		UISize = {550, 380},
 		TabSize = 160,
-		Theme = RandomTheme 
+		Theme = RandomTheme
 	},
 
 	Settings = {},
